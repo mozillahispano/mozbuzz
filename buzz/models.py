@@ -8,27 +8,27 @@ from buzz.helpers import slugifyUniquely
 
 #Choices
 PREVIOUS_PRODUCT_COMMENTS = (
-             (0,'No'),
-             (1,'Yes'),
-             (2,'Unknown'),
-)
+                                 (0,'No'),
+                                 (1,'Yes'),
+                                 (2,'Unknown'),
+                            )
 
 UPDATE_RATE = (
-             (0,'Never'),
-             (1,'Yearly'),
-             (2,'Monthly'),
-             (3,'Daily'),
-             (4,'Hourly'),
-             (5,'Unknown'),
-)
+                  (0, 'Never'),
+                  (1, 'Yearly'),
+                  (2, 'Monthly'),
+                  (3, 'Daily'),
+                  (4, 'Hourly'),
+                  (5, 'Unknown'),
+              )
 
 FEEDBACK_TYPES = (
-             (0,'Very bad'),
-             (1,'Bad'),
-             (2,'Neutral'),
-             (3,'Good'),
-             (4,'Very good'),
-)
+                     (0, 'Very bad'),
+                     (1, 'Bad'),
+                     (2, 'Neutral'),
+                     (3, 'Good'),
+                     (4, 'Very good'),
+                 )
 
 #user profile related
 class UserProfile(models.Model):
@@ -46,7 +46,6 @@ def create_user_profile(sender, instance, created, **kwargs):
             pass
 
 post_save.connect(create_user_profile, sender=User)
-
 
 
 #manager for soft deletion
@@ -80,8 +79,13 @@ class SluggedModel(SoftDeletableModel):
 class Product(SluggedModel):
     slug = models.SlugField(unique=True)
     name = models.CharField(max_length=100)
-    creation_date = models.DateTimeField()
-    creation_user = models.ForeignKey(User)
+    creation_date = models.DateTimeField(auto_now_add=True)
+    creation_user = models.ForeignKey(User, null=True, blank=True)
+    disabled = models.BooleanField(default=False)
+
+    def save_model(self, request, obj, form, change):
+        obj.creation_user = request.user
+        obj.save()
 
     def __unicode__(self):
         return self.name
@@ -102,13 +106,17 @@ class Country(SluggedModel):
     def __unicode__(self):
         return self.name
 
+    class Meta():
+        verbose_name_plural = "Countries"
+
 
 class File(SluggedModel):
     slug = models.SlugField(unique=True)
     name = models.CharField(max_length=100)
     location = models.CharField(max_length=255)
-    creation_date = models.DateTimeField()
-    creation_user = models.ForeignKey(User)
+    creation_date = models.DateTimeField(auto_now_add=True)
+    creation_user = models.ForeignKey(User, null=True, blank=True)
+    disabled = models.BooleanField(default=False)
 
     def __unicode__(self):
         return self.name
@@ -117,8 +125,9 @@ class File(SluggedModel):
 class Source(SluggedModel):
     slug = models.SlugField(unique=True)
     name = models.CharField(max_length=100)
-    creation_date = models.DateTimeField()
-    creation_user = models.ForeignKey(User)
+    creation_date = models.DateTimeField(auto_now_add=True)
+    creation_user = models.ForeignKey(User, null=True, blank=True)
+    disabled = models.BooleanField(default=False)
 
     def __unicode__(self):
         return self.name
@@ -127,8 +136,9 @@ class Source(SluggedModel):
 class MentionType(SluggedModel):
     slug = models.SlugField(unique=True)
     name = models.CharField(max_length=100)
-    creation_date = models.DateTimeField()
-    creation_user = models.ForeignKey(User)
+    creation_date = models.DateTimeField(auto_now_add=True)
+    creation_user = models.ForeignKey(User, null=True, blank=True)
+    disabled = models.BooleanField(default=False)
 
     def __unicode__(self):
         return self.name
@@ -136,18 +146,22 @@ class MentionType(SluggedModel):
 
 class AuthorExpertise(SoftDeletableModel):
     name = models.CharField(max_length=100)
-    creation_date = models.DateTimeField()
-    creation_user = models.ForeignKey(User)
+    creation_date = models.DateTimeField(auto_now_add=True)
+    creation_user = models.ForeignKey(User, null=True, blank=True)
+    disabled = models.BooleanField(default=False)
 
     def __unicode__(self):
         return self.name
 
 
 class Mention(SoftDeletableModel):
-    creation_user = models.ForeignKey(User, related_name="creator")
-    creation_date = models.DateTimeField()
+    creation_user = models.ForeignKey(User, related_name="creator", null=True,
+                                      blank=True)
+    creation_date = models.DateTimeField(auto_now_add=True)
     last_update_user = models.ForeignKey(User, related_name="updater")
-    last_update_date = models.DateTimeField()
+    last_update_date = models.DateTimeField(auto_now=True)
+    disabled = models.BooleanField(default=False)
+
     link = models.URLField()
     text = models.TextField()
     origin = models.ForeignKey(Source)
@@ -160,14 +174,38 @@ class Mention(SoftDeletableModel):
     relevant_audience = models.BooleanField()
     update_rate = models.IntegerField(max_length=1, choices=UPDATE_RATE)
     remarks = models.TextField()
+
     def __unicode__(self):
         return "%s @ %s" %(self.type, self.origin)
 
 
+class FollowUpStatus(SluggedModel):
+    slug = models.SlugField(unique=True)
+    name = models.CharField(max_length=100)
+
+    def __unicode__(self):
+        return self.name
+
+    class Meta():
+        verbose_name_plural = "Follow ups statuses"
+
+
+class FollowUp(SluggedModel):
+    creation_date = models.DateTimeField(auto_now_add=True)
+    creation_user = models.ForeignKey(User, null=True, blank=True)
+    status = models.ForeignKey(FollowUpStatus)
+    disabled = models.BooleanField(default=False)
+    mention = models.ForeignKey(Mention)
+    remarks = models.TextField()
+
+    def __unicode__(self):
+        return self.name
+
+
 class Report(SoftDeletableModel):
     name = models.CharField(max_length=100)
-    creation_user = models.ForeignKey(User)
-    creation_date = models.DateTimeField()
+    creation_user = models.ForeignKey(User, null=True, blank=True)
+    creation_date = models.DateTimeField(auto_now_add=True)
     report_type = models.ForeignKey(ReportType)
 
     def __unicode__(self):
