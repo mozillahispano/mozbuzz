@@ -1,0 +1,202 @@
+/** Site layout */
+body.mobile {
+    min-width: 480px;
+    font-size: 110%;
+}
+.mobile #wrapper {
+    min-width: 0;
+}
+.mobile #doc {
+    min-width: 0;
+    width: 480px;
+}
+.mobile #main-content {
+    margin: 2em 0 0;
+    padding: 0;
+    width: auto;
+}
+
+/* Header */
+.mobile header {
+    padding-top: 8px;
+}
+.mobile header h1 {
+    color: #0089b7;
+    display: inline;
+    font-size: 160%;
+    background-color: #1e4262;
+    margin: 0;
+    padding: 10px 16px 8px;
+}
+.mobile header h1,
+.mobile header nav ul {
+    border-radius: 0 0 16px 16px;
+    -moz-border-radius: 0 0 16px 16px;
+    -webkit-border-bottom-left-radius: 16px;
+    -webkit-border-bottom-right-radius: 16px;
+}
+.mobile header img.fxlogo {
+    margin-right: .2em;
+}
+.mobile header a:hover,
+.mobile header a:active {
+    text-decoration: none;
+}
+.mobile header nav {
+    float: none;
+}
+.mobile header nav ul {
+    display: inline-block;
+    float: none;
+    margin: 7px 0 0 0;
+}
+.mobile header nav li {
+    display: inline-block;
+    float: left;
+}
+.mobile header nav li a:link,
+.mobile header nav li a:visited {
+    padding: .6em 0;
+    font-size: 80%;
+}
+
+/** Footer */
+.mobile #footer-contents {
+    width: 480px;
+}
+.mobile #footer .languages {
+    float: none;
+    margin-bottom: 1em;
+}
+
+/** Feedback pages */
+.mobile#feedback .smiley {
+    background: url(../img/smilies60.png) no-repeat left top;
+    display: block;
+    margin-right: 1em;
+    height: 60px;
+    width: 60px;
+    position: static;
+}
+.mobile#feedback .smiley.sad {
+    background-position: 0 0;
+}
+.mobile#feedback .smiley.happy {
+    background-position: 0 -110px;
+}
+.mobile#feedback .idea {
+    background: url(../img/idea-box-medium.png) no-repeat left top;
+    display: block;
+    margin-right: 1em;
+    height: 60px;
+    width: 60px;
+    position: static;
+}
+.mobile #ideaform_mobile #id_description {
+    height: 5em;
+}
+.mobile#feedback #feedbackform {
+    margin: 0;
+}
+.mobile#feedback #id_description,
+.mobile#feedback #id_url {
+    width: 460px;
+}
+.mobile#feedback aside {
+    float: none;
+    width: 390px;
+}
+.mobile#feedback button {
+    clear: both;
+    font-size: 110%;
+    margin-top: 1em;
+    margin-right: 15px;
+}
+.mobile#feedbackform .feedback_index.smiley {
+    vertical-align: top;
+}
+.mobile#feedback .feedback_index {
+    float: left;
+    margin: 15px 0;
+    padding: 0 8px !important;
+    position: relative;
+}
+.mobile#feedback .feedback_index p {
+    font-size: 1em;
+    padding-top: 10px;
+}
+
+/** Need Beta */
+.mobile#need-beta #doc {
+    background: none;
+}
+.mobile#need-beta #main-content p {
+    background: url("../img/firefox-logo.png") no-repeat center bottom;
+    margin: 0;
+    padding: 0 0 320px 0;
+}
+
+/** Thanks */
+.mobile#thanks #main-content h1 {
+    font-size: 200%;
+    margin-top: 0;
+}
+.mobile#thanks #next-steps nav div {
+    clear: left;
+    margin-bottom: 0;
+}
+.mobile#thanks #next-steps nav div a {
+    font-size: 100%;
+}
+
+/** Dashboard */
+.mobile#dashboard #overview, .mobile#dashboard #messages {
+    float: none;
+    width: 460px;
+}
+.mobile#dashboard h2 {
+    font-size: 150%;
+}
+.mobile #sentiment .response .barwrapper {
+    width: 45%;
+}
+
+/** Stats Accordions */
+.mobile #overview h2 {
+    border-bottom: 1px solid #ccc;
+}
+.mobile #overview .accordion {
+    margin-bottom: 1em;
+}
+.mobile #overview .accordion.hidden {
+    position: absolute;
+    left: -10000px;
+}
+
+/** Search */
+.mobile#dashboard #main-content {
+    margin: 1em 0;
+}
+.mobile#dashboard #search_form .wrap_q {
+    margin-right: 1.5em;
+    width: 45%;
+}
+.mobile #search_form #show_search_adv.active {
+    padding-bottom: 180px;
+}
+.mobile #search_form .wrap_product {
+    clear: left;
+}
+.mobile#dashboard #search_form .wrap_date_end {
+    margin-right: 0;
+}
+.mobile#search #search_form #show_search_adv {
+    top: 50px;
+}
+
+/** Search results */
+.mobile#search #search_form, .mobile#search #search_options,
+.mobile#search #results, .mobile#search #overview {
+    float: none;
+    width: auto;
+}

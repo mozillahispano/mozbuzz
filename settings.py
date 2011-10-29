@@ -1,3 +1,5 @@
+from django.utils.functional import lazy
+import os
 # Django settings for mozbuzz project.
 
 DEBUG  = True
@@ -6,6 +8,10 @@ TEMPLATE_DEBUG = DEBUG
 ADMINS = (
     ('Felipe Lerena', 'felipelerena@gmail.com'),
 )
+
+# Make filepaths relative to settings.
+ROOT = os.path.dirname(os.path.abspath(__file__))
+path = lambda *a: os.path.join(ROOT, *a)
 
 MANAGERS = ADMINS
 
@@ -34,12 +40,12 @@ USE_L10N = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = ''
+MEDIA_ROOT = path("media")
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = ''
+MEDIA_URL = 'media/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
@@ -76,9 +82,23 @@ SECRET_KEY = 'z3du*(tsm-nm_8h9n#f5r=*0t7@a^b*&a=xbp7!0s8rr+bndl+'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
+    'jingo.Loader',
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.media',
+    'django.core.context_processors.request',
+    'django.core.context_processors.csrf',
+
+    'buzz.context_processors.i18n',
+    'buzz.context_processors.input',
+    'buzz.context_processors.mobile',
+
+    'jingo_minify.helpers.build_ids',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -91,11 +111,7 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'mozbuzz.urls'
 
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-)
+TEMPLATE_DIRS = ('templates',)
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -136,5 +152,63 @@ LOGGING = {
 
 AUTH_PROFILE_MODULE = 'buzz.UserProfile'
 
-from settings_local import *
+# Sets the URL prefix if the project is not in the URL's root
+# directory.
+URL_PREFIX = "mozbuzz/"
 
+# Accepted locales
+INPUT_LANGUAGES = ('en-US', 'es')
+RTL_LANGUAGES = () # ('fa', 'fa-IR')
+
+# Fallbacks for locales that are not recognized by Babel. Bug 596981.
+BABEL_FALLBACK = {}
+
+# Override Django's built-in with our native names
+class LazyLangs(dict):
+    def __new__(self):
+        #I'm not sure if this will be neccessary, let's wait and see --David
+
+        #from product_details import product_details
+        #return dict([(lang.lower(), product_details.languages[lang]['native'])
+        #             for lang in INPUT_LANGUAGES])
+        return {}
+
+LANGUAGES = lazy(LazyLangs, dict)()
+
+LANGUAGE_URL_MAP = dict((i[:2], i) for i in INPUT_LANGUAGES if '-' in i)
+LANGUAGE_URL_MAP.update((i.lower(), i) for i in INPUT_LANGUAGES)
+
+# Bundles is a dictionary of two dictionaries, css and js, which list css files
+# and js files that can be bundled together by the jingo-minify app.
+MINIFY_BUNDLES = {
+    'css': {
+        'common': (
+            'css/libs/reset-min.css',
+            'css/libs/jquery-ui.css',
+            'css/mozbuzz.css',
+        ),
+        'common_mobile': (
+            'css/libs/reset-min.css',
+            'css/mozbuzz-mobile.css',
+        ),
+    },
+    'js': {
+        'common': (
+            'js/libs/jquery.min.js',
+            #'js/libs/jquery-ui.min.js',
+            #'js/libs/jquery.cookie.js',
+            #'js/init.js',
+            #'js/mozbuzz.js',
+            #'js/search.js',
+
+            # Time-based charts
+            #'js/libs/highcharts.src.js',
+            #'js/dashboard.js',
+        ),
+        'common_mobile': (
+            'js/libs/jquery.min.js',
+            #'js/mozbuzz-mobile.js',
+        ),
+    },
+}
+JAVA_BIN = '/usr/bin/java'

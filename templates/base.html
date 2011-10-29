@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="{{ LANG }}" dir="{{ DIR }}">
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <title>{% block page_title %}{{ _('Welcome') }}{% endblock %} :: Mozbuzz</title>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    {% block site_css %}
+    {{ css('common') }}
+    <!--[if IE]><link href="{{ MEDIA_URL }}css/ie.css" rel="stylesheet" type="text/css"><![endif]-->
+    {% endblock %}
+
+    <link rel="shortcut icon" type="image/png" href="{{ MEDIA_URL }}img/favicon.png"/>
+    {% block feeds %}{% endblock %}
+    {% block extra_headers %}{% endblock %}
+  </head>
+  <body id="{% block body_id %}{% endblock %}" class="html-{{ DIR }}">
+    <nav id="nav-access">
+    <ul>
+      <li><a href="#main-content">{{ _('Proceed to main content') }}</a></li>
+      <li><a href="#footer">{{ _('Proceed to footer') }}</a></li>
+    </ul>
+    </nav>
+
+    {% block site_header %}
+    <div id="header"><div class="funnel">
+      <h1><a href="{{ url('index') }}">
+        {% trans %}
+          <strong>Moz</strong>buzz
+        {% endtrans %}
+      </a></h1>
+
+      <ul>
+        {# TODO Define our own navigation items #}
+        <li><a class="themes" href="http://www.youtube.com/watch?v=oHg5SJYRHA0"><span>This</span></a></li>
+        <li><a class="themes" href="http://www.youtube.com/watch?v=oHg5SJYRHA0"><span>links</span></a></li>
+        <li><a class="themes" href="http://www.youtube.com/watch?v=oHg5SJYRHA0"><span>do</span></a></li>
+        <li><a class="themes" href="http://www.youtube.com/watch?v=oHg5SJYRHA0"><span>nothing</span></a></li>
+        {#<li><a class="dashboard" href="{{ url('search') }}"><span>{{ _('Feedback') }}</span></a></li>
+        <li><a class="themes" href="{{ url('themes') }}"><span>{{ _('Themes') }}</span></a></li>
+        <li><a class="issues" href="{{ url('website_issues') }}"><span>{{ _('Sites') }}</span></a></li>#}
+      </ul>
+
+    </div></div>
+    {% endblock site_header %}
+
+    <div id="body"><div class="funnel">
+      {% block content %}{% endblock %}
+    </div></div>
+
+    {% block site_footer %}
+      {% include "includes/footer.html" %}
+    {% endblock %}
+
+    {% block site_js %}
+    {{ js('common') }}
+    {% endblock %}
+    {% block js %}{% endblock %}
+
+    {# TODO: Add our own tracking system (or not) -- David #}
+    {# include "includes/webtrends_desktop.html" #}
+  </body>
+</html>

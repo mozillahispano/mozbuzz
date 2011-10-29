@@ -1,15 +1,18 @@
 from django.conf.urls.defaults import patterns, include, url
+from django.conf import settings
 
 from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^mozbuzz/admin/', include(admin.site.urls)),
-    # Examples:
-    # url(r'^$', 'mozbuzz.views.home', name='home'),
-    # url(r'^mozbuzz/', include('mozbuzz.foo.urls')),
-
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
+    url(r'^' + settings.URL_PREFIX + 'admin/', include(admin.site.urls)),
+    url(r'^' + settings.URL_PREFIX ,include('buzz.urls')),
 )
+
+if settings.DEBUG:
+    # Remove leading and trailing slashes so the regex matches.
+    media_url = settings.MEDIA_URL.strip('/')
+    urlpatterns += patterns('',
+        (r'^%s/(?P<path>.*)$' % media_url, 'django.views.static.serve',
+         {'document_root': settings.MEDIA_ROOT}),
+    )
