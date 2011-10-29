@@ -2,3 +2,4 @@ settings_local\.py
 \.pyc$
 \.project.*
 db\.sqlite3
+true
