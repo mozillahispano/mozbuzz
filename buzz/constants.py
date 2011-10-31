@@ -1,0 +1,1 @@
+INDEX_TEMPLATE = "index.html"

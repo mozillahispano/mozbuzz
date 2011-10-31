@@ -91,11 +91,7 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'mozbuzz.urls'
 
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-)
+TEMPLATE_DIRS = None#override me in local settings
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -139,3 +135,9 @@ AUTH_PROFILE_MODULE = 'buzz.UserProfile'
 # Sets the URL prefix if the project is not in the URL's root
 # directory.
 URL_PREFIX = "mozbuzz/"
+
+try:
+    from settings_local import *
+except Exception:
+    pass
+

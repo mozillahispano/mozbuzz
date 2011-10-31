@@ -1,0 +1,50 @@
+{% extends "template.html" %}
+
+{% block main_content %}
+	<h2>Mentions</h2>
+	{% for mention in mentions %}
+		<div class="mention">
+			<div>
+				<a href="{{ mention.link }}">{{ mention.type }} @ {{ mention.origin }}</a>
+			</div>
+			<div>
+				Author type: {{ mention.author_expertise }}. Feedback: {{ mention.get_feedback_display }}
+			</div>
+			<div>
+				Estimate audience: {{ mention.estimated_audience }} persons.
+				{% if mention.relevant_audience %}
+					Relevant audience
+				{% endif %}
+			</div>
+			<div>
+				{{ mention.text }}
+			</div>
+			<div>
+				Remarks {{ mention.remarks }}
+			</div>
+			<div>
+				Updated {{ mention.get_update_rate_display }}
+			</div>
+			<div>
+				added by: {{ mention.creation_user }} on {{ mention.creation_date }}
+			</div>
+			<div>
+				<h4>Follow-ups</h4>
+				{% for followup in mention.followups %}
+					<div>
+						<div>
+							Status: {{ followup.status }}
+						</div>
+						<div>
+							{{ followup.remarks }}
+						</div>
+						<div>
+							on {{ followup.creation_date }} by {{ followup.creation_user }}
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	{% endfor %}
+{% endblock %}
+

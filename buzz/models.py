@@ -52,7 +52,7 @@ post_save.connect(create_user_profile, sender=User)
 class EnabledManager(models.Manager):
     def get_query_set(self):
         query_set = super(self.__class__, self).get_query_set()
-        return query_set.filter(disabled=False, duplicate_of=None)
+        return query_set.filter(disabled=False)
 
 
 class SoftDeletableModel(models.Model):
@@ -178,6 +178,9 @@ class Mention(SoftDeletableModel):
     def __unicode__(self):
         return "%s @ %s" %(self.type, self.origin)
 
+    def followups(self):
+        return FollowUp.enabled.filter(mention=self)
+
 
 class FollowUpStatus(SluggedModel):
     slug = models.SlugField(unique=True)
@@ -190,7 +193,7 @@ class FollowUpStatus(SluggedModel):
         verbose_name_plural = "Follow ups statuses"
 
 
-class FollowUp(SluggedModel):
+class FollowUp(SoftDeletableModel):
     creation_date = models.DateTimeField(auto_now_add=True)
     creation_user = models.ForeignKey(User, null=True, blank=True)
     status = models.ForeignKey(FollowUpStatus)
@@ -199,7 +202,7 @@ class FollowUp(SluggedModel):
     remarks = models.TextField()
 
     def __unicode__(self):
-        return self.name
+        return self.status.name
 
 
 class Report(SoftDeletableModel):

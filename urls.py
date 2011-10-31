@@ -6,7 +6,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^' + settings.URL_PREFIX + 'admin/', include(admin.site.urls)),
-    url(r'^' + settings.URL_PREFIX ,include('buzz.urls')),
+    url(r'^' + settings.URL_PREFIX, include('buzz.urls')),
 )
 
 if settings.DEBUG:
