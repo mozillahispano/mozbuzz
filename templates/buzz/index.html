@@ -1,50 +1,45 @@
 {% extends "template.html" %}
 
 {% block main_content %}
-	<h2>Mentions</h2>
-	{% for mention in mentions %}
-		<div class="mention">
-			<div>
-				<a href="{{ mention.link }}">{{ mention.type }} @ {{ mention.origin }}</a>
-			</div>
-			<div>
-				Author type: {{ mention.author_expertise }}. Feedback: {{ mention.get_feedback_display }}
-			</div>
-			<div>
-				Estimate audience: {{ mention.estimated_audience }} persons.
-				{% if mention.relevant_audience %}
-					Relevant audience
-				{% endif %}
-			</div>
-			<div>
-				{{ mention.text }}
-			</div>
-			<div>
-				Remarks {{ mention.remarks }}
-			</div>
-			<div>
-				Updated {{ mention.get_update_rate_display }}
-			</div>
-			<div>
-				added by: {{ mention.creation_user }} on {{ mention.creation_date }}
-			</div>
-			<div>
-				<h4>Follow-ups</h4>
-				{% for followup in mention.followups %}
-					<div>
-						<div>
-							Status: {{ followup.status }}
-						</div>
-						<div>
-							{{ followup.remarks }}
-						</div>
-						<div>
-							on {{ followup.creation_date }} by {{ followup.creation_user }}
-						</div>
-					</div>
-				{% endfor %}
-			</div>
-		</div>
-	{% endfor %}
+    <div class="block">
+        <h2>Mentions</h2>
+            <ul class="messages segmented mentions">
+        	{% for mention in mentions %}
+		        <li class="message mention">
+				    <a href="{{ mention.link }}">{{ mention.type }} @ {{ mention.origin }}</a>
+                    <p class="body">
+                        {{ mention.text }}
+                    </p>
+                    <ul class="info">
+                        <li><span>Estimate audience:</span> {{ mention.estimated_audience }} persons.</li>
+                        <li><span>Author type:</span> {{ mention.author_expertise }}</li>
+                        <li><span>Feedback:</span> {{ mention.get_feedback_display }}</li>
+                        <li><span>Remarks:</span> {{ mention.remarks }}</li>
+                        {% if mention.relevant_audience %}
+                        <li><span>Relevant audience</span></li>
+                        {% endif %}
+                    </ul>
+                    <ul class="meta">
+                        <li>Updated {{ mention.get_update_rate_display }}</li>
+                        <li>Added by: {{ mention.creation_user }} on {{ mention.creation_date }}</li>
+                    </ul>
+                    <!--<h4>Follow-ups</h4>
+                    {% for followup in mention.followups %}
+                        <div>
+                            <div>
+                                Status: {{ followup.status }}
+                            </div>
+                            <div>
+                                {{ followup.remarks }}
+                            </div>
+                            <div>
+                                on {{ followup.creation_date }} by {{ followup.creation_user }}
+                            </div>
+                        </div>
+                    {% endfor %}-->
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
 {% endblock %}
 

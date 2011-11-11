@@ -1185,3 +1185,29 @@ background-color: #B6BCC0;
     left: auto;
     right: -99999999px;
 }
+
+
+/** Mozbuzz-specific **/
+
+
+.mention > a{
+    font-variant:small-caps;
+    font-size: 25px;
+    font-weight: bold;
+}
+.mention .body{
+    font-size: 18px;
+    margin: 10px 0;
+}
+.mention .info{
+    font-size: 18px;
+    line-height: 22px;
+    margin: 10px 0;
+}
+.mention .info span{
+    font-weight: bold;
+}
+.mention .meta{
+    margin: 15px 0 0 0;
+}
+

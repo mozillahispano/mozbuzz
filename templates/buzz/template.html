@@ -1,13 +1,31 @@
-<!DOCTYPE html>
+{% load l10n %}<!DOCTYPE html>
 <html>
   <head>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
     <title>Mozbuzz</title>
+    <link href="{{MEDIA_URL}}css/libs/reset-min.css" rel="stylesheet" />
+    <link href="{{MEDIA_URL}}css/mozbuzz.css" rel="stylesheet" />
   </head>
   <body>
-	<div>
-		{% block main_content %}
-		{% endblock %}
+    {% block header %}
+        <div id="header">
+            <div class="funnel">
+                <h1>
+                    <a href="#TODO"><strong>Moz</strong>Buzz</a>
+                </h1>
+                <ul>
+                    <li><a class="" href="#TODO"><span>Overview</span></a></li>
+                    <li><a class="" href="#TODO"><span>File report</span></a></li>
+                    <li><a class="" href="#TODO"><span>Search</span></a></li>
+                </ul>
+            </div>
+        </div>
+    {% endblock %}
+    <div id="body">
+        <div class="funnel"/>
+            {% block main_content %}
+            {% endblock %}
+        </div>
 	</div>
   </body>
 </html>
