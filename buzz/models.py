@@ -8,27 +8,27 @@ from buzz.helpers import slugifyUniquely
 
 #Choices
 PREVIOUS_PRODUCT_COMMENTS = (
-                                 (0,'No'),
-                                 (1,'Yes'),
-                                 (2,'Unknown'),
-                            )
+        (0,'No'),
+        (1,'Yes'),
+        (2,'Unknown'),
+    )
 
 UPDATE_RATE = (
-                  (0, 'Never'),
-                  (1, 'Yearly'),
-                  (2, 'Monthly'),
-                  (3, 'Daily'),
-                  (4, 'Hourly'),
-                  (5, 'Unknown'),
-              )
+        (0, 'Never'),
+        (1, 'Yearly'),
+        (2, 'Monthly'),
+        (3, 'Daily'),
+        (4, 'Hourly'),
+        (5, 'Unknown'),
+    )
 
 FEEDBACK_TYPES = (
-                     (0, 'Very bad'),
-                     (1, 'Bad'),
-                     (2, 'Neutral'),
-                     (3, 'Good'),
-                     (4, 'Very good'),
-                 )
+        (0, 'Very bad'),
+        (1, 'Bad'),
+        (2, 'Neutral'),
+        (3, 'Good'),
+        (4, 'Very good'),
+    )
 
 #user profile related
 class UserProfile(models.Model):

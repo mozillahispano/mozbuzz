@@ -1,45 +1,77 @@
-{% extends "template.html" %}
+{% extends "template.html" %}{% load i18n %}{% load query %}
 
 {% block main_content %}
-    <div class="block">
-        <h2>Mentions</h2>
-            <ul class="messages segmented mentions">
-        	{% for mention in mentions %}
-		        <li class="message mention">
-				    <a href="{{ mention.link }}">{{ mention.type }} @ {{ mention.origin }}</a>
-                    <p class="body">
-                        {{ mention.text }}
-                    </p>
-                    <ul class="info">
-                        <li><span>Estimate audience:</span> {{ mention.estimated_audience }} persons.</li>
-                        <li><span>Author type:</span> {{ mention.author_expertise }}</li>
-                        <li><span>Feedback:</span> {{ mention.get_feedback_display }}</li>
-                        <li><span>Remarks:</span> {{ mention.remarks }}</li>
-                        {% if mention.relevant_audience %}
-                        <li><span>Relevant audience</span></li>
-                        {% endif %}
-                    </ul>
-                    <ul class="meta">
-                        <li>Updated {{ mention.get_update_rate_display }}</li>
-                        <li>Added by: {{ mention.creation_user }} on {{ mention.creation_date }}</li>
-                    </ul>
-                    <!--<h4>Follow-ups</h4>
-                    {% for followup in mention.followups %}
-                        <div>
+    <div class="col left">
+        <form class="block segments" method="get" action="">
+            {% for key,val in query%}
+            <input type="hidden" name="{{key}}" value="{{val}}"/>
+            {%endfor%}
+            <div id="feedback_type" class="choice">
+                <h3>{% trans "Feedback type" %}</h3>
+                <ul>
+                    {% for val,name in FEEDBACK_TYPES %}
+                    <li><a class="{% if query.feedback_type|query_equals:val %}selected{%endif%}" href="?{{ query|update_feedback:val|encode_query }}" title="{{name}}">{{name}}</a></li>
+                    {%endfor%}
+                </ul>
+            </div>
+            <div id="update_rate" class="choice">
+                <h3>{% trans "Update rate" %}</h3>
+                <ul>
+                    {% for val,name in UPDATE_RATE %}
+                    <li><a class="{% if query.update_rate|query_equals:val %}selected{%endif%}" href="?{{ query|update_rate:val|encode_query }}" title="{{name}}">{{name}}</a></li>
+                    {%endfor%}
+                </ul>
+            </div>
+        </form>
+    </div>
+    <div class="col middle wide">
+        <div class="block">
+            <form id="kw-search" method="get" action="">
+                {% for key,val in query%}
+                <input type="hidden" name="{{key}}" value="{{val}}"/>
+                {%endfor%}
+                <input type="search" id="id_q" name="q" value="{{query.q}}" placeholder="{% trans "Search by keyword" %}">
+            </form>
+            <h2>Mentions</h2>
+                <ul class="messages segmented mentions">
+                {% for mention in mentions %}
+                    <li class="message mention">
+                        <a href="{{ mention.link }}">{{ mention.type }} @ {{ mention.origin }}</a>
+                        <p class="body">
+                            {{ mention.text }}
+                        </p>
+                        <ul class="info">
+                            <li><span>{%trans "Estimate audience:"%}</span> {{ mention.estimated_audience }} persons.</li>
+                            <li><span>{%trans "Author type:"%}</span> {{ mention.author_expertise }}</li>
+                            <li><span>{%trans "Feedback:"%}</span> {{ mention.get_feedback_display }}</li>
+                            <li><span>{%trans "Remarks:"%}</span> {{ mention.remarks }}</li>
+                            <li><span>{%trans "Updated:"%}</span> {{ mention.get_update_rate_display }}</li>
+                            {% if mention.relevant_audience %}
+                            <li><span>{%trans "Relevant audience"%}</span></li>
+                            {% endif %}
+                        </ul>
+                        <ul class="meta">
+                            <li>Added by: {{ mention.creation_user }} on {{ mention.creation_date }}</li>
+                            <li>Show followups</li>
+                        </ul>
+                        <!--<h4>Follow-ups</h4>
+                        {% for followup in mention.followups %}
                             <div>
-                                Status: {{ followup.status }}
+                                <div>
+                                    Status: {{ followup.status }}
+                                </div>
+                                <div>
+                                    {{ followup.remarks }}
+                                </div>
+                                <div>
+                                    on {{ followup.creation_date }} by {{ followup.creation_user }}
+                                </div>
                             </div>
-                            <div>
-                                {{ followup.remarks }}
-                            </div>
-                            <div>
-                                on {{ followup.creation_date }} by {{ followup.creation_user }}
-                            </div>
-                        </div>
-                    {% endfor %}-->
-                </li>
-            {% endfor %}
-        </ul>
+                        {% endfor %}-->
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
 {% endblock %}
 

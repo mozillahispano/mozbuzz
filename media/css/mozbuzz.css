@@ -620,7 +620,7 @@ background-color: #B6BCC0;
 .choice li {
     display: inline;
 }
-.choice li a {
+.choice li a, .choice li button {
     display: inline-block;
     margin-right: .5em;
     margin-bottom: .5em;
@@ -630,8 +630,9 @@ background-color: #B6BCC0;
     line-height: 18px;
     padding: 0 .5em;
     -moz-border-radius: 3px;
+    border: none;
 }
-.choice li a:hover {
+.choice li a:hover, .choice li button:hover {
     background: #c1dcec;
 }
 .choice li a.selected {
@@ -765,10 +766,7 @@ background-color: #B6BCC0;
 #header li a:hover {
     background: #2a5b86;
 }
-#dashboard li a.dashboard,
-#search li a.dashboard,
-#themes li a.themes,
-#website_issues li a.issues {
+li a.navactive {
     background: #326da1;
     color: #fff;
     text-shadow: 0 1px 0 rgba(0,0,0, .5);
