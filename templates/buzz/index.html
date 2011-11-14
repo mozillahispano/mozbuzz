@@ -2,15 +2,12 @@
 
 {% block main_content %}
     <div class="col left">
-        <form class="block segments" method="get" action="">
-            {% for key,val in query%}
-            <input type="hidden" name="{{key}}" value="{{val}}"/>
-            {%endfor%}
+        <div class="block segments">
             <div id="feedback_type" class="choice">
                 <h3>{% trans "Feedback type" %}</h3>
                 <ul>
                     {% for val,name in FEEDBACK_TYPES %}
-                    <li><a class="{% if query.feedback_type|query_equals:val %}selected{%endif%}" href="?{{ query|update_feedback:val|encode_query }}" title="{{name}}">{{name}}</a></li>
+                    <li><a class="{% if val in query.feedback_type %}selected{%endif%}" href="?{{ query|query_get:"feedback_type"|query_set:val|query_encode }}" data-althref="?{{ query|query_get:"feedback_type"|query_toggle:val|query_encode}}" title="{{name}}">{{name}}</a></li>
                     {%endfor%}
                 </ul>
             </div>
@@ -18,17 +15,17 @@
                 <h3>{% trans "Update rate" %}</h3>
                 <ul>
                     {% for val,name in UPDATE_RATE %}
-                    <li><a class="{% if query.update_rate|query_equals:val %}selected{%endif%}" href="?{{ query|update_rate:val|encode_query }}" title="{{name}}">{{name}}</a></li>
+                    <li><a class="{% if val in query.update_rate %}selected{%endif%}" href="?{{ query|query_get:"update_rate"|query_set:val|query_encode }}" title="{{name}}">{{name}}</a></li>
                     {%endfor%}
                 </ul>
             </div>
-        </form>
+        </div>
     </div>
     <div class="col middle wide">
         <div class="block">
             <form id="kw-search" method="get" action="">
-                {% for key,val in query%}
-                <input type="hidden" name="{{key}}" value="{{val}}"/>
+                {% for key,val in query.iteritems %}
+                <input type="hidden" name="{{key}}" value="{{val|query_encode_val}}"/>
                 {%endfor%}
                 <input type="search" id="id_q" name="q" value="{{query.q}}" placeholder="{% trans "Search by keyword" %}">
             </form>
