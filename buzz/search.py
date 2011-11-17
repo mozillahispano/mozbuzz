@@ -7,7 +7,7 @@ VALID_PARMS = {
 }
 
 def buzz_search(query):
-    objs = Mention.objects.all()
+    objs = Mention.objects.enabled()
     print query
 
     filters = {
