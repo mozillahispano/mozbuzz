@@ -5,5 +5,6 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^$', 'buzz.views.index', name="index"),
+    url(r'^create$', 'buzz.views.create', name="create"),
     url(r'^about$', 'buzz.views.about', name="about"),
 )

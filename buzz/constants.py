@@ -1,1 +1,2 @@
-INDEX_TEMPLATE = "index.html"
+TEMPLATE_INDEX = "index.html"
+TEMPLATE_CREATE = "create.html"

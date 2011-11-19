@@ -1,4 +1,4 @@
-{% load i18n %}<!DOCTYPE html>
+{% load i18n %}{% load query %}<!DOCTYPE html>
 <html>
   <head>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
@@ -15,7 +15,7 @@
                 </h1>
                 <ul>
                     <li><a class="navactive" href="#TODO"><span>Overview</span></a></li>
-                    <li><a class="" href="admin/buzz/mention/add"><span>File report</span></a></li>
+                    <li><a class="" href="{% url create %}"><span>File report</span></a></li>
                     <li><a class="" href="#TODO"><span>Search</span></a></li>
                 </ul>
             </div>
@@ -23,8 +23,34 @@
     {% endblock %}
     <div id="body">
         <div class="funnel"/>
-            {% block main_content %}
+            {% block left_col %}
+                <div class="col left">
+                    <div class="block segments">
+                        <div id="feedback_type" class="choice">
+                            <h3>{% trans "Feedback type" %}</h3>
+                            <ul>
+                                {% for val,name in FEEDBACK_TYPES %}
+                                <li><a class="{% if val in query.feedback_type %}selected{%endif%}" href="{% url index %}?{{ query|query_get:"feedback_type"|query_set:val|query_encode }}" data-althref="?{{ query|query_get:"feedback_type"|query_toggle:val|query_encode}}" title="{{name}}">{{name}}</a></li>
+                                {%endfor%}
+                            </ul>
+                        </div>
+                        <div id="update_rate" class="choice">
+                            <h3>{% trans "Update rate" %}</h3>
+                            <ul>
+                                {% for val,name in UPDATE_RATE %}
+                                <li><a class="{% if val in query.update_rate %}selected{%endif%}" href="?{{ query|query_get:"update_rate"|query_set:val|query_encode }}" title="{{name}}">{{name}}</a></li>
+                                {%endfor%}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             {% endblock %}
+            <div class="col middle wide">
+                <div class="block">
+                    {% block main_content %}
+                    {% endblock %}
+                </div>
+            </div>
         </div>
 	</div>
     <script src="{{MEDIA_URL}}js/jquery.min.js" type="text/javascript"></script>
