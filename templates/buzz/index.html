@@ -18,6 +18,9 @@
                     <li><a class="{% if val in query.update_rate %}selected{%endif%}" href="?{{ query|query_get:"update_rate"|query_set:val|query_encode }}" data-althref="?{{ query|query_get:"update_rate"|query_toggle:val|query_encode}}" title="{{name}}">{{name}}</a></li>
                     {%endfor%}
                 </ul>
+                <div class="helptext">
+                    {% trans "Hold down shift to select multiple options" %}
+                </div>
             </div>
         </div>
     </div>
