@@ -8,7 +8,15 @@ register = template.Library()
 
 def highlight(text,words):
     regexp = "(%s)" % "|".join(map(re.escape,words.split()))
-    text = re.sub(regexp,r"<strong>\1</strong>",escape(text),flags=re.IGNORECASE)
-    return mark_safe(text)
+
+    strings = []
+    parsed = 0
+    for match in re.finditer(regexp,text,flags=re.IGNORECASE):
+        strings.append(escape(text[parsed:match.start()]))
+        strings.append(r"<strong>%s</strong>" % escape(match.group(1)))
+        parsed = match.end()
+    strings.append(text[parsed:])
+
+    return mark_safe("".join(strings))
 
 register.filter("highlight",highlight)

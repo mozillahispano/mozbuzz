@@ -73,6 +73,8 @@
                             </div>
                         {% endfor %}-->
                     </li>
+                {% empty %}
+                    {% trans "No mentions found." %}
                 {% endfor %}
             </ul>
         </div>
