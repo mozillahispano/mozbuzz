@@ -1,4 +1,4 @@
-{% extends "template.html" %}{% load i18n %}{% load query %}
+{% extends "template.html" %}{% load i18n %}{% load query %}{% load highlight %}
 
 {% block main_content %}
     <div class="col left">
@@ -35,7 +35,11 @@
                     <li class="message mention">
                         <a href="{{ mention.link }}">{{ mention.type }} @ {{ mention.origin }}</a>
                         <p class="body">
+                            {% if query.q %}
+                            {{ mention.text|highlight:query.q }}
+                            {% else %}
                             {{ mention.text }}
+                            {% endif %}
                         </p>
                         <ul class="info">
                             <li><span>{%trans "Estimate audience:"%}</span> {{ mention.estimated_audience }} persons.</li>
