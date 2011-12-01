@@ -31,7 +31,8 @@ def about(request):
 def create(request):
     data = get_base_data(request)
     if request.method == 'POST':
-        form = MentionForm(request.POST)
+        instance = Mention(creation_user=request.user)
+        form = MentionForm(request.POST, instance=instance)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect('/')
