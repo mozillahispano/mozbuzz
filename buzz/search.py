@@ -7,7 +7,7 @@ VALID_PARMS = {
 }
 
 def buzz_search(query):
-    objs = Mention.enabled.all()
+    objs = Mention.enabled.all().order_by('-creation_date')
     print query
 
     filters = {
