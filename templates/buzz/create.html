@@ -1,8 +1,12 @@
 {% extends "template.html" %}{% load i18n %}{% load query %}
 
 {% block main_content %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_ul }}
+        <input type="submit" value="Submit" />
+    </form>
     
-            
             
         
 {% endblock %}
