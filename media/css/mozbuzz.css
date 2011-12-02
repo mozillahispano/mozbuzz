@@ -1208,4 +1208,14 @@ li a.navactive {
 .mention .meta{
     margin: 15px 0 0 0;
 }
-
+.errorlist{
+    padding:0.8em;
+    margin:1em 0;
+    border:2px solid #fbc2c4;
+    background:#fbe3e4;
+    color:#8a1f11;
+}
+.errorlist > li{
+    list-style-type: disc;
+    margin-left: 1.5em;
+}
