@@ -1,10 +1,10 @@
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
-from mozbuzz.buzz.constants import TEMPLATE_INDEX, TEMPLATE_CREATE
-from mozbuzz.buzz.forms import MentionForm
-from mozbuzz.buzz.models import Mention, FEEDBACK_TYPES, UPDATE_RATE
+from mozbuzz.buzz.constants import TEMPLATE_INDEX, TEMPLATE_CREATE, TEMPLATE_FOLLOWUP
+from mozbuzz.buzz.forms import MentionForm, FollowUpForm
+from mozbuzz.buzz.models import Mention, FollowUp, FEEDBACK_TYPES, UPDATE_RATE
 from mozbuzz.buzz.search import buzz_search, clean_query
 
 def get_base_data(request):    
@@ -44,3 +44,29 @@ def create(request):
     
     
     return render(request, TEMPLATE_CREATE, data)
+
+
+@login_required
+def followup(request,pk=None,mention=None):
+    data = get_base_data(request)
+
+    if pk is None:
+        #create new
+        mention = get_object_or_404(FollowUp,pk=mention)
+        instance = FollowUp(creation_user=request.user,mention=mention)
+    else:
+        #edit existing
+        instance = get_object_or_404(FollowUp,pk=pk)
+        assert instance.creation_user == request.user
+
+    if request.method == 'POST':
+        form = FollowUpForm(request.POST, instance=instance)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/')
+    else:
+        form = FollowUpForm(instance=instance)
+
+    data['form'] = form
+
+    return render(request, TEMPLATE_FOLLOWUP, data)
