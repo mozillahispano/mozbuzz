@@ -7,13 +7,13 @@ from mozbuzz.buzz.forms import MentionForm, FollowUpForm
 from mozbuzz.buzz.models import Mention, FollowUp, FEEDBACK_TYPES, UPDATE_RATE
 from mozbuzz.buzz.search import buzz_search, clean_query
 
-def get_base_data(request):    
+def get_base_data(request):
     data = {}
     data['FEEDBACK_TYPES'] = FEEDBACK_TYPES
     data['UPDATE_RATE'] = UPDATE_RATE
     query = clean_query(request.GET)
     data['query'] = query
-    
+
     return data
 
 def index(request):
@@ -26,7 +26,7 @@ def index(request):
 
 def about(request):
     pass #TODO
-    
+
 @login_required
 def create(request):
     data = get_base_data(request)
@@ -38,11 +38,9 @@ def create(request):
             return HttpResponseRedirect('/')
     else:
         form = MentionForm()
-        
+
     data['form'] = form
-    
-    
-    
+
     return render(request, TEMPLATE_CREATE, data)
 
 
