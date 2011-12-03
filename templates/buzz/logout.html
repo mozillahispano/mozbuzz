@@ -1,0 +1,13 @@
+{% extends "template.html" %}
+
+{% load i18n %}
+{% block main_content %}
+
+<p>{% trans "You have successfully logged out." %} <a href="{% url django.contrib.auth.views.login %}">Login again</a></p>
+
+{% endblock %}
+
+{% block left_col %}
+    <div class="col left block">
+    </div>
+{% endblock %}
