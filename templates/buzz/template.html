@@ -16,7 +16,11 @@
                 <ul>
                     <li><a class="navactive" href="#TODO"><span>Overview</span></a></li>
                     <li><a class="" href="{% url create %}"><span>File report</span></a></li>
-                    <li><a class="" href="#TODO"><span>Search</span></a></li>
+                    {% if user.is_authenticated %}
+                    <li><a class="" href="{% url django.contrib.auth.views.logout %}"><span>{% trans "Logout" %}</span></a></li>
+                    {% else %}
+                    <li><a class="" href="{% url django.contrib.auth.views.login %}"><span>{% trans "Login" %}</span></a></li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
