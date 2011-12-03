@@ -32,7 +32,11 @@
                 <ul class="meta">
                     <li>Added by: {{ mention.creation_user }} on {{ mention.creation_date }}</li>
                     <li>Show followups</li>
+                    {% if user.is_authenticated %}
+                        <li><a href="{% url edit mention.id %}">edit</a></li>
+                    {% endif %}
                 </ul>
+                
                 <!--<h4>Follow-ups</h4>
                 {% for followup in mention.followups %}
                     <div>
