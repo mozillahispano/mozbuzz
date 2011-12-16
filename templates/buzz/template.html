@@ -11,11 +11,11 @@
         <div id="header">
             <div class="funnel">
                 <h1>
-                    <a href="#TODO"><strong>Moz</strong>Buzz</a>
+                    <a href="{% url index %}"><strong>Moz</strong>Buzz</a>
                 </h1>
                 <ul>
-                    <li><a class="navactive" href="#TODO"><span>Overview</span></a></li>
-                    <li><a class="" href="{% url create %}"><span>File report</span></a></li>
+                    <li><a class="{% if view_name = "index" %}navactive{% endif %}" href="{% url index %}"><span>Overview</span></a></li>
+                    <li><a class="{% if view_name = "mention" %}navactive{% endif %}" href="{% url create %}"><span>File report</span></a></li>
                     {% if user.is_authenticated %}
                     <li><a class="" href="{% url django.contrib.auth.views.logout %}"><span>{% trans "Logout" %}</span></a></li>
                     {% else %}
