@@ -1,36 +1,27 @@
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import get_object_or_404
 
-from mozbuzz.buzz.constants import TEMPLATE_INDEX, TEMPLATE_CREATE, TEMPLATE_FOLLOWUP
 from mozbuzz.buzz.forms import MentionForm, FollowUpForm
-from mozbuzz.buzz.models import Mention, FollowUp, FEEDBACK_TYPES, UPDATE_RATE
+from mozbuzz.buzz.models import Mention, FollowUp
 from mozbuzz.buzz.search import buzz_search, clean_query
+from mozbuzz.buzz.utils import mozview
 
-
-def get_base_data(request):
-    data = {}
-    data['FEEDBACK_TYPES'] = FEEDBACK_TYPES
-    data['UPDATE_RATE'] = UPDATE_RATE
-    query = clean_query(request.GET)
-    data['query'] = query
-    data['user'] = request.user
-
-    return data
-
+@mozview
 def index(request):
     """Display Home page."""
-    data = get_base_data(request)
-    data['mentions'] = buzz_search(data['query'])
-
-    return render(request, TEMPLATE_INDEX, data)
+    query = clean_query(request.GET)
+    return {
+        "query": query,
+        "mentions": buzz_search(query)
+    }
 
 def about(request):
     pass #TODO
 
 @login_required
+@mozview
 def mention(request, pk=None):
-    data = get_base_data(request)
     if request.method == 'POST':
         if pk is None:
             instance = Mention(creation_user=request.user)
@@ -42,18 +33,14 @@ def mention(request, pk=None):
             return HttpResponseRedirect('/')
     elif pk is not None:
         form = MentionForm(instance=Mention.enabled.get(pk=pk))
-        data['pk'] = pk
     else:
         form = MentionForm()
 
-    data['form'] = form
-
-    return render(request, TEMPLATE_CREATE, data)
+    return {"form": form, "pk": pk}
 
 @login_required
+@mozview
 def followup(request, pk=None, mention=None):
-    data = get_base_data(request)
-
     if pk is None:
         #create new
         mention = get_object_or_404(FollowUp, pk=mention)
@@ -71,6 +58,4 @@ def followup(request, pk=None, mention=None):
     else:
         form = FollowUpForm(instance=instance)
 
-    data['form'] = form
-
-    return render(request, TEMPLATE_FOLLOWUP, data)
+    return {"form": form}
