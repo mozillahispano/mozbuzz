@@ -9,18 +9,14 @@
 
 <form method="post" action="{% url django.contrib.auth.views.login %}">
 {% csrf_token %}
-<table>
-<tr>
-    <td>{{ form.username.label_tag }}</td>
-    <td>{{ form.username }}</td>
-</tr>
-<tr>
-    <td>{{ form.password.label_tag }}</td>
-    <td>{{ form.password }}</td>
-</tr>
-</table>
+<label class="login_label" for="login_username">Username:</label>
+<input id="login_username" type="text" name="username" maxlength="30" />
 
-<input type="submit" value="{% trans "login" %}" />
+<label class="login_label" for="login_password">Password:</label>
+<input id="login_password" type="password" name="password" />
+
+<input id="login_submit" type="submit" value="Log in" />
+
 <input type="hidden" name="next" value="{{ next }}" />
 </form>
 
