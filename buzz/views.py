@@ -43,7 +43,7 @@ def mention(request, pk=None):
 def followup(request, pk=None, mention=None):
     if pk is None:
         #create new
-        mention = get_object_or_404(FollowUp, pk=mention)
+        mention = get_object_or_404(Mention, pk=mention)
         instance = FollowUp(creation_user=request.user, mention=mention)
     else:
         #edit existing

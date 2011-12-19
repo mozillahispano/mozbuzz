@@ -176,7 +176,7 @@ class Mention(SoftDeletableModel):
     remarks = models.TextField()
 
     def __unicode__(self):
-        return "%s @ %s" %(self.type, self.origin)
+        return "%s @ %s - %s" %(self.type, self.origin)
 
     def followups(self):
         return FollowUp.enabled.filter(mention=self)

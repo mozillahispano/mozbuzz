@@ -1245,3 +1245,8 @@ li a.navactive {
     font-size: 14px;
     line-height: 1.3em;
 }
+
+.followups_block{
+	display: none;
+	margin-left:15px;
+}
