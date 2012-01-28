@@ -8,14 +8,9 @@
         action="{% url create %}"
     {% endif %}
     >
-          
         {% csrf_token %}
-        {{ form.as_ul }}
-        
+        {{ form.as_table }}
         <input type="submit" value="Submit" />
     </form>
-    
-            
-        
 {% endblock %}
 

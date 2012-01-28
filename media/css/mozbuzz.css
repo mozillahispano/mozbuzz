@@ -1224,6 +1224,14 @@ li a.navactive {
     font-size: 14px;
     line-height: 1.5em;
 }
+form label{
+    display: block;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 11px;
+    margin-top: 6px;
+}
+
 .login_label{
     display: block;
     font-weight: bold;
