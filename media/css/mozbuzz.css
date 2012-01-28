@@ -374,9 +374,6 @@ label.bar:hover strong {
     content: none;
     margin: 0;
 }
-.message .meta li a {
-    color: inherit;
-}
 .message .options {
     position: absolute;
     right: 0;
