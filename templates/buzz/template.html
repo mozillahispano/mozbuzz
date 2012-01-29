@@ -35,7 +35,10 @@
                     {% if user.is_authenticated %}
                         <div class="block">
                             Welcome back {{user.username}}! Let's buzz!
-                            <a href="{% url django.contrib.auth.views.logout %}">Logout</a>
+                            <ul class="login-actions">
+                                <li><a href="{% url django.contrib.auth.views.logout %}">Logout</a></li>
+                                <li><a href="{% url django.contrib.auth.views.password_change %}">Change Password</a></li>
+                            </ul>
                         </div>
                     {%else%}
                         <form action="{% url django.contrib.auth.views.login %}" class="block" method="post">{% csrf_token %}

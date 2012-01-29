@@ -1270,3 +1270,8 @@ form label{
 #slider-audience{
     margin: 10px 0;
 }
+.login-actions li{
+    list-style-type: disc;
+    margin-left: 1em;
+    margin-top: 4px;
+}
