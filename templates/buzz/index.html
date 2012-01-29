@@ -30,12 +30,13 @@
                     {% endif %}
                 </ul>
                 <div style="display:none" class="followups">
-                {% for followup in mention.followups %}
-                    <div class="followup">
-                        <strong>{{ followup.status }} by {{followup.creation_user}} on {{ followup.creation_date }}</strong>
-                        <p>{{ followup.remarks }}</p>
-                    </div>
-                {% endfor %}
+                    {% for followup in mention.followups %}
+                        <div class="followup">
+                            <strong>{{ followup.status }} by {{followup.creation_user}} on {{ followup.creation_date }}</strong>
+                            <p>{{ followup.remarks }}</p>
+                        </div>
+                    {% endfor %}
+                    <a class="add-followup-inline" href="{% url followup_new mention.pk %}">Add followup</a>
                 </div>
                 <ul class="meta">
                     <li>Added by: {{ mention.creation_user }} on {{ mention.creation_date }}</li>

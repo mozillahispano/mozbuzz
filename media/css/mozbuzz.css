@@ -1257,6 +1257,9 @@ form label{
     padding: 10px;
     font-size: 16px;
 }
+.add-followup-inline{
+    margin: 8px 0 8px 25px;
+}
 
 .followup strong{
     color: #000;
