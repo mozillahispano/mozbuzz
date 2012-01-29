@@ -69,6 +69,22 @@
                     {%endfor%}
                 </ul>
             </div>
+            <div id="country" class="choice">
+                <h3>{% trans "Country" %}</h3>
+                <ul>
+                    {% for val,name in COUNTRIES.iteritems %}
+                    <li><a class="{% if val in query.country %}selected{%endif%}" href="?{{ query|query_get:"country"|query_set:val|query_encode }}" data-althref="?{{ query|query_get:"country"|query_toggle:val|query_encode}}" title="{{name}}">{{name}}</a></li>
+                    {%endfor%}
+                </ul>
+            </div>
+            <div id="product" class="choice">
+                <h3>{% trans "Product" %}</h3>
+                <ul>
+                    {% for val,name in PRODUCTS.iteritems %}
+                    <li><a class="{% if val in query.product %}selected{%endif%}" href="?{{ query|query_get:"product"|query_set:val|query_encode }}" data-althref="?{{ query|query_get:"product"|query_toggle:val|query_encode}}" title="{{name}}">{{name}}</a></li>
+                    {%endfor%}
+                </ul>
+            </div>
             <div id="update_rate" class="choice">
                 <h3>{% trans "Update rate" %}</h3>
                 <ul>

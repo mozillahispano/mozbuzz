@@ -167,6 +167,8 @@ class Mention(SoftDeletableModel):
     origin = models.ForeignKey(Source)
     type = models.ForeignKey(MentionType)
     author_expertise = models.ForeignKey(AuthorExpertise)
+    country = models.ForeignKey(Country, on_delete=models.PROTECT, null=True, blank=True)
+    product = models.ForeignKey(Product, on_delete=models.PROTECT, null=True, blank=True)
     feedback = models.IntegerField(max_length=1, choices=FEEDBACK_TYPES)
     previous_product_comments = models.IntegerField(max_length=1,
         choices=PREVIOUS_PRODUCT_COMMENTS)
@@ -176,7 +178,7 @@ class Mention(SoftDeletableModel):
     remarks = models.TextField()
 
     def __unicode__(self):
-        return "%s @ %s - %s" %(self.type, self.origin)
+        return "%s @ %s" %(self.type, self.origin)
 
     def followups(self):
         return FollowUp.enabled.filter(mention=self)

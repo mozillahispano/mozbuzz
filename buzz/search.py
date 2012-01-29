@@ -3,6 +3,8 @@ from mozbuzz.buzz.models import Mention
 VALID_PARMS = {
     "feedback_type":"set",
     "update_rate":"set",
+    "country":"set",
+    "product":"set",
     "q":"str",
     "audience_gt":"int",
     "audience_lt":"int",
@@ -11,6 +13,8 @@ VALID_PARMS = {
 DEFAULTS = {
     "feedback_type": set(()),
     "update_rate": set(()),
+    "country": set(()),
+    "product": set(()),
     "audience_gt": 0,
     "audience_lt": 7000000000,
 }
@@ -25,6 +29,8 @@ def buzz_search(query):
         "q":lambda objs,val:objs.filter(text__contains=word),
         "audience_gt": lambda objs, val: objs.filter(estimated_audience__gte=val),
         "audience_lt": lambda objs, val: objs.filter(estimated_audience__lte=val),
+        "country": lambda objs, val: objs.filter(country__pk__in=val),
+        "product": lambda objs, val: objs.filter(product__pk__in=val),
     }
 
     for key,val in query.iteritems():
