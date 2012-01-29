@@ -12,6 +12,14 @@ $(document.body).delegate("a[data-althref]","click",function(e){
         return false;
     }
 }).delegate("a.followups-show","click",function(){
-    $(this).parents(".mention").find(".followups").show();
+    $(this)
+        .removeClass("followups-show").addClass("followups-hide").text(_("Hide"))
+        .parents(".mention").find(".followups").show();
+
     return false;
-});
+}).delegate("a.followups-hide","click",function(){
+    $(this)
+        .addClass("followups-show").removeClass("followups-hide").text(_("Show"))
+        .parents(".mention").find(".followups").hide();
+    return false;
+});;

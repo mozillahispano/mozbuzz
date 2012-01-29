@@ -32,14 +32,8 @@
                 <div style="display:none" class="followups">
                 {% for followup in mention.followups %}
                     <div class="followup">
-                        {{ followup.status }} by {{followup.creation_user}} on {{ followup.creation_date }}
-                        </div>
-                        <div>
-                            {{ followup.remarks }}
-                        </div>
-                        <div>
-                            on {{ followup.creation_date }} by {{ followup.creation_user }}
-                        </div>
+                        <strong>{{ followup.status }} by {{followup.creation_user}} on {{ followup.creation_date }}</strong>
+                        <p>{{ followup.remarks }}</p>
                     </div>
                 {% endfor %}
                 </div>
