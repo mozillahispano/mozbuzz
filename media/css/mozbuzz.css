@@ -374,9 +374,6 @@ label.bar:hover strong {
     content: none;
     margin: 0;
 }
-.message .meta li a {
-    color: inherit;
-}
 .message .options {
     position: absolute;
     right: 0;
@@ -1224,6 +1221,14 @@ li a.navactive {
     font-size: 14px;
     line-height: 1.5em;
 }
+form label{
+    display: block;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 11px;
+    margin-top: 6px;
+}
+
 .login_label{
     display: block;
     font-weight: bold;

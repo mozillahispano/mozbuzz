@@ -37,7 +37,7 @@
                             <a href="{% url django.contrib.auth.views.logout %}">Logout</a>
                         </div>
                     {%else%}
-                        <form action="{% url django.contrib.auth.views.login %}" class="block">{% csrf_token %}
+                        <form action="{% url django.contrib.auth.views.login %}" class="block" method="post">{% csrf_token %}
                             <div id="welcome_message_anon">Hi there! login to your Mozbuzz account to file new reports.</div>
                             <label class="login_label" for="login_username">Username:</label>
                             <input id="login_username" type="text" name="username" maxlength="30" />

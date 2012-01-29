@@ -29,31 +29,31 @@
                     <li><span>{%trans "Relevant audience"%}</span></li>
                     {% endif %}
                 </ul>
-                <div id="followups_{{ mention.id }}" class="followups_block">
-                    <h3>Followups</h3>
-	                {% for followup in mention.followups %}
-	                    <div>
-	                        <div>
-	                            <b>Status:</b> {{ followup.status }}
-	                        </div>
-	                        <div>
-	                            {{ followup.remarks }}
-	                        </div>
-	                        <ul class="meta">
-			                    <li>Added by: {{ followup.creation_user }} on {{ followup.creation_date }}</li>
-			                    {% if user.is_authenticated %}
-			                        <li><a href="{% url followup_edit followup.id %}">edit</a></li>
-			                    {% endif %}
-			                </ul>
-	                    </div>
-	                {% endfor %}
-	                <a href="{% url followup_new mention.id %}">Add new followup</a>
+                <div style="display:none" class="followups">
+                {% for followup in mention.followups %}
+                    <div class="followup">
+                        {{ followup.status }} by {{followup.creation_user}} on {{ followup.creation_date }}
+                        </div>
+                        <div>
+                            {{ followup.remarks }}
+                        </div>
+                        <div>
+                            on {{ followup.creation_date }} by {{ followup.creation_user }}
+                        </div>
+                    </div>
+                {% endfor %}
                 </div>
                 <ul class="meta">
                     <li>Added by: {{ mention.creation_user }} on {{ mention.creation_date }}</li>
-                    <li><a href="javascript:void(0)" onclick="toggle_followups({{ mention.id }})">Show followups</a></li>
+                    <li>
+                        {% if mention.followups %}
+                            {{mention.followups|length}} Followups (<a href="#" class="followups-show">show</a>)
+                        {% else %}
+                            <a href="{% url followup_new mention.pk %}">Add followup</a>
+                        {% endif %}
+                    </li>
                     {% if user.is_authenticated %}
-                        <li><a href="{% url edit mention.id %}">edit</a></li>
+                        <li><a href="{% url edit mention.id %}">Edit</a></li>
                     {% endif %}
                 </ul>
             </li>
