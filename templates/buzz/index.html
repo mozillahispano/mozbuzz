@@ -79,6 +79,17 @@
                     {% trans "Hold down shift to select multiple options" %}
                 </div>
             </div>
+            <div class="choice">
+                <form id="audience" class="choice">
+                    <h3>{% trans "Audience" %}</h3>
+                    <div id="audience-preview"></div>
+                    <div id="slider-audience"></div>
+                    {% for key,val in query.iteritems %}
+                        <input id="input_audience_{{key}}" type="hidden" name="{{key}}" value="{{val|query_encode_val}}"/>
+                    {%endfor%}
+                    <input id="audience-update" type="submit" style="display:none" value="Update results" />
+                </form>
+            </div>
         </div>
     </div>
 {% endblock %}
