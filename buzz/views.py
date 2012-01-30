@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404
+from django.core.urlresolvers import reverse
 
 from mozbuzz.buzz.forms import MentionForm, FollowUpForm
 from mozbuzz.buzz.models import Mention, FollowUp
@@ -30,7 +31,7 @@ def mention(request, pk=None):
         form = MentionForm(request.POST, instance=instance)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect(reverse(index))
     elif pk is not None:
         form = MentionForm(instance=Mention.enabled.get(pk=pk))
     else:
@@ -54,7 +55,7 @@ def followup(request, pk=None, mention=None):
         form = FollowUpForm(request.POST, instance=instance)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect(reverse(index))
     else:
         form = FollowUpForm(instance=instance)
 
