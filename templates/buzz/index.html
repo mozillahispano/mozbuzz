@@ -85,6 +85,30 @@
                     {%endfor%}
                 </ul>
             </div>
+            <div id="mention_type" class="choice">
+                <h3>{% trans "Type" %}</h3>
+                <ul>
+                    {% for val,name in MENTION_TYPES.iteritems %}
+                    <li><a class="{% if val in query.type %}selected{%endif%}" href="?{{ query|query_get:"type"|query_set:val|query_encode }}" data-althref="?{{ query|query_get:"type"|query_toggle:val|query_encode}}" title="{{name}}">{{name}}</a></li>
+                    {%endfor%}
+                </ul>
+            </div>
+            <div id="mention_origin" class="choice">
+                <h3>{% trans "Origin" %}</h3>
+                <ul>
+                    {% for val,name in MENTION_ORIGINS.iteritems %}
+                    <li><a class="{% if val in query.origin %}selected{%endif%}" href="?{{ query|query_get:"origin"|query_set:val|query_encode }}" data-althref="?{{ query|query_get:"origin"|query_toggle:val|query_encode}}" title="{{name}}">{{name}}</a></li>
+                    {%endfor%}
+                </ul>
+            </div>
+            <div id="author_expertise" class="choice">
+                <h3>{% trans "Author expertise" %}</h3>
+                <ul>
+                    {% for val,name in AUTHOR_EXPERTISES.iteritems %}
+                    <li><a class="{% if val in query.author_expertise %}selected{%endif%}" href="?{{ query|query_get:"author_expertise"|query_set:val|query_encode }}" data-althref="?{{ query|query_get:"author_expertise"|query_toggle:val|query_encode}}" title="{{name}}">{{name}}</a></li>
+                    {%endfor%}
+                </ul>
+            </div>
             <div id="update_rate" class="choice">
                 <h3>{% trans "Update rate" %}</h3>
                 <ul>
