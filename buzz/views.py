@@ -30,7 +30,9 @@ def mention(request, pk=None):
             instance = Mention.enabled.get(pk=pk)
         form = MentionForm(request.POST, instance=instance)
         if form.is_valid():
-            form.save()
+            instance = form.save(commit=False)
+            instance.last_update_user = request.user
+            instance.save()
             return HttpResponseRedirect(reverse(index))
     elif pk is not None:
         form = MentionForm(instance=Mention.enabled.get(pk=pk))
@@ -54,7 +56,9 @@ def followup(request, pk=None, mention=None):
     if request.method == 'POST':
         form = FollowUpForm(request.POST, instance=instance)
         if form.is_valid():
-            form.save()
+            instance = form.save(commit=False)
+            instance.last_update_user = request.user
+            instance.save()
             return HttpResponseRedirect(reverse(index))
     else:
         form = FollowUpForm(instance=instance)
