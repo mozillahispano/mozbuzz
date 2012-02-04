@@ -20,15 +20,38 @@
                     {% endif %}
                 </p>
                 <ul class="info">
-                    <li><span>{%trans "Estimate audience:"%}</span> {{ mention.estimated_audience }} persons.</li>
-                    <li><span>{%trans "Author type:"%}</span> {{ mention.author_expertise }}</li>
-                    <li><span>{%trans "Country:"%}</span> {{ mention.country }}</li>
-                    <li><span>{%trans "Product:"%}</span> {{ mention.product }}</li>
-                    <li><span>{%trans "Feedback:"%}</span> {{ mention.get_feedback_display }}</li>
-                    <li><span>{%trans "Remarks:"%}</span> {{ mention.remarks }}</li>
-                    <li><span>{%trans "Updated:"%}</span> {{ mention.get_update_rate_display }}</li>
+                    <li>
+                        <span>{%trans "Estimate audience:"%}</span>
+                        {{ mention.estimated_audience }} persons.
+                    </li>
+                    <li>
+                        <span>{%trans "Author type:"%}</span> 
+                        <a href="?author_expertise={{ mention.author_expertise_id }}">{{ mention.author_expertise }}</a>
+                    </li>
+                    <li>
+                        <span>{%trans "Country:"%}</span> 
+                        <a href="?country={{ mention.country_id }}">{{ mention.country }}</a>
+                    </li>
+                    <li>
+                        <span>{%trans "Product:"%}</span> 
+                        <a href="?product={{ mention.product_id }}">{{ mention.product }}</a>
+                    </li>
+                    <li>
+                        <span>{%trans "Feedback:"%}</span> 
+                        <a href="?feedback_type={{ mention.feedback }}">{{ mention.get_feedback_display }}</a>
+                    </li>
+                    <li>
+                        <span>{%trans "Remarks:"%}</span> 
+                        {{ mention.remarks }}
+                    </li>
+                    <li>
+                        <span>{%trans "Updated:"%}</span> 
+                        <a href="?update_rate={{ mention.update_rate }}">{{ mention.get_update_rate_display }}</a>
+                    </li>
                     {% if mention.relevant_audience %}
-                    <li><span>{%trans "Relevant audience"%}</span></li>
+                    <li>
+                        <span>{%trans "Relevant audience"%}</span>
+                    </li>
                     {% endif %}
                 </ul>
                 <div style="display:none" class="followups">
