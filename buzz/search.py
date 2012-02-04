@@ -32,7 +32,7 @@ def buzz_search(query):
     filters = {
         "feedback_type": lambda objs,val:objs.filter(feedback__in=val),
         "update_rate": lambda objs,val:objs.filter(update_rate__in=val),
-        "q":lambda objs,val:objs.filter(text__contains=word),
+        "q":lambda objs,val:objs.filter(text__icontains=word),
         "audience_gt": lambda objs, val: objs.filter(estimated_audience__gte=val),
         "audience_lt": lambda objs, val: objs.filter(estimated_audience__lte=val),
         "country": lambda objs, val: objs.filter(country__pk__in=val),
