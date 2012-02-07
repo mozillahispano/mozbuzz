@@ -164,6 +164,7 @@ class Mention(SoftDeletableModel):
 
     link = models.URLField()
     text = models.TextField()
+    source_name = models.TextField()
     origin = models.ForeignKey(Source)
     type = models.ForeignKey(MentionType)
     author_expertise = models.ForeignKey(AuthorExpertise)
