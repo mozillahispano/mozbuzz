@@ -30,7 +30,7 @@ function repeat(str,times){
 function childsToMarkdown(tree,mode){
     var res = "";
     for(var i=0, l=tree.childNodes.length; i<l; ++i){
-        res += toMarkdown(tree.childNodes[i], mode);
+        res += nodeToMarkdown(tree.childNodes[i], mode);
     }
     return res;
 }
@@ -112,7 +112,7 @@ function nodeToMarkdown(tree,mode){
 }
 
 function toMarkdown(node){
-    return nodeToMarkdown(node,"block").replace(/[\n]{2,}/g,"\n\n")//.replace(/^\s+/,"").replace(/\s+$/,"");
+    return nodeToMarkdown(node,"block").replace(/[\n]{2,}/g,"\n\n").replace(/^[\n]+/,"").replace(/[\n]+$/,"");
 }
 
 var finishedCallsCnt = 0
@@ -140,7 +140,7 @@ function parseUri (str) {
 function guessInformation(){
     var url = parseUri($("#id_link").val());
 
-    if(!url){
+    if(!url || url.protocol.indexOf("http") != 0){
         alert("Please, write a valid url");
         return false;
     }
@@ -149,6 +149,7 @@ function guessInformation(){
 
     getURLContents(url["source"],function(node){
         $("#id_text").val(toMarkdown(node));
+        $("#field_text_result").html("Extracted from the provided page").parent().addClass("guess-ok");
         guessCallFinished();
     });
 
@@ -159,7 +160,7 @@ function guessInformation(){
     source = source.join(".")
 
     $("#id_source_name").val(source);
-    $("#field_source_name_result").html("Guessed from the url");
+    $("#field_source_name_result").html("Guessed from the url").parent().addClass("guess-ok");
 
 
     $.getJSON(URL_ROOT + "source/" + source + ".json",function(res){
@@ -190,7 +191,11 @@ function guessInformation(){
                     }else{
                         $("#id_"+field).val(hist_ordered[0][0]);
                     }
-                    $("#field_" + field + "_result").html(hist_ordered[0][1] + " (" + Math.round(hist_ordered[0][1]*100/cnt) + "%) of the mentions from " + source + " have this value");
+                    $("#field_" + field + "_result")
+                        .html(hist_ordered[0][1] + " (" + Math.round(hist_ordered[0][1]*100/cnt) + "%) of the mentions from " + source + " have this value")
+                        .parent().addClass("guess-ok");
+                }else{
+                    $("#field_"+field+"_cnt").addClass("guess-fail")
                 }
             });
             guessCallFinished();

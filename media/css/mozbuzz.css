@@ -1283,3 +1283,10 @@ form label{
     margin-left: 1em;
     margin-top: 4px;
 }
+
+.guess-ok{
+    background-color: #daffdf;
+}
+.guess-fail{
+    background-color: #fff9b3;
+}
