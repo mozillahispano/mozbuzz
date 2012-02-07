@@ -18,8 +18,8 @@
         {{form.remarks}}
         {% if is_new %}
         <div id="mention_guess_prompt">
-            <button onclick="guessInformation(); return false;">{%trans "Guess Information"%}</a>
-            <button onclick="guessCancell(); return false;">{%trans "Don't guess"%}</a>
+            <button onclick="guessInformation(); return false;">{%trans "Guess Information"%}</button>
+            <button onclick="guessCancell(); return false;">{%trans "Don't guess"%}</button>
         </div>
         {% endif %}
         <div id="mention_form_otherfields_cnt" {% if is_new %}style="display: none"{% endif %}>
