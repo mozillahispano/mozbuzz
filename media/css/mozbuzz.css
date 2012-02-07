@@ -1290,3 +1290,27 @@ form label{
 .guess-fail{
     background-color: #fff9b3;
 }
+
+#id_text{
+    width: 99%;
+    height: 400px;
+}
+#id_remarks{
+    width: 60%;
+    height: 100px;
+}
+
+#mention_form select, #mention_form input{
+    width: 250px;
+}
+
+#mention_guess_prompt{
+    margin: 10px;
+}
+#mention_guess_prompt button{
+    margin-right: 10px;
+}
+#mention_form input[type="submit"]{
+    margin: 10px 0;
+    width: 100px;
+}

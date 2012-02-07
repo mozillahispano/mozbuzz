@@ -7,7 +7,7 @@
     {% else %}
         action="{% url create %}"
     {% endif %}
-    >
+    id="mention_form">
         {% csrf_token %}
 
         {{form.link.errors}}
@@ -18,8 +18,8 @@
         {{form.remarks}}
         {% if is_new %}
         <div id="mention_guess_prompt">
-            <a href="#" onclick="return guessInformation();">{%trans "Guess Information"%}</a>
-            <a href="#" onclick="return guessCancell();">{%trans "Don't guess"%}</a>
+            <button onclick="guessInformation(); return false;">{%trans "Guess Information"%}</a>
+            <button onclick="guessCancell(); return false;">{%trans "Don't guess"%}</a>
         </div>
         {% endif %}
         <div id="mention_form_otherfields_cnt" {% if is_new %}style="display: none"{% endif %}>
