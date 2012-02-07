@@ -1,5 +1,7 @@
+import urllib
+
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import get_object_or_404
 from django.core.urlresolvers import reverse
 
@@ -64,3 +66,9 @@ def followup(request, pk=None, mention=None):
         form = FollowUpForm(instance=instance)
 
     return {"form": form}
+
+@login_required
+def proxy(request):
+    assert "url" in request.GET
+    return HttpResponse(urllib.urlopen(request.GET["url"]).read())
+
