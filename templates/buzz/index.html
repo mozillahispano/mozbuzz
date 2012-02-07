@@ -11,7 +11,8 @@
         <ul class="messages segmented mentions">
         {% for mention in mentions %}
             <li class="message mention">
-                <a href="{{ mention.link }}">{{ mention.type }} @ {{ mention.source_name }}</a>
+                <!--<a href="{{ mention.link }}">{{ mention.type }} @ {{ mention.source_name }}</a>-->
+                <a href="{% url mention_view mention.pk %}">{{ mention.type }} @ {{ mention.source_name }}</a>
                 <div class="body">
                     {% if query.q %}
                     {{ mention.text|summary_hightlight:query.q }}

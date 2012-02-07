@@ -1301,7 +1301,7 @@ form label{
 }
 
 #mention_form select, #mention_form input{
-    width: 250px;
+    width: 250px:
 }
 
 #mention_guess_prompt{
@@ -1314,3 +1314,64 @@ form label{
     margin: 10px 0;
     width: 100px;
 }
+
+
+/* Markdown styles */
+.markdown{
+    line-height: 1.2em;
+}
+
+.markdown blockquote, .markdown pre {
+    background:#F4F5F7;
+    border:1px dashed #CCC;
+    padding:8px 12px 8px 36px;
+    margin:5px 0;
+    overflow: hidden;
+}
+.markdown ul,.markdown ol{
+    margin-left: 20px;
+}
+.markdown em{
+    font-style: italic;
+}
+.markdown strong{
+    font-weight: bold;
+}
+
+.markdown p,.markdown li{
+    margin-bottom: 10px;
+}
+.markdown pre{
+    font-family: monospace;
+}
+.markdown h1 {
+    font-size:160%;
+    margin: 20px 0;
+    line-height: 1.1em;
+}
+.markdown h2 {
+    font-size:150%;
+    margin: 15px 0;
+    line-height: 1.1em;
+}
+.markdown h3 {
+    font-size:140%;
+    margin: 15px 0;
+    line-height: 1.1em;
+}
+.markdown h4 {
+    font-size:130%;
+    margin: 10px 0;
+    line-height: 1.1em;
+}
+.markdown h5 {
+    font-size:120%;
+    margin: 10px 0;
+    line-height: 1.1em;
+}
+.markdown h6 {
+    font-size:110%;
+    margin: 5px 0;
+    line-height: 1.1em;
+}
+

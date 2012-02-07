@@ -19,6 +19,12 @@ def index(request):
         "mentions": buzz_search(query)
     }
 
+@mozview
+def mention_view(request, pk):
+    return {
+        "mention": get_object_or_404(Mention, pk=pk)
+    }
+
 def about(request):
     pass #TODO
 
