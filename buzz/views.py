@@ -25,6 +25,7 @@ def about(request):
 @login_required
 @mozview
 def mention(request, pk=None):
+    is_new = False
     if request.method == 'POST':
         if pk is None:
             instance = Mention(creation_user=request.user)
@@ -39,9 +40,10 @@ def mention(request, pk=None):
     elif pk is not None:
         form = MentionForm(instance=Mention.enabled.get(pk=pk))
     else:
+        is_new = True
         form = MentionForm()
 
-    return {"form": form, "pk": pk}
+    return {"form": form, "pk": pk, "is_new": is_new}
 
 @login_required
 @mozview

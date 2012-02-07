@@ -9,8 +9,32 @@
     {% endif %}
     >
         {% csrf_token %}
-        {{ form.as_table }}
+
+        {{form.link.errors}}
+        {{form.link.label_tag}}
+        {{form.link}}
+        {{form.remarks.errors}}
+        {{form.remarks.label_tag}}
+        {{form.remarks}}
+        {% if is_new %}
+        <div id="mention_guess_prompt">
+            <a href="#" onclick="return guessInformation();">{%trans "Guess Information"%}</a>
+            <a href="#" onclick="return guessCancell();">{%trans "Don't guess"%}</a>
+        </div>
+        {% endif %}
+        <div id="mention_form_otherfields_cnt" {% if is_new %}style="display: none"{% endif %}>
+        {% for field in form %}
+        {% if field.name != "link" and field.name != "remarks" %}
+            <div id="field_{{field.name}}_cnt">
+                {{field.errors}}
+                {{field.label_tag}}
+                {{field}}
+                <div id="field_{{field.name}}_result"></div>
+            </div>
+        {% endif %}
+        {% endfor %}
         <input type="submit" value="Submit" />
+        </div>
     </form>
 {% endblock %}
 

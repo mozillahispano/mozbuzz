@@ -20,7 +20,7 @@ function getURLContents(url, cb){
 
 
 function markdownEscape(text){
-    return text.replace(/\s+/g," ").replace(/[\\\-*_>#=]/g,"\\$&");
+    return text.replace(/\s+/g," ").replace(/[\\\-*_>#]/g,"\\$&");
 }
 
 function repeat(str,times){
@@ -58,7 +58,12 @@ function nodeToMarkdown(tree,mode){
                     return nl + childsToMarkdown(tree, "u") + nl;
                 case "ol":
                     return nl + childsToMarkdown(tree, "o") + nl;
+                case "pre":
+                    return nl + "    " + childsToMarkdown(tree, "inline") + nl;
                 case "code":
+                    if(tree.childNodes.length == 1){
+                        break; // use the inline format
+                    }
                     return nl + "    " + childsToMarkdown(tree, "inline") + nl;
                 case "h1": case "h2": case "h3": case "h4": case "h5": case "h6": case "h7":
                     return nl + repeat("#", +tree.tagName[1]) + "  " + childsToMarkdown(tree, "inline") + nl;
@@ -108,6 +113,36 @@ function nodeToMarkdown(tree,mode){
 }
 
 function toMarkdown(node){
-    return nodeToMarkdown(node,"block").replace(/[\n]{2,}/g,"\n\n")
+    return nodeToMarkdown(node,"block").replace(/[\n]{2,}/g,"\n\n")//.replace(/^\s+/,"").replace(/\s+$/,"");
 }
 
+var finishedCallsCnt = 0
+function guessCallFinished(){
+    if(++finishedCallsCnt == 2){
+        $("#mention_form_otherfields_cnt").show();
+        $("#mention_guess_prompt").hide();
+    }
+}
+
+function guessInformation(){
+    var url = $("#id_link").val();
+    if(!/^http\:\/\//.test(url)){
+        alert("Please, write a valid url");
+        return false;
+    }
+
+    $("#mention_guess_prompt").html("guessing information...");
+    getURLContents(url,function(node){
+        $("#id_text").val(toMarkdown(node));
+        guessCallFinished();
+    });
+    guessCallFinished(); // TODO: fetch median values to fill the other fields
+
+    return false;
+}
+
+function guessCancell(){
+    $("#mention_form_otherfields_cnt").show();
+    $("#mention_guess_prompt").hide();
+    return false;
+}
