@@ -38,7 +38,6 @@ function childsToMarkdown(tree,mode){
 function nodeToMarkdown(tree,mode){
     var nl = "\n\n";
     if(tree.nodeType == 3){ // Text node
-        console.log(tree.nodeValue);
         return markdownEscape(tree.nodeValue)
     }else if(tree.nodeType == 1){
         if(mode == "block"){
@@ -124,19 +123,79 @@ function guessCallFinished(){
     }
 }
 
+function parseUri (str) {
+	var	parser = /^(?:(?![^:@]+:[^:@\/]*@)([^:\/?#.]+):)?(?:\/\/)?((?:(([^:@]*)(?::([^:@]*))?)?@)?([^:\/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#\/]*\.[^?#\/.]+(?:[?#]|$)))*\/?)?([^?#\/]*))(?:\?([^#]*))?(?:#(.*))?)/;
+    var m   = parser.exec(str);
+    if(!m){
+        return false;
+    }
+    var key = ["source","protocol","authority","userInfo","user","password","host","port","relative","path","directory","file","query","anchor"];
+    var uri = {};
+	for(var i=0; i<14; ++i){
+        uri[key[i]] = m[i] || "";
+    }
+	return uri;
+};
+
 function guessInformation(){
-    var url = $("#id_link").val();
-    if(!/^http\:\/\//.test(url)){
+    var url = parseUri($("#id_link").val());
+
+    if(!url){
         alert("Please, write a valid url");
         return false;
     }
 
     $("#mention_guess_prompt").html("guessing information...");
-    getURLContents(url,function(node){
+
+    getURLContents(url["source"],function(node){
         $("#id_text").val(toMarkdown(node));
         guessCallFinished();
     });
-    guessCallFinished(); // TODO: fetch median values to fill the other fields
+
+    var source = url["host"].split(".");
+    if(source[0] == "www"){
+        source.shift()
+    }
+    source = source.join(".")
+
+    $("#id_source_name").val(source);
+    $("#field_source_name_result").html("Guessed from the url");
+
+
+    $.getJSON(URL_ROOT + "source/" + source + ".json",function(res){
+        if(res.status != 200){
+            alert("Server error: " + res.status + " " + res.message);
+        }else{
+            res = res["response"], cnt=res.length;
+            var fields = ["origin","type",
+                "author_expertise","country","product","feedback",
+                "previous_product_comments","estimated_audience",
+                "relevant_audience","update_rate"]
+
+            fields.forEach(function(field){
+                var hist = {};
+                res.forEach(function(o){
+                    hist[o[field]] = (hist[o[field]]||0)+1;
+                });
+                var hist_ordered = [];
+                for(var k in hist){
+                    hist_ordered.push([k,hist[k]]);
+                }
+                hist_ordered.sort(function(a,b){
+                    return b[1] - a[1];
+                });
+                if(hist_ordered.length){
+                    if(field == "relevant_audience"){
+                        $("#relevant_audience").checked = hist_ordered[0][0] == "true";
+                    }else{
+                        $("#id_"+field).val(hist_ordered[0][0]);
+                    }
+                    $("#field_" + field + "_result").html(hist_ordered[0][1] + " (" + Math.round(hist_ordered[0][1]*100/cnt) + "%) of the mentions from " + source + " have this value");
+                }
+            });
+            guessCallFinished();
+        }
+    });
 
     return false;
 }

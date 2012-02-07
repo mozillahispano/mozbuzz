@@ -181,6 +181,18 @@ class Mention(SoftDeletableModel):
     def __unicode__(self):
         return "%s @ %s" %(self.type, self.origin)
 
+    def __obj__(self):
+        def getval(att):
+            val = getattr(self,att)
+            if isinstance(val,models.Model):
+                return val.pk
+            return val
+
+        return dict([(k,getval(k)) for k in ("origin","type",
+            "author_expertise","country","product","feedback",
+            "previous_product_comments","estimated_audience",
+            "relevant_audience","update_rate")])
+
     def followups(self):
         return FollowUp.enabled.filter(mention=self)
 

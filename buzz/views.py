@@ -8,7 +8,7 @@ from django.core.urlresolvers import reverse
 from mozbuzz.buzz.forms import MentionForm, FollowUpForm
 from mozbuzz.buzz.models import Mention, FollowUp
 from mozbuzz.buzz.search import buzz_search, clean_query
-from mozbuzz.buzz.utils import mozview
+from mozbuzz.buzz.utils import mozview, jsonview
 
 @mozview
 def index(request):
@@ -73,4 +73,9 @@ def followup(request, pk=None, mention=None):
 def proxy(request):
     assert "url" in request.GET
     return HttpResponse(urllib.urlopen(request.GET["url"]).read())
+
+@login_required
+@jsonview
+def source_json(request,source):
+    return [x.__obj__() for x in Mention.objects.filter(source_name=source)]
 

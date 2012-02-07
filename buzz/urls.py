@@ -10,6 +10,7 @@ urlpatterns = patterns('',
     url(r'^mention/(?P<pk>\d+)/edit$', 'buzz.views.mention', name="edit"),
     url(r'^mention/(?P<mention>\d+)/followups/new$', 'buzz.views.followup', name="followup_new"),
     url(r'^followup/(?P<pk>\d+)/edit$', 'buzz.views.followup', name="followup_edit"),
+    url(r'^source/(?P<source>.*).json$', 'buzz.views.source_json', name="source_json"),
     url(r'^proxy$', 'buzz.views.proxy', name="proxy"),
     url(r'^about$', 'buzz.views.about', name="about"),
 )

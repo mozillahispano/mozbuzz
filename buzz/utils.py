@@ -1,7 +1,8 @@
 from mozbuzz.buzz.models import FEEDBACK_TYPES, UPDATE_RATE, Country, Product, MentionType, AuthorExpertise, Source
 from django.shortcuts import render
 from django.template import RequestContext
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
+import json
 
 def mozview(view):
     view_name = view.__name__
@@ -23,6 +24,28 @@ def mozview(view):
             }
             ctx.update(result)
             return render(request, "%s.html" % view_name, context_instance=RequestContext(request, ctx))
+
+    return __inner__
+
+def jsonview(view):
+    def __inner__(*args, **kwargs):
+        try:
+            res = (200, view(*args, **kwargs))
+        except Http404, e:
+            res = (404, str(e))
+        except Exception, e:
+            res = (500, str(e))
+
+        code,data = res
+
+        httpres = HttpResponse(json.dumps({
+            "status": code,
+            "response": data,
+        }), mimetype="application/json", status=code)
+
+        httpres['Cache-Control'] = 'no-cache'
+
+        return httpres
 
     return __inner__
 
