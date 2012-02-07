@@ -8,12 +8,12 @@ from django import template
 register = template.Library()
 
 def treeToText(tree):
-    text = tree.text
+    text = tree.text or ""
 
     for child in tree:
         text += treeToText(child)
 
-    text += tree.tail
+    text += tree.tail or ""
     return text
 
 def getParagraphs(tree):

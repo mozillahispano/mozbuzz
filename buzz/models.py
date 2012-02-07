@@ -179,7 +179,7 @@ class Mention(SoftDeletableModel):
     remarks = models.TextField()
 
     def __unicode__(self):
-        return "%s @ %s" %(self.type, self.origin)
+        return "%s @ %s" %(self.type, self.source_name)
 
     def __obj__(self):
         def getval(att):

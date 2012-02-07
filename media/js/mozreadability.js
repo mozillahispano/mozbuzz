@@ -183,7 +183,7 @@ function guessInformation(){
                 });
                 if(hist_ordered.length){
                     if(field == "relevant_audience"){
-                        $("#relevant_audience").checked = hist_ordered[0][0] == "true";
+                        $("#id_relevant_audience")[0].checked = hist_ordered[0][0] == "true";
                     }else{
                         $("#id_"+field).val(hist_ordered[0][0]);
                     }
