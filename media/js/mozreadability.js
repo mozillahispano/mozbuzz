@@ -153,11 +153,7 @@ function guessInformation(){
         guessCallFinished();
     });
 
-    var source = url["host"].split(".");
-    if(source[0] == "www"){
-        source.shift()
-    }
-    source = source.join(".")
+    var source = url["host"].replace(/^www./,"");
 
     $("#id_source_name").val(source);
     $("#field_source_name_result").html("Guessed from the url").parent().addClass("guess-ok");
