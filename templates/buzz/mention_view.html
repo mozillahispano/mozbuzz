@@ -3,12 +3,16 @@
 {% block main_content %}
         <ul class="messages segmented mentions">
             <li class="message mention">
-                <!--<a href="{{ mention.link }}">{{ mention.type }} @ {{ mention.source_name }}</a>-->
                 <a href="{% url mention_view mention.pk %}">{{ mention.type }} @ {{ mention.source_name }}</a>
                 <div class="body markdown">
                     {{ mention.text|markdown }}
                 </div>
                 <ul class="info">
+                    {% if mention.link %}
+                    <li>
+                        <a class="mention-external-link" href="{{ mention.link }}">{% trans "Original page" %}</a>
+                    </li>
+                    {% endif%}
                     <li>
                         <span>{%trans "Estimate audience:"%}</span>
                         {{ mention.estimated_audience }} persons.
@@ -53,7 +57,7 @@
                     <a class="add-followup-inline" href="{% url followup_new mention.pk %}">Add followup</a>
                 </div>
                 <ul class="meta">
-                    <li>Added by: {{ mention.creation_user }} on {{ mention.creation_date }}</li>
+                    <li>Added by {{ mention.creation_user }} on {{ mention.creation_date }}</li>
                     <li>
                         {% if mention.followups %}
                             {{mention.followups|length}} Followups (<a href="#" class="followups-show">show</a>)

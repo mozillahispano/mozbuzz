@@ -162,7 +162,7 @@ class Mention(SoftDeletableModel):
     last_update_date = models.DateTimeField(auto_now=True)
     disabled = models.BooleanField(default=False)
 
-    link = models.URLField()
+    link = models.URLField(null=True, blank=True)
     text = models.TextField()
     source_name = models.TextField()
     origin = models.ForeignKey(Source)
@@ -176,7 +176,7 @@ class Mention(SoftDeletableModel):
     estimated_audience = models.IntegerField()
     relevant_audience = models.BooleanField()
     update_rate = models.IntegerField(max_length=1, choices=UPDATE_RATE)
-    remarks = models.TextField()
+    remarks = models.TextField(null=True, blank=True)
 
     def __unicode__(self):
         return "%s @ %s" %(self.type, self.source_name)

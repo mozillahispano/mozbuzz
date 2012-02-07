@@ -1185,9 +1185,9 @@ li a.navactive {
 /** Mozbuzz-specific **/
 
 
-.mention > a{
+.mention-title{
     font-variant:small-caps;
-    font-size: 25px;
+    font-size: 22px;
     font-weight: bold;
 }
 .mention .body{
