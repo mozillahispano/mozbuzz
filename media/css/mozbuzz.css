@@ -1191,8 +1191,16 @@ li a.navactive {
     font-weight: bold;
 }
 .mention .body{
-    font-size: 18px;
+    font-size: 16px;
     margin: 10px 0;
+}
+.mention .search_result{
+    background-color: #ffff00;
+}
+.mention .elipsis{
+    color: #999;
+    font-size: 10px;
+    font-style: italic;
 }
 .mention .info{
     font-size: 18px;

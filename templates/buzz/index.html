@@ -1,4 +1,4 @@
-{% extends "template.html" %}{% load i18n %}{% load query %}{% load highlight %}
+{% extends "template.html" %}{% load i18n %}{% load query %}{% load summary %}{% load markup %}
 
 {% block main_content %}
     <form id="kw-search" method="get" action="">
@@ -12,40 +12,40 @@
         {% for mention in mentions %}
             <li class="message mention">
                 <a href="{{ mention.link }}">{{ mention.type }} @ {{ mention.origin }}</a>
-                <p class="body">
+                <div class="body">
                     {% if query.q %}
-                    {{ mention.text|highlight:query.q }}
+                    {{ mention.text|summary_hightlight:query.q }}
                     {% else %}
-                    {{ mention.text }}
+                    {{ mention.text|summary:mention }}
                     {% endif %}
-                </p>
+                </div>
                 <ul class="info">
                     <li>
                         <span>{%trans "Estimate audience:"%}</span>
                         {{ mention.estimated_audience }} persons.
                     </li>
                     <li>
-                        <span>{%trans "Author type:"%}</span> 
+                        <span>{%trans "Author type:"%}</span>
                         <a href="?author_expertise={{ mention.author_expertise_id }}">{{ mention.author_expertise }}</a>
                     </li>
                     <li>
-                        <span>{%trans "Country:"%}</span> 
+                        <span>{%trans "Country:"%}</span>
                         <a href="?country={{ mention.country_id }}">{{ mention.country }}</a>
                     </li>
                     <li>
-                        <span>{%trans "Product:"%}</span> 
+                        <span>{%trans "Product:"%}</span>
                         <a href="?product={{ mention.product_id }}">{{ mention.product }}</a>
                     </li>
                     <li>
-                        <span>{%trans "Feedback:"%}</span> 
+                        <span>{%trans "Feedback:"%}</span>
                         <a href="?feedback_type={{ mention.feedback }}">{{ mention.get_feedback_display }}</a>
                     </li>
                     <li>
-                        <span>{%trans "Remarks:"%}</span> 
+                        <span>{%trans "Remarks:"%}</span>
                         {{ mention.remarks }}
                     </li>
                     <li>
-                        <span>{%trans "Updated:"%}</span> 
+                        <span>{%trans "Updated:"%}</span>
                         <a href="?update_rate={{ mention.update_rate }}">{{ mention.get_update_rate_display }}</a>
                     </li>
                     {% if mention.relevant_audience %}
@@ -58,7 +58,7 @@
                     {% for followup in mention.followups %}
                         <div class="followup">
                             <strong>{{ followup.status }} by {{followup.creation_user}} on {{ followup.creation_date }}</strong>
-                            <p>{{ followup.remarks }}</p>
+                            <p>{{ followup.remarks|markdown }}</p>
                         </div>
                     {% endfor %}
                     <a class="add-followup-inline" href="{% url followup_new mention.pk %}">Add followup</a>
