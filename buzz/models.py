@@ -242,7 +242,7 @@ class RSSPost(models.Model):
     feed = models.ForeignKey(RSSFeed,related_name="posts")
     hidden = models.BooleanField(default=False)
     title = models.TextField()
-    link = models.URLField()
+    link = models.URLField(max_length=3000)
     guid = models.TextField()
     pub_date = models.DateTimeField()
     description = models.TextField()
