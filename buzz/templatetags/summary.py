@@ -29,9 +29,6 @@ def getParagraphs(tree):
     else:
         paragraphs = []
         for child in tree:
-            print etree.tostring(child)
-            print getParagraphs(child)
-            print "--"
             paragraphs.extend(getParagraphs(child))
 
         return paragraphs

@@ -228,3 +228,22 @@ class Report(SoftDeletableModel):
 
     def __unicode__(self):
         return self.name
+
+class RSSFeed(models.Model):
+    name = models.TextField()
+    url = models.URLField()
+    product = models.ForeignKey(Product,related_name="feeds")
+    last_updated = models.DateTimeField()
+
+    def __unicode__(self):
+        return "%s (%s)" % (self.name, self.product.name)
+
+class RSSPost(models.Model):
+    feed = models.ForeignKey(RSSFeed,related_name="posts")
+    hidden = models.BooleanField(default=False)
+    title = models.TextField()
+    link = models.URLField()
+    guid = models.TextField()
+    pub_date = models.DateTimeField()
+    description = models.TextField()
+

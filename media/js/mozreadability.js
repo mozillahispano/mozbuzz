@@ -1,26 +1,44 @@
 function getURLContents(url, cb){
     var xhr = new XMLHttpRequest();
     xhr.onload = function() {
-        var doc = this.responseXML;
-        if(!doc){
-            alert("Malformed document, or browser doesn't support XHR HTML parsing (try Firefox 11+)");
+        if(xhr.status != 200){
+            alert("Invalid response code " + xhr.status);
+            guessCallFinished();
             return;
         }
-        readability.removeScripts(doc)
-        readability.prepDocument(doc);
-        var articleContent = readability.grabArticle(doc.body);
-        var articleTitle = readability.getArticleTitle(doc);
-        articleContent.insertBefore(articleTitle, articleContent.firstChild);
-        cb(articleContent);
+        var doc = xhr.responseXML;
+        if(!doc){
+            alert("Malformed document, or browser doesn't support XHR HTML parsing (try Firefox 11+)");
+            guessCallFinished();
+            return;
+        }
+        try{
+            readability.removeScripts(doc)
+            readability.prepDocument(doc);
+            var articleContent = readability.grabArticle(doc.body);
+            var articleTitle = readability.getArticleTitle(doc);
+        }catch(e){
+            alert(e);
+            guessCallFinished();
+            return;
+        }
+        if(articleContent){
+            if(articleTitle && articleContent.firstChild){
+                articleContent.insertBefore(articleTitle, articleContent.firstChild);
+            }
+            cb(articleContent);
+        }else{
+            guessCallFinished();
+        }
     }
-    xhr.open("GET", URL_ROOT + "proxy?url=" + encodeURIComponent(url));
+    xhr.open("GET", URL_ROOT + "proxy?url=" + encodeURIComponent(url) + "&_=" + new Date());
     xhr.responseType = "document";
     xhr.send();
 }
 
 
 function markdownEscape(text){
-    return text.replace(/\s+/g," ").replace(/[\\\-*_>#]/g,"\\$&");
+    return text?text.replace(/\s+/g," ").replace(/[\\\-*_>#]/g,"\\$&"):"";
 }
 
 function repeat(str,times){
@@ -112,7 +130,13 @@ function nodeToMarkdown(tree,mode){
 }
 
 function toMarkdown(node){
-    return nodeToMarkdown(node,"block").replace(/[\n]{2,}/g,"\n\n").replace(/^[\n]+/,"").replace(/[\n]+$/,"");
+    try{
+        return nodeToMarkdown(node,"block").replace(/[\n]{2,}/g,"\n\n").replace(/^[\n]+/,"").replace(/[\n]+$/,"");
+    }catch(e){
+        alert("[toMarkdown]" + e);
+        guessCallFinished();
+        throw e;
+    }
 }
 
 var finishedCallsCnt = 0
@@ -138,7 +162,14 @@ function parseUri (str) {
 };
 
 function guessInformation(){
-    var url = parseUri($("#id_link").val());
+    var spec = $("#id_link").val();
+
+    // Stupid tracking
+    if(/http:\/\/news\.google\.com\/news\/url?.*url=([^&]+)/.test(spec)){
+        spec = decodeURIComponent(RegExp.$1);
+        $("#id_link").val(spec);
+    }
+    var url = parseUri(spec);
 
     if(!url || url.protocol.indexOf("http") != 0){
         alert("Please, write a valid url");
@@ -147,7 +178,7 @@ function guessInformation(){
 
     $("#mention_guess_prompt").html("guessing information...");
 
-    getURLContents(url["source"],function(node){
+    getURLContents(spec,function(node){
         $("#id_text").val(toMarkdown(node));
         $("#field_text_result").html("Extracted from the provided page").parent().addClass("guess-ok");
         guessCallFinished();
@@ -159,7 +190,7 @@ function guessInformation(){
     $("#field_source_name_result").html("Guessed from the url").parent().addClass("guess-ok");
 
 
-    $.getJSON(URL_ROOT + "source/" + source + ".json",function(res){
+    $.getJSON(URL_ROOT + "source/" + source + ".json?_="+new Date(), function(res){
         if(res.status != 200){
             alert("Server error: " + res.status + " " + res.message);
         }else{
@@ -196,6 +227,9 @@ function guessInformation(){
             });
             guessCallFinished();
         }
+    }).error(function(){
+        alert("Error guessing data :(");
+        guessCancell();
     });
 
     return false;

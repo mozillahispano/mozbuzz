@@ -17,6 +17,7 @@
                 <ul>
                     <li><a class="{% if view_name = "index" %}navactive{% endif %}" href="{% url index %}"><span>Overview</span></a></li>
                     <li><a class="{% if view_name = "mention" %}navactive{% endif %}" href="{% url create %}"><span>File report</span></a></li>
+                    <li><a class="{% if view_name = "queue" %}navactive{% endif %}" href="{% url queue %}"><span>Queue</span></a></li>
                 </ul>
             </div>
         </div>

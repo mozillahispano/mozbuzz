@@ -1,0 +1,21 @@
+{% extends "template.html" %}
+{% load i18n %}
+
+{% block main_content %}
+    <ul class="messages segmented queue">
+    {% for post in posts %}
+        <li class="message" id="entry_{{post.pk}}">
+            <a class="mention-title" href="{{post.link}}">{{ post.title }}</a> (Via {{post.feed.name}})
+            <div class="feed_content markdown">{{post.description|safe}}</div>
+            <ul class="meta">
+                <li><a href="{% url create %}?url={{ post.link|urlencode:"" }}">File report</a></li>
+                <li><a href="#" onclick="delete_entry({{post.pk}}); return false;">Hide</a></li>
+            </ul>
+        </li>
+    {% endfor %}
+    </ul>
+{% endblock %}
+
+{% block extrascript %}
+    <script src="{{MEDIA_URL}}js/queue.js" type="text/javascript"></script>
+{% endblock %}

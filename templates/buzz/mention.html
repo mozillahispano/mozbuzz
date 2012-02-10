@@ -42,4 +42,8 @@
     <script src="{{MEDIA_URL}}js/readability.js" type="text/javascript"></script>
     <script src="{{MEDIA_URL}}js/to-markdown.js" type="text/javascript"></script>
     <script src="{{MEDIA_URL}}js/mozreadability.js" type="text/javascript"></script>
+    {% if is_new and form.initial.link|length > 10 %}
+        <script type="text/javascript">guessInformation();</script>
+    {% endif %}
+    <script>
 {% endblock %}

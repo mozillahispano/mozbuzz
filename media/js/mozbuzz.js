@@ -29,7 +29,6 @@ $(document.body).delegate("a[data-althref]","click",function(e){
 
 
 (function(){
-
     var slider_values = [0,25,50,100,250,500,1000,2500,5000,10000,25000,50000,100000,250000,500000,1000000,10000000,100000000,1000000000,7000000000];
 
     function format_quantity(c){
@@ -70,4 +69,6 @@ $(document.body).delegate("a[data-althref]","click",function(e){
     });
 
 })();
+
+
 

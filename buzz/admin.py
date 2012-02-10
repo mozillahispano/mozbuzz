@@ -2,7 +2,7 @@ from django.contrib import admin
 
 from buzz.models import AuthorExpertise, Country, File, Mention, Product, \
     Report, ReportType, Source, MentionType, UserProfile, FollowUp, \
-    FollowUpStatus
+    FollowUpStatus, RSSFeed
 
 
 class BuzzAdmin(admin.ModelAdmin):
@@ -43,3 +43,4 @@ admin.site.register(Source, JustNameAdmin)
 #admin.site.register(UserProfile, BuzzAdmin)
 admin.site.register(FollowUp, FollowUpAdmin)
 admin.site.register(FollowUpStatus, JustNameAdmin)
+admin.site.register(RSSFeed)

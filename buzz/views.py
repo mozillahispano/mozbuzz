@@ -1,4 +1,4 @@
-import urllib
+import urllib, feedparser, time, datetime
 
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, HttpResponse
@@ -6,7 +6,7 @@ from django.shortcuts import get_object_or_404
 from django.core.urlresolvers import reverse
 
 from mozbuzz.buzz.forms import MentionForm, FollowUpForm
-from mozbuzz.buzz.models import Mention, FollowUp
+from mozbuzz.buzz.models import Mention, FollowUp, RSSPost, RSSFeed, Product
 from mozbuzz.buzz.search import buzz_search, clean_query
 from mozbuzz.buzz.utils import mozview, jsonview
 
@@ -47,7 +47,9 @@ def mention(request, pk=None):
         form = MentionForm(instance=Mention.enabled.get(pk=pk))
     else:
         is_new = True
-        form = MentionForm()
+        form = MentionForm(initial={
+            "link": request.GET.get("url","http://")
+        })
 
     return {"form": form, "pk": pk, "is_new": is_new}
 
@@ -84,4 +86,46 @@ def proxy(request):
 @jsonview
 def source_json(request,source):
     return [x.__obj__() for x in Mention.objects.filter(source_name=source)]
+
+@login_required
+@mozview
+def queue(request,product=None):
+    posts = RSSPost.objects.filter(hidden=False)
+
+    if product is not None:
+        product = get_object_or_404(Product,slug=product)
+        posts = posts.filter(feed__product=product)
+
+    return {
+        "posts": posts.order_by("pub_date").select_related("feed"),
+        "product": product,
+    }
+
+@login_required
+@mozview
+def update_queue(request):
+    for feed in RSSFeed.objects.all():
+        result = feedparser.parse(feed.url)
+        for entry in result.entries:
+            try:
+                entryObj = feed.posts.get(guid=entry.guid)
+            except RSSPost.DoesNotExist:
+                entryObj = RSSPost(guid=entry.guid, feed=feed)
+
+            entryObj.title = entry.title
+            entryObj.link = entry.link
+            entryObj.pub_date = datetime.datetime(*entry.updated_parsed[0:6])
+            entryObj.description = entry.summary
+            entryObj.save()
+
+    return HttpResponseRedirect(reverse(queue))
+
+
+@login_required
+@jsonview
+def queue_del(request):
+    post = RSSPost.objects.get(pk=request.POST["post"])
+    post.hidden = True
+    post.save()
+    return {}
 
