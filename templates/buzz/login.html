@@ -1,4 +1,6 @@
 {% extends "template.html" %}
+{{ browserid_form.media }}
+
 
 {% load i18n %}
 {% block main_content %}
@@ -20,6 +22,11 @@
 <input type="hidden" name="next" value="{{ next }}" />
 </form>
 
+<a id="browserid" href="{% url gracefully_degrade %}">Sign In</a>
+<form method="POST" action="{% url browserid_verify %}">
+   {% csrf_token %}
+   {{ browserid_form.as_p }}
+</form>
 {% endblock %}
 
 {% block left_col %}

@@ -1,6 +1,6 @@
 # Django settings for mozbuzz project.
 
-DEBUG  = True
+DEBUG  = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -95,6 +95,7 @@ TEMPLATE_DIRS = None#override me in local settings
 
 INSTALLED_APPS = (
     'django.contrib.auth',
+    'django_browserid',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
@@ -106,6 +107,19 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'south',
     'buzz',
+
+)
+
+AUTHENTICATION_BACKENDS = (
+    # ...
+    'django_browserid.auth.BrowserIDBackend',
+    # ...
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django_browserid.context_processors.browserid_form',
+    # ...
 )
 
 # A sample logging configuration. The only tangible logging
@@ -136,6 +150,16 @@ AUTH_PROFILE_MODULE = 'buzz.UserProfile'
 # Sets the URL prefix if the project is not in the URL's root
 # directory.
 URL_PREFIX = "mozbuzz/"
+
+SITE_URL = "https://www.mozilla-hispano.org/mozbuzz"
+
+LOGIN_REDIRECT_URL = '/'
+
+# Path to redirect to on unsuccessful login attempt.
+LOGIN_REDIRECT_URL_FAILURE = '/'
+
+# Create user accounts automatically if no user is found.
+BROWSERID_CREATE_USER = False
 
 try:
     from settings_local import *

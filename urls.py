@@ -11,6 +11,7 @@ urlpatterns = patterns('',
     url(r'^' + settings.URL_PREFIX + 'accounts/logout/$', 'django.contrib.auth.views.logout', {'template_name': 'logout.html'}),
     url(r'^' + settings.URL_PREFIX + 'accounts/password_change/$', 'django.contrib.auth.views.password_change', {'template_name': 'password_change.html'}),
     url(r'^' + settings.URL_PREFIX + 'accounts/password_change_done/$', 'django.contrib.auth.views.password_change_done', {'template_name': 'password_change_done.html'}),
+    (r'^browserid/', include('django_browserid.urls')),
 )
 
 if settings.DEBUG:
