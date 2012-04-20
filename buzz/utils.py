@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.template import RequestContext
 from django.http import HttpResponse, Http404
 import json
+from settings import MEDIA_URL
 
 def mozview(view):
     view_name = view.__name__
@@ -21,6 +22,7 @@ def mozview(view):
                 "MENTION_TYPES": lambda: dict([(c.pk, c.name) for c in MentionType.enabled.all()]),
                 "AUTHOR_EXPERTISES": lambda: dict([(c.pk, c.name) for c in AuthorExpertise.enabled.all()]),
                 "MENTION_ORIGINS": lambda: dict([(c.pk, c.name) for c in Source.enabled.all()]),
+                "MEDIA_URL": MEDIA_URL,
             }
             ctx.update(result)
             return render(request, "%s.html" % view_name, context_instance=RequestContext(request, ctx))
