@@ -1,0 +1,18 @@
+# MozBuzz
+
+< some description >
+
+## Development
+
+If you are a new commiter, is recommendable use virtualenv (or something like this)
+
+### Requirements:
+
+- django
+- south
+
+Then you need a local setting file.
+If you don't know what's that just copy
+	settings_local.py.example
+to 
+	setting_local.py
