@@ -17,4 +17,6 @@ urlpatterns = patterns('',
     url(r'^source/(?P<source>.*).json$', 'buzz.views.source_json', name="source_json"),
     url(r'^proxy$', 'buzz.views.proxy', name="proxy"),
     url(r'^about$', 'buzz.views.about', name="about"),
+    url(r'^$', 'buzz.views.index', name="gracefully_degrade"),
+
 )
