@@ -1,18 +1,37 @@
 # MozBuzz
 
-< some description >
+MozBuzz is a tool for tracking brand and product mentions in the press.
 
-## Development
+TODO: más detalles
 
-If you are a new commiter, is recommendable use virtualenv (or something like this)
+## Project Details
 
-### Requirements:
+### Code
 
-- django
-- south
+https://github.com/mozillahispano/mozbuzz
 
-Then you need a local setting file.
-If you don't know what's that just copy
-	settings_local.py.example
-to 
-	setting_local.py
+### Issue Tracker
+
+https://github.com/mozillahispano/mozbuzz/issues
+
+### Documentation
+
+Documentation is in the ``docs/`` directory including docs for
+installing, deploying, contributing, ...
+
+Most recent docs are at: http://mozbuzz.readthedocs.org/
+
+### IRC Channel
+``mozbuzz`` on ``irc.mozilla.org``
+
+
+## Want to help?
+TODO: inspiración
+
+
+## License
+This software is licensed under the [GPLv3][GPL]. For more
+information, read the file ``LICENSE``.
+
+[GPL]: http://www.gnu.org/licenses/gpl-3.0.html
+
