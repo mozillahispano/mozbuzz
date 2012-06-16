@@ -1,0 +1,964 @@
+[
+    {
+        "pk": 1, 
+        "model": "sites.site", 
+        "fields": {
+            "domain": "example.com", 
+            "name": "example.com"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "buzz.userprofile", 
+        "fields": {
+            "user": 2
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "buzz.product", 
+        "fields": {
+            "disabled": false, 
+            "creation_user": 1, 
+            "creation_date": "2012-01-29 10:06:09", 
+            "slug": "firefox", 
+            "name": "Firefox"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "buzz.product", 
+        "fields": {
+            "disabled": false, 
+            "creation_user": 1, 
+            "creation_date": "2012-01-29 10:06:22", 
+            "slug": "thunderbird", 
+            "name": "Thunderbird"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "buzz.country", 
+        "fields": {
+            "slug": "espana", 
+            "name": "Espa\u00f1a"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "buzz.country", 
+        "fields": {
+            "slug": "argentina", 
+            "name": "Argentina"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "buzz.source", 
+        "fields": {
+            "disabled": false, 
+            "creation_user": 1, 
+            "creation_date": "2011-10-31 11:33:48", 
+            "slug": "blog", 
+            "name": "blog"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "buzz.mentiontype", 
+        "fields": {
+            "disabled": false, 
+            "creation_user": 1, 
+            "creation_date": "2011-10-31 11:33:39", 
+            "slug": "articulo", 
+            "name": "Articulo"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "buzz.authorexpertise", 
+        "fields": {
+            "disabled": false, 
+            "creation_user": 1, 
+            "name": "Periodista de renombre", 
+            "creation_date": "2011-10-31 11:34:33"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "buzz.authorexpertise", 
+        "fields": {
+            "disabled": false, 
+            "creation_user": 1, 
+            "name": "Troll", 
+            "creation_date": "2011-11-11 05:15:15"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "buzz.mention", 
+        "fields": {
+            "origin": 1, 
+            "author_expertise": 1, 
+            "last_update_user": 1, 
+            "source_name": "placeholder.com", 
+            "feedback": 4, 
+            "estimated_audience": 10000, 
+            "text": "Un muy buen articulo, nos deja bien parados", 
+            "creation_user": 1, 
+            "relevant_audience": true, 
+            "product": null, 
+            "creation_date": "2011-10-31 11:34:58", 
+            "disabled": false, 
+            "update_rate": 0, 
+            "link": "http://blogs.blah.com/", 
+            "last_update_date": "2011-10-31 11:34:58", 
+            "remarks": "nada", 
+            "previous_product_comments": 1, 
+            "country": null, 
+            "type": 1
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "buzz.mention", 
+        "fields": {
+            "origin": 1, 
+            "author_expertise": 2, 
+            "last_update_user": 1, 
+            "source_name": "placeholder.com", 
+            "feedback": 0, 
+            "estimated_audience": 3, 
+            "text": "Se quejan de que firefox no funciona en su comodore 64", 
+            "creation_user": 1, 
+            "relevant_audience": false, 
+            "product": null, 
+            "creation_date": "2011-11-11 05:15:37", 
+            "disabled": false, 
+            "update_rate": 0, 
+            "link": "http://google.com/", 
+            "last_update_date": "2011-11-11 05:15:37", 
+            "remarks": "Nada", 
+            "previous_product_comments": 0, 
+            "country": null, 
+            "type": 1
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "buzz.mention", 
+        "fields": {
+            "origin": 1, 
+            "author_expertise": 1, 
+            "last_update_user": 1, 
+            "source_name": "placeholder.com", 
+            "feedback": 4, 
+            "estimated_audience": 0, 
+            "text": "sdfsf", 
+            "creation_user": null, 
+            "relevant_audience": true, 
+            "product": null, 
+            "creation_date": "2011-11-30 20:58:28", 
+            "disabled": false, 
+            "update_rate": 1, 
+            "link": "http://gmail.com/", 
+            "last_update_date": "2011-11-30 20:58:28", 
+            "remarks": "sdfsdf", 
+            "previous_product_comments": 1, 
+            "country": null, 
+            "type": 1
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "buzz.mention", 
+        "fields": {
+            "origin": 1, 
+            "author_expertise": 1, 
+            "last_update_user": 1, 
+            "source_name": "placeholder.com", 
+            "feedback": 4, 
+            "estimated_audience": 0, 
+            "text": "sdfsf", 
+            "creation_user": null, 
+            "relevant_audience": true, 
+            "product": null, 
+            "creation_date": "2011-11-30 20:59:21", 
+            "disabled": false, 
+            "update_rate": 1, 
+            "link": "http://gmail.com/", 
+            "last_update_date": "2011-11-30 20:59:21", 
+            "remarks": "sdfsdf", 
+            "previous_product_comments": 1, 
+            "country": null, 
+            "type": 1
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "buzz.mention", 
+        "fields": {
+            "origin": 1, 
+            "author_expertise": 1, 
+            "last_update_user": 1, 
+            "source_name": "placeholder.com", 
+            "feedback": 0, 
+            "estimated_audience": 100, 
+            "text": "sfdsfdm sdfsd sdf sd fsd", 
+            "creation_user": null, 
+            "relevant_audience": false, 
+            "product": null, 
+            "creation_date": "2011-11-30 21:09:03", 
+            "disabled": false, 
+            "update_rate": 2, 
+            "link": "http://blah.com/", 
+            "last_update_date": "2011-11-30 21:09:03", 
+            "remarks": "sdfsdf sdf sdf sdf sdf", 
+            "previous_product_comments": 1, 
+            "country": null, 
+            "type": 1
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "buzz.mention", 
+        "fields": {
+            "origin": 1, 
+            "author_expertise": 1, 
+            "last_update_user": 1, 
+            "source_name": "placeholder.com", 
+            "feedback": 0, 
+            "estimated_audience": 100, 
+            "text": "asdasd asd asd asd as", 
+            "creation_user": 1, 
+            "relevant_audience": false, 
+            "product": null, 
+            "creation_date": "2011-11-30 21:11:46", 
+            "disabled": false, 
+            "update_rate": 1, 
+            "link": "http://balh.com/", 
+            "last_update_date": "2011-11-30 21:11:46", 
+            "remarks": "asdfasd as da sda sd as", 
+            "previous_product_comments": 0, 
+            "country": null, 
+            "type": 1
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "buzz.mention", 
+        "fields": {
+            "origin": 1, 
+            "author_expertise": 1, 
+            "last_update_user": 1, 
+            "source_name": "placeholder.com", 
+            "feedback": 0, 
+            "estimated_audience": 100, 
+            "text": "HOLA!!!", 
+            "creation_user": 1, 
+            "relevant_audience": false, 
+            "product": null, 
+            "creation_date": "2011-12-03 10:34:01", 
+            "disabled": false, 
+            "update_rate": 1, 
+            "link": "http://balh.com/", 
+            "last_update_date": "2011-12-03 10:34:01", 
+            "remarks": "asdfasd as da sda sd as", 
+            "previous_product_comments": 0, 
+            "country": null, 
+            "type": 1
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "buzz.mention", 
+        "fields": {
+            "origin": 1, 
+            "author_expertise": 1, 
+            "last_update_user": 1, 
+            "source_name": "placeholder.com", 
+            "feedback": 0, 
+            "estimated_audience": 12, 
+            "text": "sdfsdf dsfs dfsd fas df", 
+            "creation_user": 1, 
+            "relevant_audience": true, 
+            "product": null, 
+            "creation_date": "2011-12-03 10:35:39", 
+            "disabled": false, 
+            "update_rate": 2, 
+            "link": "http://chau.com/", 
+            "last_update_date": "2011-12-03 10:35:55", 
+            "remarks": "erwerwer", 
+            "previous_product_comments": 1, 
+            "country": null, 
+            "type": 1
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "buzz.mention", 
+        "fields": {
+            "origin": 1, 
+            "author_expertise": 1, 
+            "last_update_user": 1, 
+            "source_name": "placeholder.com", 
+            "feedback": 0, 
+            "estimated_audience": 1, 
+            "text": "asd", 
+            "creation_user": 1, 
+            "relevant_audience": true, 
+            "product": null, 
+            "creation_date": "2011-12-16 08:41:16", 
+            "disabled": false, 
+            "update_rate": 0, 
+            "link": "http://a.co/", 
+            "last_update_date": "2011-12-16 08:41:16", 
+            "remarks": "dfgfg", 
+            "previous_product_comments": 0, 
+            "country": null, 
+            "type": 1
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "buzz.mention", 
+        "fields": {
+            "origin": 1, 
+            "author_expertise": 1, 
+            "last_update_user": 1, 
+            "source_name": "placeholder.com", 
+            "feedback": 0, 
+            "estimated_audience": 1, 
+            "text": "asd", 
+            "creation_user": 1, 
+            "relevant_audience": true, 
+            "product": null, 
+            "creation_date": "2011-12-16 08:51:29", 
+            "disabled": false, 
+            "update_rate": 0, 
+            "link": "http://a.co/", 
+            "last_update_date": "2011-12-16 08:51:29", 
+            "remarks": "dfgfg", 
+            "previous_product_comments": 0, 
+            "country": null, 
+            "type": 1
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "buzz.mention", 
+        "fields": {
+            "origin": 1, 
+            "author_expertise": 1, 
+            "last_update_user": 1, 
+            "source_name": "placeholder.com", 
+            "feedback": 0, 
+            "estimated_audience": 1, 
+            "text": "asddd", 
+            "creation_user": 1, 
+            "relevant_audience": true, 
+            "product": 1, 
+            "creation_date": "2011-12-16 08:55:00", 
+            "disabled": false, 
+            "update_rate": 0, 
+            "link": "http://a.co/", 
+            "last_update_date": "2012-01-29 10:48:21", 
+            "remarks": "dfgfg", 
+            "previous_product_comments": 0, 
+            "country": 1, 
+            "type": 1
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "buzz.mention", 
+        "fields": {
+            "origin": 1, 
+            "author_expertise": 1, 
+            "last_update_user": 1, 
+            "source_name": "placeholder.com", 
+            "feedback": 1, 
+            "estimated_audience": 1, 
+            "text": "asd", 
+            "creation_user": 1, 
+            "relevant_audience": true, 
+            "product": 2, 
+            "creation_date": "2012-01-30 14:49:40", 
+            "disabled": false, 
+            "update_rate": 0, 
+            "link": "http://a.co/", 
+            "last_update_date": "2012-01-30 14:49:40", 
+            "remarks": "1", 
+            "previous_product_comments": 0, 
+            "country": 1, 
+            "type": 1
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "buzz.mention", 
+        "fields": {
+            "origin": 1, 
+            "author_expertise": 1, 
+            "last_update_user": 1, 
+            "source_name": "placeholder.com", 
+            "feedback": 1, 
+            "estimated_audience": 1, 
+            "text": "asd", 
+            "creation_user": 1, 
+            "relevant_audience": true, 
+            "product": 2, 
+            "creation_date": "2012-01-30 14:50:22", 
+            "disabled": false, 
+            "update_rate": 0, 
+            "link": "http://a.co/", 
+            "last_update_date": "2012-01-30 14:50:22", 
+            "remarks": "1", 
+            "previous_product_comments": 0, 
+            "country": 1, 
+            "type": 1
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "buzz.mention", 
+        "fields": {
+            "origin": 1, 
+            "author_expertise": 1, 
+            "last_update_user": 1, 
+            "source_name": "placeholder.com", 
+            "feedback": 1, 
+            "estimated_audience": 1, 
+            "text": "asd", 
+            "creation_user": 1, 
+            "relevant_audience": true, 
+            "product": 2, 
+            "creation_date": "2012-01-30 14:50:42", 
+            "disabled": false, 
+            "update_rate": 0, 
+            "link": "http://a.co/", 
+            "last_update_date": "2012-01-30 14:50:42", 
+            "remarks": "1", 
+            "previous_product_comments": 0, 
+            "country": 1, 
+            "type": 1
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "buzz.mention", 
+        "fields": {
+            "origin": 1, 
+            "author_expertise": 1, 
+            "last_update_user": 1, 
+            "source_name": "placeholder.com", 
+            "feedback": 1, 
+            "estimated_audience": 1, 
+            "text": "asd", 
+            "creation_user": 1, 
+            "relevant_audience": true, 
+            "product": 2, 
+            "creation_date": "2012-01-30 14:52:41", 
+            "disabled": false, 
+            "update_rate": 0, 
+            "link": "http://a.co/", 
+            "last_update_date": "2012-01-30 14:52:41", 
+            "remarks": "1", 
+            "previous_product_comments": 0, 
+            "country": 1, 
+            "type": 1
+        }
+    }, 
+    {
+        "pk": 16, 
+        "model": "buzz.mention", 
+        "fields": {
+            "origin": 1, 
+            "author_expertise": 1, 
+            "last_update_user": 1, 
+            "source_name": "placeholder.com", 
+            "feedback": 1, 
+            "estimated_audience": 1, 
+            "text": "asd", 
+            "creation_user": 1, 
+            "relevant_audience": true, 
+            "product": 2, 
+            "creation_date": "2012-01-30 14:52:51", 
+            "disabled": false, 
+            "update_rate": 0, 
+            "link": "http://a.co/", 
+            "last_update_date": "2012-01-30 14:52:51", 
+            "remarks": "1", 
+            "previous_product_comments": 0, 
+            "country": 1, 
+            "type": 1
+        }
+    }, 
+    {
+        "pk": 17, 
+        "model": "buzz.mention", 
+        "fields": {
+            "origin": 1, 
+            "author_expertise": 1, 
+            "last_update_user": 1, 
+            "source_name": "placeholder.com", 
+            "feedback": 1, 
+            "estimated_audience": 1, 
+            "text": "asd", 
+            "creation_user": 1, 
+            "relevant_audience": true, 
+            "product": 2, 
+            "creation_date": "2012-01-30 14:56:43", 
+            "disabled": false, 
+            "update_rate": 0, 
+            "link": "http://a.co/", 
+            "last_update_date": "2012-01-30 14:56:43", 
+            "remarks": "1", 
+            "previous_product_comments": 0, 
+            "country": 1, 
+            "type": 1
+        }
+    }, 
+    {
+        "pk": 18, 
+        "model": "buzz.mention", 
+        "fields": {
+            "origin": 1, 
+            "author_expertise": 1, 
+            "last_update_user": 1, 
+            "source_name": "placeholder.com", 
+            "feedback": 1, 
+            "estimated_audience": 0, 
+            "text": "asd", 
+            "creation_user": 2, 
+            "relevant_audience": true, 
+            "product": 1, 
+            "creation_date": "2012-01-30 15:01:04", 
+            "disabled": false, 
+            "update_rate": 0, 
+            "link": "http://a.co/", 
+            "last_update_date": "2012-01-30 15:01:04", 
+            "remarks": "0", 
+            "previous_product_comments": 1, 
+            "country": 1, 
+            "type": 1
+        }
+    }, 
+    {
+        "pk": 19, 
+        "model": "buzz.mention", 
+        "fields": {
+            "origin": 1, 
+            "author_expertise": 1, 
+            "last_update_user": 1, 
+            "source_name": "placeholder.com", 
+            "feedback": 0, 
+            "estimated_audience": 0, 
+            "text": "AAAAA", 
+            "creation_user": 2, 
+            "relevant_audience": true, 
+            "product": 2, 
+            "creation_date": "2012-01-30 15:12:05", 
+            "disabled": false, 
+            "update_rate": 0, 
+            "link": "http://a.co/", 
+            "last_update_date": "2012-02-04 08:48:47", 
+            "remarks": "0", 
+            "previous_product_comments": 1, 
+            "country": 1, 
+            "type": 1
+        }
+    }, 
+    {
+        "pk": 20, 
+        "model": "buzz.mention", 
+        "fields": {
+            "origin": 1, 
+            "author_expertise": 2, 
+            "last_update_user": 2, 
+            "source_name": "placeholder.com", 
+            "feedback": 0, 
+            "estimated_audience": 0, 
+            "text": "Mozilla Thunderbird 10 La Fundaci\u00f3n Mozilla ha publicado Thunderbird 10, coincidiendo con el lanzamiento de Firefox 10.\r\n\r\n Como viene siendo habitual desde que publicaron la versi\u00f3n 5, \u2014la 4 se la saltaron\u2014, el cliente de correo tambi\u00e9n entr\u00f3 en la din\u00e1mica de ciclo de desarrollo r\u00e1pido y se sale de forma simult\u00e1nea con el navegador. Habiendo aparecido hace aproximadamente seis semanas la versi\u00f3n anterior, las novedades que podemos esperar no son muchas, aunque en esta ocasi\u00f3n merece la pena rese\u00f1ar las que incorpora. La m\u00e1s interesante es poder realizar b\u00fasquedas en la web desde el propio programa. Thunderbird 10, detalles Si ahora introducimos un t\u00e9rmino en la caja de b\u00fasqueda, adem\u00e1s de disponer de la opci\u00f3n para buscar dentro de nuestros correos, aparecer\u00e1 una segunda posibilidad, \u201cbuscar en la web: (t\u00e9rmino de b\u00fasqueda)\u201d. No representa ninguna revoluci\u00f3n, pero s\u00ed resulta c\u00f3modo. Tambi\u00e9n permite resaltar un texto y con el bot\u00f3n derecho del rat\u00f3n, adem\u00e1s de \u201cCopiar\u201d y \u201cSeleccionar todo\u201d, aparecer\u00e1 el mismo mensaje que en el caso anterior. A esto hay que a\u00f1adir que podemos elegir el buscador a emplear (Google, Bing, Yahoo!, Wikipedia, y otros). b\u00fasqueda bot\u00f3n derecho Como en cada actualizaci\u00f3n, nos anuncian un arranque ligeramente m\u00e1s r\u00e1pido que en el caso anterior. No soy capaz de percibir la sutileza, pero tampoco voy a poner en duda la palabra del equipo de desarrollo. Otra novedad es la incorporaci\u00f3n al producto del nuevo motor Mozilla Gecko 10, que a d\u00eda de hoy y seg\u00fan Mozilla, contin\u00faa en desarrollo. Este aspecto pudiera incidir en la estabilidad del programa, aunque sus responsables manifiestan que esta versi\u00f3n es m\u00e1s estable y segura. El asistente para crear cuentas de correo tambi\u00e9n ha sido revisado para mejorar la configuraci\u00f3n de \u00e9stas. Tambi\u00e9n disponemos de una nueva p\u00e1gina de informaci\u00f3n sobre resoluci\u00f3n de problemas, que podemos encontrar en \u201cAyuda\u201d > \u201cInformaci\u00f3n sobre resoluci\u00f3n de problemas\u201d. Thunderbird 10 tambi\u00e9n cuenta con un nuevo administrador de complementos. Gestor de complementos Como ten\u00eda Lightning 1.1.1 (extensi\u00f3n que a\u00f1ade funciones de calendario y agenda) en la versi\u00f3n anterior, a la hora de instalar ha aparecido el aviso de incompatibilidad y tras pulsar el bot\u00f3n \u201cComprobar ahora\u201d, el asistente ha brindado la posibilidad de actualizar a la 1.2, que s\u00ed es compatible. Finalmente comentar que, adem\u00e1s de la consabida correcci\u00f3n de errores, se han introducido mejoras en la b\u00fasqueda de correos \u2013uno de los aspectos peor resueltos en Thunderbird en mi opini\u00f3n\u2014y solucionado algunos fallos en el manejo de borradores. El Ying y el Yang de Thunderbird El ciclo de desarrollo corto impuesta por Mozilla le ha venido bien al cliente de correo para salir del ostracismo. Thunderbird ha estado un tiempo dejado de la mano, ahora se le presta atenci\u00f3n y est\u00e1 mejorando mucho. Es una alternativa a tener en cuenta tan digna como cualquier otra de la competencia. El lado oscuro de esta pol\u00edtica en el caso de Thunderbird es que, al tratarse de un programa b\u00e1sico, suplir actualizaciones por versiones es un gran error. Un problema para el usuario no avanzado, que es el mayoritario, y un disparate para la empresa. No olvidemos que para actualizar el programa no hay una opci\u00f3n expl\u00edcita, sino que hemos de ir \u201cAyuda\u201d > \u201cAcerca de Thunderbird\u201d para que la aplicaci\u00f3n compruebe si existe nueva versi\u00f3n. La Fundaci\u00f3n Mozilla deber\u00eda tomar nota de lo que ya es un clamor, el ciclo de desarrollo r\u00e1pido no gusta. Si medimos por resultados, est\u00e1n perdiendo cuota en el navegador y el cliente de correo, salvo para los incondicionales, es m\u00e1s una molestia que una soluci\u00f3n. M\u00e1s informaci\u00f3n | Mozilla ", 
+            "creation_user": 2, 
+            "relevant_audience": true, 
+            "product": 1, 
+            "creation_date": "2012-02-06 18:46:00", 
+            "disabled": false, 
+            "update_rate": 0, 
+            "link": "http://a.co/", 
+            "last_update_date": "2012-02-07 09:29:44", 
+            "remarks": "0", 
+            "previous_product_comments": 0, 
+            "country": 2, 
+            "type": 1
+        }
+    }, 
+    {
+        "pk": 21, 
+        "model": "buzz.mention", 
+        "fields": {
+            "origin": 1, 
+            "author_expertise": 2, 
+            "last_update_user": 2, 
+            "source_name": "genbetadev.com", 
+            "feedback": 0, 
+            "estimated_audience": 110, 
+            "text": "#  Parallax scrolling, desplazamientos con resultado 3D a partir de elementos 2D\r\n\r\nPara votar este post con\u00e9ctate con Facebook Connect \r\n\r\n[_Image_: Elementos dispuestos en m\u00faltiples capas para aplicar parallax scrolling](http://img.genbetadev.com/2012/02/Parallax_scrolling.jpg)\r\n\r\nSi eres una de esas personas amantes de los vetustos **juegos de plataformas horizontales** es probable que sin saberlo te hayas topado cientos de veces con el **parallax scrolling** (lo que en espa\u00f1ol vendr\u00eda a ser algo as\u00ed como _desplazamiento con paralelaje_). Esta t\u00e9cnica consigue enga\u00f1ar a nuestro ojo para apreciar **profundidades 3D en un dibujo 2D**.\r\n\r\nSu funcionamiento es bastante simple de entender, y m\u00e1s sencillo de ejecutar que crear un modelado 3D y renderizarlo. Se basa en un principio de \u00f3ptica por el cual los objetos m\u00e1s cercanos sufren una desviaci\u00f3n angular aparente superior a los lejanos. O dicho de modo m\u00e1s llano, **los objetos que est\u00e1n en primer plano se desplazan m\u00e1s r\u00e1pido que los que est\u00e1n en el fondo**.\r\n\r\nY su implementaci\u00f3n no es mucho m\u00e1s complicada, ya que basta con crear distintas capas y mover cada una a velocidad distinta seg\u00fan nuestro centro de atenci\u00f3n se vaya desplazando. Por ejemplo, en un juego t\u00edpico como [Sonic](http://www.vidaextra.com/juegos/plataformas/sonic-the-hedgehog) o [Mario](http://www.vidaextra.com/juegos/plataformas/super-mario-bros), lo normal es tener tres capas: una para el primer plano que se desplaza a la misma velocidad que nuestro personaje, otra para el segundo plano que se desplazar\u00e1 a una velocidad menor, y una \u00faltima para el fondo muy lejano que se desplaza muy lentamente o incluso permanece est\u00e1tica.\r\n\r\n[_Image_: Ejemplo de parallax scrolling](http://img.genbetadev.com/2012/02/Parallax_scrolling.gif)\r\n\r\nPara evitar la sensaci\u00f3n de _saltos_ para la vista que produce la imagen anterior, y que el desplazamiento resulte _suave_ para el ojo humano, lo ideal es que la tasa de refresco sea de **entre 60 y 120 fps**.\r\n\r\nPero esta t\u00e9cnica no s\u00f3lo es \u00fatil en videojuegos, sino que tambi\u00e9n se puede aplicar en la elaboraci\u00f3n de p\u00e1ginas web para obtener resultados sorprendentes. Desde simular [un ascensor que desciende hasta la Atl\u00e1ntida](http://lostworldsfairs.com/atlantis/) a [un simple detalle est\u00e9tico que s\u00f3lo se aprecia redimensionando la ventana](http://silverbackapp.com/).\r\n\r\nY si enfrentarte _a pelo_ con el CSS, layouts y profundidades te asusta, existe un magn\u00edfico [plugin para jQuery llamado jParallax](http://webdev.stephband.info/parallax.html), con el que aparte de ganar en sencillez, podemos hacer que el efecto se dispare por todo tipo de eventos: movimiento del rat\u00f3n, clics, scroll vertical, redimensionado de la ventana, etc. No os perd\u00e1is sus demos para ver todo su potencial.\r\n\r\nV\u00eda | [@vlledo](https://twitter.com/#%21/vlledo)\r\n\r\nM\u00e1s informaci\u00f3n | [Tutorial sobre Parallax Scrolling en web](http://www.richardshepherd.com/smashing/parallax/background.html)\r\n\r\nIm\u00e1genes | Wikipedia: [Capas](http://commons.wikimedia.org/wiki/File:TWW_parallax_scrolling_sample_1.jpg) y [ejemplo](http://commons.wikimedia.org/wiki/File:Parallax-scroll-example.gif)", 
+            "creation_user": 2, 
+            "relevant_audience": true, 
+            "product": 2, 
+            "creation_date": "2012-02-07 13:29:34", 
+            "disabled": false, 
+            "update_rate": 3, 
+            "link": "http://www.genbetadev.com/programacion-de-videojuegos/parallax-scrolling-desplazamientos-con-resultado-3d-a-partir-de-elementos-2d", 
+            "last_update_date": "2012-02-07 14:22:59", 
+            "remarks": "", 
+            "previous_product_comments": 1, 
+            "country": 1, 
+            "type": 1
+        }
+    }, 
+    {
+        "pk": 22, 
+        "model": "buzz.mention", 
+        "fields": {
+            "origin": 1, 
+            "author_expertise": 1, 
+            "last_update_user": 2, 
+            "source_name": "europapress.es", 
+            "feedback": 3, 
+            "estimated_audience": 10000, 
+            "text": "#  Firefox 10 ya est\u00e1 disponible para ordenadores y dispositivos Android\r\n\r\nundefinedundefined\r\n\r\nMADRID, 1 Feb. (Portaltic/EP) \\- \r\n\r\n Mozilla ha liberado la \u00faltima versi\u00f3n de su navegador web. Se trata de Firefox 10, que llega con novedades que afectan a los complementos y extensiones y la correcci\u00f3n de una larga lista de errores. La \u00faltima versi\u00f3n del navegador ya est\u00e1 disponible para ordenadores y para dispositivos Android. \r\n\r\n El nivel de evoluci\u00f3n en los navegadores se mantiene y cada vez pasa menos tiempo entre una versi\u00f3n y otra. Chrome, Internet Explorer y Firefox mantienen una batalla por la cuota de mercado en la que parece que puede acabar con el competidor que no renueve su producto. Por este motivo, las compa\u00f1\u00edas no se detienen y lanzan nuevas versiones constantemente. \r\n\r\n En el caso de Firefox, la \u00faltima versi\u00f3n en ver la luz ha sido Firefox 10. El navegador de Mozilla se actualiza con novedades principalmente en su rendimiento y funcionalidad. Mozilla ha corregido una gran lista de errores, que se puede consultar de forma completa en la p\u00e1gina web de la compa\u00f1\u00eda. \r\n\r\n Adem\u00e1s de corregir los bugs de rigor, Mozilla tambi\u00e9n ha incluido varias novedades en la versi\u00f3n 10 de Firefox. Por ejemplo esta versi\u00f3n del navegador oculta el bot\u00f3n 'adelante' de forma que solo aparece cuando los usuarios deciden retroceder a la p\u00e1gina que estaban consultando. Firefox 10 tambi\u00e9n destaca por incorporar el sistema 'Extended Support Release', pensado para alertar a los usuarios de novedades y actualizaciones relacionadas con la seguridad. \r\n\r\n Mozilla tambi\u00e9n ha descartado que en Firefox 10 han trabajado para hacer que m\u00e1s extensiones y aplicaciones sean compatibles. El renderizado del navegador y su rendimiento, como es habitual en las actualizaciones, tambi\u00e9n ha sido mejorado. Pensando en los desarrolladores, Mozilla ha anunciado nuevas herramientas para interactuar y cambiar webs en tiempo real y el lanzamiento de la API para crear aplicaciones a pantalla completa entre otras novedades. \r\n\r\n Junto al lanzamiento de la versi\u00f3n para ordenadores de Firefox 10, Mozilla ha actualizado su aplicaci\u00f3n para Android. En Android Market se puede ver que Firefox se ha actualizado y Mozilla ha destacado como principales novedades la mejora de la configuraci\u00f3n Sync y la soluci\u00f3n de problemas, cuya lista est\u00e1 disponible en la web de Mozilla. \r\n\r\n Enlaces relacionados: \r\n\r\n \\- P\u00e1gina de Firefox 10 ([http://www.mozilla.org/en\\-US/firefox/new/](http://www.mozilla.org/en-US/firefox/new/))\r\n\r\n \\- Firefox en Android Market ([https://market.android.com/details?id=org.mozilla.firefox](https://market.android.com/details?id=org.mozilla.firefox))", 
+            "creation_user": 2, 
+            "relevant_audience": false, 
+            "product": 2, 
+            "creation_date": "2012-02-10 07:24:32", 
+            "disabled": false, 
+            "update_rate": 5, 
+            "link": "http://www.europapress.es/portaltic/software/noticia-firefox-10-ya-disponible-ordenadores-dispositivos-android-20120201154055.html", 
+            "last_update_date": "2012-02-10 07:24:32", 
+            "remarks": "", 
+            "previous_product_comments": 1, 
+            "country": null, 
+            "type": 1
+        }
+    }, 
+    {
+        "pk": 23, 
+        "model": "buzz.mention", 
+        "fields": {
+            "origin": 1, 
+            "author_expertise": 1, 
+            "last_update_user": 2, 
+            "source_name": "eleconomista.es", 
+            "feedback": 0, 
+            "estimated_audience": 0, 
+            "text": "#  Ya est\u00e1 disponible Firefox 10, tambi\u00e9n con versi\u00f3n para Android\r\n\r\nEuropa Press\r\n\r\n1/02/2012 \\- 17:39\r\n\r\n Punt\u00faa la noticia : \r\n\r\n[_Image_: ](/imagenes/menos-rojo.png)\r\n\r\n[_Image_: ](/imagenes/mas-verde.png)\r\n\r\nNota de los usuarios: 10,0 (2votos) \r\n\r\n###  elEconomista.es en Twitter\r\n\r\nMozilla ha liberado la \u00faltima versi\u00f3n de su navegador web. Se trata de Firefox 10, que llega con novedades que afectan a los complementos y extensiones y la correcci\u00f3n de una larga lista de errores. La \u00faltima versi\u00f3n del navegador ya est\u00e1 disponible para ordenadores y para dispositivos Android.\r\n\r\n El nivel de evoluci\u00f3n en los navegadores se mantiene y cada vez pasa menos tiempo entre una versi\u00f3n y otra. Chrome, Internet Explorer y Firefox mantienen una batalla por la cuota de mercado en la que parece que puede acabar con el competidor que no renueve su producto. Por este motivo, las compa\u00f1\u00edas no se detienen y lanzan nuevas versiones constantemente.\r\n\r\nEn el caso de Firefox, la \u00faltima versi\u00f3n en ver la luz ha sido Firefox 10. El navegador de Mozilla se actualiza con novedades principalmente en su rendimiento y funcionalidad.** Mozilla ha corregido una gran lista de errores**, que se puede consultar de forma completa en la p\u00e1gina web de la compa\u00f1\u00eda.\r\n\r\n Adem\u00e1s de corregir los bugs de rigor, Mozilla tambi\u00e9n ha incluido varias novedades en la versi\u00f3n 10 de Firefox. Por ejemplo esta versi\u00f3n del navegador oculta el bot\u00f3n _adelante_ de forma que solo aparece cuando los usuarios deciden retroceder a la p\u00e1gina que estaban consultando. Firefox 10 tambi\u00e9n destaca por incorporar el sistema _Extended Support Release_,** pensado para alertar a los usuarios de novedades y actualizaciones relacionadas con la seguridad.**\r\n\r\n Mozilla tambi\u00e9n ha descartado que en Firefox 10 han trabajado para hacer que m\u00e1s extensiones y aplicaciones sean compatibles. El renderizado del navegador y su rendimiento, como es habitual en las actualizaciones, tambi\u00e9n ha sido mejorado. Pensando en los desarrolladores, Mozilla ha anunciado nuevas herramientas para interactuar y cambiar webs en tiempo real y el lanzamiento de la API para crear aplicaciones a pantalla completa entre otras novedades.\r\n\r\n Junto al lanzamiento de la [versi\u00f3n para ordenadores](http://www.mozilla.org/en-US/firefox/new/) de Firefox 10, Mozilla ha actualizado su [aplicaci\u00f3n para Android.](https://market.android.com/details?id=org.mozilla.firefox) En Android Market se puede ver que Firefox se ha actualizado y Mozilla ha destacado como principales novedades la **mejora de la configuraci\u00f3n Sync y la soluci\u00f3n de problemas.**\r\n\r\nPUBLICIDAD", 
+            "creation_user": 2, 
+            "relevant_audience": false, 
+            "product": 1, 
+            "creation_date": "2012-02-10 07:34:30", 
+            "disabled": false, 
+            "update_rate": 0, 
+            "link": "http://www.eleconomista.es/tecnologia-internet/noticias/3714756/02/12/Ya-esta-disponible-Firefox-10-tambien-con-version-para-Android.html", 
+            "last_update_date": "2012-02-10 07:34:30", 
+            "remarks": "", 
+            "previous_product_comments": 0, 
+            "country": null, 
+            "type": 1
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "buzz.followupstatus", 
+        "fields": {
+            "slug": "contacto", 
+            "name": "Contacto"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "buzz.followup", 
+        "fields": {
+            "status": 1, 
+            "creation_user": 1, 
+            "creation_date": "2011-10-31 12:10:30", 
+            "disabled": false, 
+            "mention": 1, 
+            "remarks": "Hemos contactado con el autor, aun no ha respondido"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "buzz.followup", 
+        "fields": {
+            "status": 1, 
+            "creation_user": 1, 
+            "creation_date": "2011-12-02 13:58:18", 
+            "disabled": false, 
+            "mention": 1, 
+            "remarks": "sfdasf"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "buzz.followup", 
+        "fields": {
+            "status": 1, 
+            "creation_user": 1, 
+            "creation_date": "2011-12-02 13:58:39", 
+            "disabled": false, 
+            "mention": 1, 
+            "remarks": "HOLA QUE TAL"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "buzz.followup", 
+        "fields": {
+            "status": 1, 
+            "creation_user": 1, 
+            "creation_date": "2011-12-02 14:10:58", 
+            "disabled": false, 
+            "mention": 1, 
+            "remarks": "TEST PLEASE IGNORE LOL"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "buzz.followup", 
+        "fields": {
+            "status": 1, 
+            "creation_user": 1, 
+            "creation_date": "2011-12-19 17:12:32", 
+            "disabled": false, 
+            "mention": 11, 
+            "remarks": "Blah blah blah dos"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "buzz.followup", 
+        "fields": {
+            "status": 1, 
+            "creation_user": 1, 
+            "creation_date": "2011-12-19 17:29:54", 
+            "disabled": false, 
+            "mention": 11, 
+            "remarks": "asd asd wq ewr ewfdsdf sdf sad fsad f"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "buzz.followup", 
+        "fields": {
+            "status": 1, 
+            "creation_user": 1, 
+            "creation_date": "2011-12-19 17:31:18", 
+            "disabled": false, 
+            "mention": 11, 
+            "remarks": "blehhhhhsd sdf asdf asdf asdf asdf sd"
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "buzz.followup", 
+        "fields": {
+            "status": 1, 
+            "creation_user": 2, 
+            "creation_date": "2012-01-30 15:12:26", 
+            "disabled": false, 
+            "mention": 19, 
+            "remarks": "Test"
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "buzz.followup", 
+        "fields": {
+            "status": 1, 
+            "creation_user": 2, 
+            "creation_date": "2012-02-06 10:29:58", 
+            "disabled": false, 
+            "mention": 19, 
+            "remarks": "Hola!\r\n\r\n# Titulo\r\n## Titulo mas peque\u00f1o\r\n\r\n* Bullet\r\n* Bullet"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "buzz.rssfeed", 
+        "fields": {
+            "url": "http://news.google.com/news?hl=es&gl=es&q=firefox&gs_upl=1925l2396l0l2499l7l5l0l2l2l1l179l467l0.3l3l0&um=1&ie=UTF-8&output=rss", 
+            "product": 1, 
+            "last_updated": "2012-02-10 12:36:39", 
+            "name": "Google news"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "buzz.rsspost", 
+        "fields": {
+            "feed": 1, 
+            "description": "<table border=\"0\" cellpadding=\"2\" cellspacing=\"7\" style=\"vertical-align: top;\"><tr><td align=\"center\" valign=\"top\" width=\"80\"><font style=\"font-size: 85%; font-family: arial,sans-serif;\"></font></td><td class=\"j\" valign=\"top\"><font style=\"font-size: 85%; font-family: arial,sans-serif;\"><br /><div style=\"padding-top: 0.8em;\"><img alt=\"\" height=\"1\" width=\"1\" /></div><div class=\"lh\"><a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNGWs2kvlvGuM7KX1u1k1JhBY6gUqw&amp;url=http://www.softzone.es/2012/02/10/mozilla-firefox-10-0-1-final-disponible-para-su-descarga/\"><b>Mozilla <b>Firefox</b> 10.0.1 Final disponible para su descarga</b></a><br /><font size=\"-1\"><b><font color=\"#6f6f6f\">Softzone.es</font></b></font><br /><font size=\"-1\">Aunque toda v\u00eda no est\u00e1 disponible a trav\u00e9s de la web oficial de Mozilla, ni tampoco buscando actualizaciones desde las opciones del navegador, ya podemos descargar Mozilla <b>Firefox</b> 10.0.1 en versi\u00f3n final y estable desde los servidores FTP de <b>Firefox</b>.</font><br /><font size=\"-1\"><a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNHG9UvMoV3ESI_tiNMqCxQIYNPV0A&amp;url=http://www.muycomputer.com/2012/02/06/firefox-11-beta-disponible\"><b>Firefox</b> 11 beta disponible</a><font color=\"#6f6f6f\" size=\"-1\">MuyComputer</font></font><br /><font size=\"-1\"><a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNH8VlBzh0WYzYniR5si1fi9Cmgi9Q&amp;url=http://www.noticias2d.com/2012/02/09/firefox-11-firefox-11-0-beta-2-disponible/\"><b>Firefox</b> 11 / <b>Firefox</b> 11.0 Beta 2 disponible</a><font color=\"#6f6f6f\" size=\"-1\">Noticias 2D</font></font><br /><font size=\"-1\"><a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNFvYTjdKhugNy0ByeEdkMbn92Vx7w&amp;url=http://www.muylinux.com/2012/02/07/firefox-11-beta-disponibl/\"><b>Firefox</b> 11 Beta, disponible (y si me apur\u00e1is, <b>Firefox</b> 12)</a><font color=\"#6f6f6f\" size=\"-1\">MuyLinux</font></font><br /><font class=\"p\" size=\"-1\"></font><br /><font class=\"p\" size=\"-1\"><a class=\"p\" href=\"http://news.google.com/news/story?ncl=d03OgLNOjVFP0LMl4ZxHvej8qXjHM&amp;ned=es_us\"><b>los 7 art\u00edculos informativos&nbsp;&raquo;</b></a></font></div></font></td></tr></table>", 
+            "title": "Mozilla Firefox 10.0.1 Final disponible para su descarga - Softzone.es", 
+            "link": "http://news.google.com/news/url?sa=t&fd=R&usg=AFQjCNGWs2kvlvGuM7KX1u1k1JhBY6gUqw&url=http://www.softzone.es/2012/02/10/mozilla-firefox-10-0-1-final-disponible-para-su-descarga/", 
+            "hidden": false, 
+            "guid": "tag:news.google.com,2005:cluster=http://www.softzone.es/2012/02/10/mozilla-firefox-10-0-1-final-disponible-para-su-descarga/", 
+            "pub_date": "2012-02-10 10:16:10"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "buzz.rsspost", 
+        "fields": {
+            "feed": 1, 
+            "description": "<table border=\"0\" cellpadding=\"2\" cellspacing=\"7\" style=\"vertical-align: top;\"><tr><td align=\"center\" valign=\"top\" width=\"80\"><font style=\"font-size: 85%; font-family: arial,sans-serif;\"><a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNGk8H_SnKE0UjlBih1RPOisjJxZvA&amp;url=http://www.tuexperto.com/2012/02/06/los-nuevos-cambios-que-llegaran-a-firefox-11-y-firefox-12/\"><img alt=\"\" border=\"1\" height=\"80\" src=\"http://nt1.ggpht.com/news/tbn/WVe5-Ze7wJO3BM/6.jpg\" width=\"80\" /><br /><font size=\"-2\">tuexperto.com</font></a></font></td><td class=\"j\" valign=\"top\"><font style=\"font-size: 85%; font-family: arial,sans-serif;\"><br /><div style=\"padding-top: 0.8em;\"><img alt=\"\" height=\"1\" width=\"1\" /></div><div class=\"lh\"><a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNHj5k9ykcmfw2FzdXlLQpVH9-AtPA&amp;url=http://www.analitica.com/tecnologia/7759795.asp\"><b><b>Firefox</b> 11 integrar\u00e1 SPDY</b></a><br /><font size=\"-1\"><b><font color=\"#6f6f6f\">Anal\u00edtica.com</font></b></font><br /><font size=\"-1\"><b>Firefox</b> 11 se encuentra en fase Beta y ya cuenta con esta especificaci\u00f3n, sin embargo, debemos activarla manualmente a traves de 'about:config', ya que por defecto est\u00e1 desactivada. Informaci\u00f3n bitelia.com No es la primera vez que Mozilla hace un <b>...</b></font><br /><font size=\"-1\"><a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNHNgqDHrOGaSx7W4BPemuUr5eV6Gw&amp;url=http://somoslibres.org/modules.php?name%3DNews%26file%3Darticle%26sid%3D5250\">\u00bf<b>Firefox</b> esta compitiendo con Chrome en versiones?</a><font color=\"#6f6f6f\" size=\"-1\">Somos Libres</font></font><br /><font size=\"-1\"><a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNGk8H_SnKE0UjlBih1RPOisjJxZvA&amp;url=http://www.tuexperto.com/2012/02/06/los-nuevos-cambios-que-llegaran-a-firefox-11-y-firefox-12/\">Los nuevos cambios que llegar\u00e1n a <b>Firefox</b> 11 y <b>Firefox</b> 12</a><font color=\"#6f6f6f\" size=\"-1\">tuexperto.com</font></font><br /><font size=\"-1\"><a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNHYdQ8wHjJWLjHvyXH1bEd_OjDaWA&amp;url=http://www.adslzone.net/article7881-comparativa-entre-firefox-10-y-chrome-16.html\">Comparativa entre <b>Firefox</b> 10 y Chrome 16</a><font color=\"#6f6f6f\" size=\"-1\">ADSLZone.net</font></font><br /><font class=\"p\" size=\"-1\"><a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNHydYJVBxI_MY0b0AfllpaVArpNCg&amp;url=http://www.elreferente.es/tecnologia/y-tu-de-quien-eres-18391\">El Referente</a>&nbsp;-<a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNFIH5WnOcisF_b4iO1j4ML2712VVg&amp;url=http://www.cope.es/ocio/10-02-12--chrome-17--mas-velocidad-de-navegacion-y-mas-seguridad-276896-1\">COPE</a></font><br /><font class=\"p\" size=\"-1\"><a class=\"p\" href=\"http://news.google.com/news/story?ncl=dcSjerpcoJXgdVMd-dY4F4lwAuxqM&amp;ned=es_us\"><b>los 370 art\u00edculos informativos&nbsp;&raquo;</b></a></font></div></font></td></tr></table>", 
+            "title": "Firefox 11 integrar\u00e1 SPDY - Anal\u00edtica.com", 
+            "link": "http://news.google.com/news/url?sa=t&fd=R&usg=AFQjCNHj5k9ykcmfw2FzdXlLQpVH9-AtPA&url=http://www.analitica.com/tecnologia/7759795.asp", 
+            "hidden": false, 
+            "guid": "tag:news.google.com,2005:cluster=http://www.analitica.com/tecnologia/7759795.asp", 
+            "pub_date": "2012-02-09 05:20:19"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "buzz.rsspost", 
+        "fields": {
+            "feed": 1, 
+            "description": "<table border=\"0\" cellpadding=\"2\" cellspacing=\"7\" style=\"vertical-align: top;\"><tr><td align=\"center\" valign=\"top\" width=\"80\"><font style=\"font-size: 85%; font-family: arial,sans-serif;\"><a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNG8laAHySSIPQq6oqkvTNujkqq2iw&amp;url=http://www.generaccion.com/noticia/141315/mozilla-firefox-ahora-esta-disponible-idioma-quechua\"><img alt=\"\" border=\"1\" height=\"80\" src=\"http://nt1.ggpht.com/news/tbn/gUji_nQIRgRROM/6.jpg\" width=\"80\" /><br /><font size=\"-2\">Revista Generacci\u00f3n</font></a></font></td><td class=\"j\" valign=\"top\"><font style=\"font-size: 85%; font-family: arial,sans-serif;\"><br /><div style=\"padding-top: 0.8em;\"><img alt=\"\" height=\"1\" width=\"1\" /></div><div class=\"lh\"><a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNG8laAHySSIPQq6oqkvTNujkqq2iw&amp;url=http://www.generaccion.com/noticia/141315/mozilla-firefox-ahora-esta-disponible-idioma-quechua\"><b>Mozilla <b>Firefox</b> ahora est\u00e1 disponible en idioma quechua</b></a><br /><font size=\"-1\"><b><font color=\"#6f6f6f\">Revista Generacci\u00f3n</font></b></font><br /><font size=\"-1\">El popular navegador <b>Firefox</b> anunci\u00f3 que habilitar\u00e1 su sistema en idioma quechua con el fin de integrar a un sector importante de la poblaci\u00f3n a internet. Desde hace mucho tiempo Mozilla Per\u00fa ten\u00eda en mente la idea de contar con una versi\u00f3n de <b>Firefox</b> <b>...</b></font><br /><font size=\"-1\"><a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNGen_vh0aLWH2bxpJIu9auhMBGpnQ&amp;url=http://bitelia.com/2012/02/firefox-tendra-version-en-quechua\"><b>Firefox</b> tendr\u00e1 una versi\u00f3n en quechua para facilitar la inclusi\u00f3n <b>...</b></a><font color=\"#6f6f6f\" size=\"-1\">Bitelia</font></font><br /><font class=\"p\" size=\"-1\"></font><br /><font class=\"p\" size=\"-1\"><a class=\"p\" href=\"http://news.google.com/news/story?ncl=dyaPwPiYDpQe6GMsWBsg3rMx_dgWM&amp;ned=es_us\"><b>los 3 art\u00edculos informativos&nbsp;&raquo;</b></a></font></div></font></td></tr></table>", 
+            "title": "Mozilla Firefox ahora est\u00e1 disponible en idioma quechua - Revista Generacci\u00f3n", 
+            "link": "http://news.google.com/news/url?sa=t&fd=R&usg=AFQjCNG8laAHySSIPQq6oqkvTNujkqq2iw&url=http://www.generaccion.com/noticia/141315/mozilla-firefox-ahora-esta-disponible-idioma-quechua", 
+            "hidden": false, 
+            "guid": "tag:news.google.com,2005:cluster=http://www.generaccion.com/noticia/141315/mozilla-firefox-ahora-esta-disponible-idioma-quechua", 
+            "pub_date": "2012-02-08 16:12:14"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "buzz.rsspost", 
+        "fields": {
+            "feed": 1, 
+            "description": "<table border=\"0\" cellpadding=\"2\" cellspacing=\"7\" style=\"vertical-align: top;\"><tr><td align=\"center\" valign=\"top\" width=\"80\"><font style=\"font-size: 85%; font-family: arial,sans-serif;\"><a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNGH0FDQoXFykOdTSw9nscMti7FVxA&amp;url=http://www.rpp.com.pe/2012-02-07-firefox-ahora-disponible-en-quechua-noticia_448654.html\"><img alt=\"\" border=\"1\" height=\"80\" src=\"http://nt2.ggpht.com/news/tbn/PiIlboev8dttuM/6.jpg\" width=\"80\" /><br /><font size=\"-2\">Radio Programas del Per\u00fa</font></a></font></td><td class=\"j\" valign=\"top\"><font style=\"font-size: 85%; font-family: arial,sans-serif;\"><br /><div style=\"padding-top: 0.8em;\"><img alt=\"\" height=\"1\" width=\"1\" /></div><div class=\"lh\"><a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNGH0FDQoXFykOdTSw9nscMti7FVxA&amp;url=http://www.rpp.com.pe/2012-02-07-firefox-ahora-disponible-en-quechua-noticia_448654.html\"><b><b>Firefox</b> ahora disponible en quechua</b></a><br /><font size=\"-1\"><b><font color=\"#6f6f6f\">Radio Programas del Per\u00fa</font></b></font><br /><font size=\"-1\"><b>Firefox</b>, uno de los navegadores m\u00e1s importantes de Internet dio un paso adelante en su llegada a los internautas habilitando el idioma quechua. &quot;Desde hace a\u00f1os miembros de Mozilla Per\u00fa hemos tenido en mente la idea de poder contar con una versi\u00f3n de <b>...</b></font><br /><font size=\"-1\"><a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNHT4cGZMxAfRBO3F2F_weia2zUS0A&amp;url=http://www.pysnnoticias.com/2012/02/07/mozilla-firefox-ahora-esta-disponible-en-quechua/\">Mozilla <b>Firefox</b> ahora est\u00e1 disponible en quechua</a><font color=\"#6f6f6f\" size=\"-1\">Pysn Pueblo y Sociedad Noticias</font></font><br /><font size=\"-1\"><a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNG9oV0lahP-abAR9T1Cx_hFvcD8xw&amp;url=http://www.generaccion.com/noticia/141184/firefox-lanza-su-version-quechua\"><b>Firefox</b> lanza su versi\u00f3n en quechua</a><font color=\"#6f6f6f\" size=\"-1\">Revista Generacci\u00f3n</font></font><br /><font size=\"-1\"><a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNEgeCw72HWRCwDfGeP0UDuciLmTDg&amp;url=http://www.fayerwayer.com/2012/02/mozilla-peru-lanza-proyecto-para-crear-version-en-quechua-de-firefox/\">Mozilla Per\u00fa lanza proyecto para crear versi\u00f3n en quechua de <b>Firefox</b></a><font color=\"#6f6f6f\" size=\"-1\">FayerWayer</font></font><br /><font class=\"p\" size=\"-1\"></font><br /><font class=\"p\" size=\"-1\"><a class=\"p\" href=\"http://news.google.com/news/story?ncl=dvnN674CRjgTKiMhU2NXkCbzG6EZM&amp;ned=es_us\"><b>los 10 art\u00edculos informativos&nbsp;&raquo;</b></a></font></div></font></td></tr></table>", 
+            "title": "Firefox ahora disponible en quechua - Radio Programas del Per\u00fa", 
+            "link": "http://news.google.com/news/url?sa=t&fd=R&usg=AFQjCNGH0FDQoXFykOdTSw9nscMti7FVxA&url=http://www.rpp.com.pe/2012-02-07-firefox-ahora-disponible-en-quechua-noticia_448654.html", 
+            "hidden": false, 
+            "guid": "tag:news.google.com,2005:cluster=http://www.rpp.com.pe/2012-02-07-firefox-ahora-disponible-en-quechua-noticia_448654.html", 
+            "pub_date": "2012-02-07 18:20:01"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "buzz.rsspost", 
+        "fields": {
+            "feed": 1, 
+            "description": "<table border=\"0\" cellpadding=\"2\" cellspacing=\"7\" style=\"vertical-align: top;\"><tr><td align=\"center\" valign=\"top\" width=\"80\"><font style=\"font-size: 85%; font-family: arial,sans-serif;\"><a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNG4_hKv7Qrcd0CukmY1W2hojN4xFw&amp;url=http://www.europapress.es/portaltic/software/noticia-firefox-10-ya-disponible-ordenadores-dispositivos-android-20120201154055.html\"><img alt=\"\" border=\"1\" height=\"80\" src=\"http://nt3.ggpht.com/news/tbn/WzE01zckgIvYyM/6.jpg\" width=\"80\" /><br /><font size=\"-2\">Europa Press</font></a></font></td><td class=\"j\" valign=\"top\"><font style=\"font-size: 85%; font-family: arial,sans-serif;\"><br /><div style=\"padding-top: 0.8em;\"><img alt=\"\" height=\"1\" width=\"1\" /></div><div class=\"lh\"><a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNG4_hKv7Qrcd0CukmY1W2hojN4xFw&amp;url=http://www.europapress.es/portaltic/software/noticia-firefox-10-ya-disponible-ordenadores-dispositivos-android-20120201154055.html\"><b><b>Firefox</b> 10 ya est\u00e1 disponible para ordenadores y dispositivos Android</b></a><br /><font size=\"-1\"><b><font color=\"#6f6f6f\">Europa Press</font></b></font><br /><font size=\"-1\">Se trata de <b>Firefox</b> 10, que llega con novedades que afectan a los complementos y extensiones y la correcci\u00f3n de una larga lista de errores. La \u00faltima versi\u00f3n del navegador ya est\u00e1 disponible para ordenadores y para dispositivos Android.</font><br /><font size=\"-1\"><a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNFEBZ6UeS3z-uQHIPlE_x4Dv3OEPA&amp;url=http://www.itespresso.es/mozilla-lanza-firefox-10-59696.html\">Mozilla lanza <b>Firefox</b> 10</a><font color=\"#6f6f6f\" size=\"-1\">ITespresso.es</font></font><br /><font size=\"-1\"><a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNHHC6-Df_-sU90YNIJxETjpLSV7vQ&amp;url=http://www.techspot.com/espanol/noticias/47276-mozilla-lanza-version-final-de-firefox-10.html\">Mozilla lanza versi\u00f3n final de <b>Firefox</b> 10</a><font color=\"#6f6f6f\" size=\"-1\">TechSpot</font></font><br /><font size=\"-1\"><a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNER_tbh2YVNkEbSm6E-5x4aJ_SM1A&amp;url=http://www.elfinanciero.com.mx/index.php?option%3Dcom_k2%26view%3Ditem%26id%3D2940%26Itemid%3D26\"><b>Firefox</b> lanza su versi\u00f3n 10</a><font color=\"#6f6f6f\" size=\"-1\">El Financiero</font></font><br /><font class=\"p\" size=\"-1\"><a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNGPYAYitR8DNTUuIHUHHQ6HPcJ6aw&amp;url=http://www.el-nacional.com/noticia/20313/25/Firefox-esta-trabajando-en-un-nuevo-dise%25C3%25B1o-para-su-pagina-de-inicio.html\">El Nacional.com</a>&nbsp;-<a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNEbZnxcAvV3EICx-eXza_JtP_bGTA&amp;url=http://www.latercera.com/noticia/tendencias/2012/01/659-427939-9-firefox-10-ya-se-encuentra-disponible-para-descargar.shtml\">latercera.com</a></font><br /><font class=\"p\" size=\"-1\"><a class=\"p\" href=\"http://news.google.com/news/story?ncl=drTXA8tfy3hhkrMRVXB8F-PY0645M&amp;ned=es_us\"><b>los 94 art\u00edculos informativos&nbsp;&raquo;</b></a></font></div></font></td></tr></table>", 
+            "title": "Firefox 10 ya est\u00e1 disponible para ordenadores y dispositivos Android - Europa Press", 
+            "link": "http://news.google.com/news/url?sa=t&fd=R&usg=AFQjCNG4_hKv7Qrcd0CukmY1W2hojN4xFw&url=http://www.europapress.es/portaltic/software/noticia-firefox-10-ya-disponible-ordenadores-dispositivos-android-20120201154055.html", 
+            "hidden": true, 
+            "guid": "tag:news.google.com,2005:cluster=http://www.europapress.es/portaltic/software/noticia-firefox-10-ya-disponible-ordenadores-dispositivos-android-20120201154055.html", 
+            "pub_date": "2012-02-01 14:43:30"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "buzz.rsspost", 
+        "fields": {
+            "feed": 1, 
+            "description": "<table border=\"0\" cellpadding=\"2\" cellspacing=\"7\" style=\"vertical-align: top;\"><tr><td align=\"center\" valign=\"top\" width=\"80\"><font style=\"font-size: 85%; font-family: arial,sans-serif;\"><a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNGGlpi_awnTS1mHMqgd5svzEYq_ig&amp;url=http://www.genbeta.com/navegadores/mozilla-prepara-un-sistema-de-notificaciones-push-para-firefox\"><img alt=\"\" border=\"1\" height=\"80\" src=\"http://nt2.ggpht.com/news/tbn/Wq7uMrqRrbejOM/6.jpg\" width=\"80\" /><br /><font size=\"-2\">Genbeta (blog)</font></a></font></td><td class=\"j\" valign=\"top\"><font style=\"font-size: 85%; font-family: arial,sans-serif;\"><br /><div style=\"padding-top: 0.8em;\"><img alt=\"\" height=\"1\" width=\"1\" /></div><div class=\"lh\"><a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNEQJXTs_Cnq07fGj3wWdPSgEDO_1g&amp;url=http://www.europapress.es/portaltic/software/noticia-mozilla-trabaja-nuevo-sistema-notificaciones-firefox-20120206154226.html\"><b>Mozilla trabaja en un nuevo sistema de notificaciones para <b>Firefox</b></b></a><br /><font size=\"-1\"><b><font color=\"#6f6f6f\">Europa Press</font></b></font><br /><font size=\"-1\">El equipo de <b>Firefox</b> trabaja para llevar las notificaciones 'push' m\u00e1s all\u00e1 de los 'smartphones' y 'tablets'. Los desarrolladores de <b>Firefox</b> est\u00e1 trabajando en un nuevo sistema de notificaciones para su navegador en PC y m\u00f3viles.</font><br /><font size=\"-1\"><a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNHW0VEl7K-jmfDcVQP7uBUzMw9Ygg&amp;url=http://bitelia.com/2012/02/mozilla-trabaja-en-un-sistema-de-notificaciones-para-firefox\">Mozilla trabaja en un sistema de notificaciones para <b>Firefox</b></a><font color=\"#6f6f6f\" size=\"-1\">Bitelia</font></font><br /><font size=\"-1\"><a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNGGlpi_awnTS1mHMqgd5svzEYq_ig&amp;url=http://www.genbeta.com/navegadores/mozilla-prepara-un-sistema-de-notificaciones-push-para-firefox\">Mozilla prepara un sistema de notificaciones push para <b>Firefox</b></a><font color=\"#6f6f6f\" size=\"-1\">Genbeta (blog)</font></font><br /><font class=\"p\" size=\"-1\"></font><br /><font class=\"p\" size=\"-1\"><a class=\"p\" href=\"http://news.google.com/news/story?ncl=dm9FST91zbjJ6XMo8YngY9TQoFJFM&amp;ned=es_us\"><b>los 10 art\u00edculos informativos&nbsp;&raquo;</b></a></font></div></font></td></tr></table>", 
+            "title": "Mozilla trabaja en un nuevo sistema de notificaciones para Firefox - Europa Press", 
+            "link": "http://news.google.com/news/url?sa=t&fd=R&usg=AFQjCNEQJXTs_Cnq07fGj3wWdPSgEDO_1g&url=http://www.europapress.es/portaltic/software/noticia-mozilla-trabaja-nuevo-sistema-notificaciones-firefox-20120206154226.html", 
+            "hidden": false, 
+            "guid": "tag:news.google.com,2005:cluster=http://www.europapress.es/portaltic/software/noticia-mozilla-trabaja-nuevo-sistema-notificaciones-firefox-20120206154226.html", 
+            "pub_date": "2012-02-06 14:43:27"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "buzz.rsspost", 
+        "fields": {
+            "feed": 1, 
+            "description": "<table border=\"0\" cellpadding=\"2\" cellspacing=\"7\" style=\"vertical-align: top;\"><tr><td align=\"center\" valign=\"top\" width=\"80\"><font style=\"font-size: 85%; font-family: arial,sans-serif;\"><a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNHzeySguVYJj0x9HfTGcF6PwnyMgA&amp;url=http://www.tuexpertoit.com/2012/01/30/firefox-10-novedades-y-enlace-de-descarga-de-firefox-10/\"><img alt=\"\" border=\"1\" height=\"80\" src=\"http://nt1.ggpht.com/news/tbn/YZ6GF1Bg3mppAM/6.jpg\" width=\"80\" /><br /><font size=\"-2\">tuexpertoIT.com</font></a></font></td><td class=\"j\" valign=\"top\"><font style=\"font-size: 85%; font-family: arial,sans-serif;\"><br /><div style=\"padding-top: 0.8em;\"><img alt=\"\" height=\"1\" width=\"1\" /></div><div class=\"lh\"><a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNFqqix3aZ14X2PbEIekVWqCQJcxmA&amp;url=http://www.eleconomista.es/tecnologia-internet/noticias/3714756/02/12/Ya-esta-disponible-Firefox-10-tambien-con-version-para-Android.html\"><b>Ya est\u00e1 disponible <b>Firefox</b> 10, tambi\u00e9n con versi\u00f3n para Android</b></a><br /><font size=\"-1\"><b><font color=\"#6f6f6f\">ecodiario</font></b></font><br /><font size=\"-1\">Se trata de <b>Firefox</b> 10, que llega con novedades que afectan a los complementos y extensiones y la correcci\u00f3n de una larga lista de errores. La \u00faltima versi\u00f3n del navegador ya est\u00e1 disponible para ordenadores y para dispositivos Android.</font><br /><font size=\"-1\"><a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNHtoiBH3BGu0M_aWEPnV-RQxe46dA&amp;url=http://www.fayerwayer.com/2012/01/firefox-10-ya-se-puede-descargar-oficialmente/\"><b>Firefox</b> 10 ya se puede descargar oficialmente</a><font color=\"#6f6f6f\" size=\"-1\">FayerWayer</font></font><br /><font size=\"-1\"><a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNFe-ViijT98JCCDBNg00Md0rvNDgQ&amp;url=http://informe21.com/ciencia-y-tecnologia/12/02/03/firefox-10-ya-esta-listo-para-descargar\"><b>Firefox</b> 10 ya est\u00e1 listo para descargar</a><font color=\"#6f6f6f\" size=\"-1\">Informe21.com (S\u00e1tira)</font></font><br /><font size=\"-1\"><a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNFoUTGtmkhkG_lDteebGAPQqu3zEA&amp;url=http://www.caracol.com.co/noticias/tecnologia/descubra-el-nuevo-firefox-100-hoy/20120201/nota/1615880.aspx\">\u00a1Descubra el nuevo <b>Firefox</b> 10.0 hoy! Caracol | Febrero 1 de 2012</a><font color=\"#6f6f6f\" size=\"-1\">Caracol Radio</font></font><br /><font class=\"p\" size=\"-1\"><a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNHzeySguVYJj0x9HfTGcF6PwnyMgA&amp;url=http://www.tuexpertoit.com/2012/01/30/firefox-10-novedades-y-enlace-de-descarga-de-firefox-10/\">tuexpertoIT.com</a>&nbsp;-<a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNHoAjHvWgPXILuEHzU07M57MwjfCA&amp;url=http://www.minutouno.com.ar/minutouno/nota/159240-ya-esta-disponible-el-firefox-10/\">Minutouno.com</a>&nbsp;-<a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNEbttjDaKGnLH_wXHqXTtLCEO-GNg&amp;url=http://www.muycomputer.com/2012/02/01/nuevas-herramientas-para-desarrolladores-en-firefox-10\">MuyComputer</a></font><br /><font class=\"p\" size=\"-1\"><a class=\"p\" href=\"http://news.google.com/news/story?ncl=deWuotw6yyrcVWMkuXtOZdp_v0WyM&amp;ned=es_us\"><b>los 18 art\u00edculos informativos&nbsp;&raquo;</b></a></font></div></font></td></tr></table>", 
+            "title": "Ya est\u00e1 disponible Firefox 10, tambi\u00e9n con versi\u00f3n para Android - ecodiario", 
+            "link": "http://news.google.com/news/url?sa=t&fd=R&usg=AFQjCNFqqix3aZ14X2PbEIekVWqCQJcxmA&url=http://www.eleconomista.es/tecnologia-internet/noticias/3714756/02/12/Ya-esta-disponible-Firefox-10-tambien-con-version-para-Android.html", 
+            "hidden": false, 
+            "guid": "tag:news.google.com,2005:cluster=http://www.eleconomista.es/tecnologia-internet/noticias/3714756/02/12/Ya-esta-disponible-Firefox-10-tambien-con-version-para-Android.html", 
+            "pub_date": "2012-02-01 16:40:46"
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "buzz.rsspost", 
+        "fields": {
+            "feed": 1, 
+            "description": "<table border=\"0\" cellpadding=\"2\" cellspacing=\"7\" style=\"vertical-align: top;\"><tr><td align=\"center\" valign=\"top\" width=\"80\"><font style=\"font-size: 85%; font-family: arial,sans-serif;\"><a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNEXCelrAMEAISGK_7d-SQES3pk0Wg&amp;url=http://gizmovil.com/2012/02/4-navegadores-para-ipad\"><img alt=\"\" border=\"1\" height=\"80\" src=\"http://nt2.ggpht.com/news/tbn/FpGT3d5yh1Dc7M/6.jpg\" width=\"80\" /><br /><font size=\"-2\">Gizmovil</font></a></font></td><td class=\"j\" valign=\"top\"><font style=\"font-size: 85%; font-family: arial,sans-serif;\"><br /><div style=\"padding-top: 0.8em;\"><img alt=\"\" height=\"1\" width=\"1\" /></div><div class=\"lh\"><a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNEXCelrAMEAISGK_7d-SQES3pk0Wg&amp;url=http://gizmovil.com/2012/02/4-navegadores-para-ipad\"><b>Los 4 navegadores alternativos para iPad \u00bfmejores o peores?</b></a><br /><font size=\"-1\"><b><font color=\"#6f6f6f\">Gizmovil</font></b></font><br /><font size=\"-1\">No hay un apartado diferente para cada opci\u00f3n, con s\u00f3lo tocar sobre los accesos directos podemos ir a los marcadores, las descargas, Google Reader, sincronizar con Google Chrome o <b>Firefox</b> y los ajustes. En la segunda secci\u00f3n tenemos un slider que nos <b>...</b></font><br /><font size=\"-1\"><a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNGJK9cv96sJGd4zFeT2c7Kuz47RBw&amp;url=http://bitelia.com/2012/02/juegos-flash-vs-html5\">Juegos en Flash vs. HTML5 \u00bfQui\u00e9n ganar\u00e1 esta batalla?</a><font color=\"#6f6f6f\" size=\"-1\">Bitelia</font></font><br /><font size=\"-1\"><a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNEtQXj7oMMCqCHGQ--z6UgBLDqKZA&amp;url=http://www.xombra.com/go_news.php?nota%3D6071\">Adobe: Modo Protegido para Flash</a><font color=\"#6f6f6f\" size=\"-1\">Xombra.com</font></font><br /><font size=\"-1\"><a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNFN9gnnAE-a4qcqFxOXmVEctdDS7w&amp;url=http://www.idg.es/pcworld/Tres-inconvenientes-de-Chrome-para-Android-/doc118482-Actualidad.htm\">Tres inconvenientes de Chrome para Android</a><font color=\"#6f6f6f\" size=\"-1\">PcWorld Digital</font></font><br /><font class=\"p\" size=\"-1\"></font><br /><font class=\"p\" size=\"-1\"><a class=\"p\" href=\"http://news.google.com/news/story?ncl=d5pdmtiA7MXSR7M-ttIFFofgW1pPM&amp;ned=es_us\"><b>los 13 art\u00edculos informativos&nbsp;&raquo;</b></a></font></div></font></td></tr></table>", 
+            "title": "Los 4 navegadores alternativos para iPad \u00bfmejores o peores? - Gizmovil", 
+            "link": "http://news.google.com/news/url?sa=t&fd=R&usg=AFQjCNEXCelrAMEAISGK_7d-SQES3pk0Wg&url=http://gizmovil.com/2012/02/4-navegadores-para-ipad", 
+            "hidden": false, 
+            "guid": "tag:news.google.com,2005:cluster=http://gizmovil.com/2012/02/4-navegadores-para-ipad", 
+            "pub_date": "2012-02-09 14:44:48"
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "buzz.rsspost", 
+        "fields": {
+            "feed": 1, 
+            "description": "<table border=\"0\" cellpadding=\"2\" cellspacing=\"7\" style=\"vertical-align: top;\"><tr><td align=\"center\" valign=\"top\" width=\"80\"><font style=\"font-size: 85%; font-family: arial,sans-serif;\"></font></td><td class=\"j\" valign=\"top\"><font style=\"font-size: 85%; font-family: arial,sans-serif;\"><br /><div style=\"padding-top: 0.8em;\"><img alt=\"\" height=\"1\" width=\"1\" /></div><div class=\"lh\"><a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNEoO1NwnE_bnRQOrDvJ6vjvoms5lg&amp;url=http://www.elperiodiquito.com/article/50907/Firefox-10-final-llega-a-los-usuarios\"><b><b>Firefox</b> 10 final llega a los usuarios</b></a><br /><font size=\"-1\"><b><font color=\"#6f6f6f\">El Periodiquito</font></b></font><br /><font size=\"-1\">La versi\u00f3n n\u00famero 10 de <b>Firefox</b> finalmente ha llegado para quedarse. Recordando el mes de Diciembre del a\u00f1o pasado, Mozilla hab\u00eda anunciado la versi\u00f3n Beta de <b>Firefox</b> 10, misma que por supuesto no fue muy destacada entre los usuarios.</font><br /><font class=\"p\" size=\"-1\"></font><br /><font class=\"p\" size=\"-1\"><a class=\"p\" href=\"http://news.google.com/news/story?ncl=dQDOxJPV1CugOCM&amp;ned=es_us\"><b>y m\u00e1s&nbsp;&raquo;</b></a></font></div></font></td></tr></table>", 
+            "title": "Firefox 10 final llega a los usuarios - El Periodiquito", 
+            "link": "http://news.google.com/news/url?sa=t&fd=R&usg=AFQjCNEoO1NwnE_bnRQOrDvJ6vjvoms5lg&url=http://www.elperiodiquito.com/article/50907/Firefox-10-final-llega-a-los-usuarios", 
+            "hidden": false, 
+            "guid": "tag:news.google.com,2005:cluster=http://www.elperiodiquito.com/article/50907/Firefox-10-final-llega-a-los-usuarios", 
+            "pub_date": "2012-02-04 21:18:30"
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "buzz.rsspost", 
+        "fields": {
+            "feed": 1, 
+            "description": "<table border=\"0\" cellpadding=\"2\" cellspacing=\"7\" style=\"vertical-align: top;\"><tr><td align=\"center\" valign=\"top\" width=\"80\"><font style=\"font-size: 85%; font-family: arial,sans-serif;\"><a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNHYuZbKTLx4_FWJ9usCAOqH_K1t0Q&amp;url=http://www.muycomputer.com/2012/02/06/aadobe-esta-desarrollando-flash-player-seguro-para-firefox-via-sandboxingadobe-esta-desarrollando-flash-player-para-firefox-en-s\"><img alt=\"\" border=\"1\" height=\"80\" src=\"http://nt0.ggpht.com/news/tbn/AJ2V0Fh0JW3o1M/6.jpg\" width=\"80\" /><br /><font size=\"-2\">MuyComputer</font></a></font></td><td class=\"j\" valign=\"top\"><font style=\"font-size: 85%; font-family: arial,sans-serif;\"><br /><div style=\"padding-top: 0.8em;\"><img alt=\"\" height=\"1\" width=\"1\" /></div><div class=\"lh\"><a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNHYuZbKTLx4_FWJ9usCAOqH_K1t0Q&amp;url=http://www.muycomputer.com/2012/02/06/aadobe-esta-desarrollando-flash-player-seguro-para-firefox-via-sandboxingadobe-esta-desarrollando-flash-player-para-firefox-en-s\"><b>Adobe est\u00e1 desarrollando Flash Player seguro para <b>Firefox</b> v\u00eda <b>...</b></b></a><br /><font size=\"-1\"><b><font color=\"#6f6f6f\">MuyComputer</font></b></font><br /><font size=\"-1\">Adobe acaba de lanzar una versi\u00f3n beta p\u00fablica de Flash Player sandbox (tambi\u00e9n conocido como \u201cModo protegido\u201c) para el navegador <b>Firefox</b>. Este dise\u00f1o de sandbox es similar al realizado por la compa\u00f1\u00eda con Adobe Reader X Protected Mode y sigue el mismo <b>...</b></font><br /><font size=\"-1\"><a href=\"http://news.google.com/news/url?sa=t&amp;fd=R&amp;usg=AFQjCNFO5pC1YDk-639mYF4Jxdhif7IlXw&amp;url=http://bitelia.com/2012/02/adobe-trabaja-en-un-modo-protegido-para-flash-player\">Adobe trabaja en un \u201cModo Protegido\u201d para Flash Player</a><font color=\"#6f6f6f\" size=\"-1\">Bitelia</font></font><br /><font class=\"p\" size=\"-1\"></font><br /><font class=\"p\" size=\"-1\"><a class=\"p\" href=\"http://news.google.com/news/story?ncl=dbUmn2nyd9cxDQMTsv-eM1qMvVPrM&amp;ned=es_us\"><b>los 4 art\u00edculos informativos&nbsp;&raquo;</b></a></font></div></font></td></tr></table>", 
+            "title": "Adobe est\u00e1 desarrollando Flash Player seguro para Firefox v\u00eda ... - MuyComputer", 
+            "link": "http://news.google.com/news/url?sa=t&fd=R&usg=AFQjCNHYuZbKTLx4_FWJ9usCAOqH_K1t0Q&url=http://www.muycomputer.com/2012/02/06/aadobe-esta-desarrollando-flash-player-seguro-para-firefox-via-sandboxingadobe-esta-desarrollando-flash-player-para-firefox-en-s", 
+            "hidden": false, 
+            "guid": "tag:news.google.com,2005:cluster=http://www.muycomputer.com/2012/02/06/aadobe-esta-desarrollando-flash-player-seguro-para-firefox-via-sandboxingadobe-esta-desarrollando-flash-player-para-firefox-en-s", 
+            "pub_date": "2012-02-06 22:28:30"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "auth.user", 
+        "fields": {
+            "username": "felipe", 
+            "first_name": "", 
+            "last_name": "", 
+            "is_active": true, 
+            "is_superuser": true, 
+            "is_staff": true, 
+            "last_login": "2012-02-04 08:47:49", 
+            "groups": [], 
+            "user_permissions": [], 
+            "password": "sha1$cffa4$737f52167af06357a29f366cd54a2c9096094284", 
+            "email": "felipelerena@gmail.com", 
+            "date_joined": "2011-10-27 19:50:50"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "auth.user", 
+        "fields": {
+            "username": "david", 
+            "first_name": "", 
+            "last_name": "", 
+            "is_active": true, 
+            "is_superuser": true, 
+            "is_staff": true, 
+            "last_login": "2012-02-10 05:32:58", 
+            "groups": [], 
+            "user_permissions": [], 
+            "password": "sha1$2756c$efdfd4e022f104774887447cfd8743f129969830", 
+            "email": "", 
+            "date_joined": "2012-01-30 14:59:09"
+        }
+    }
+]
