@@ -14,20 +14,20 @@ PREVIOUS_PRODUCT_COMMENTS = (
     )
 
 UPDATE_RATE = (
-        (0, 'Never'),
-        (1, 'Yearly'),
-        (2, 'Monthly'),
-        (3, 'Daily'),
-        (4, 'Hourly'),
-        (5, 'Unknown'),
+        (00, 'Never'),
+        (10, 'Yearly'),
+        (20, 'Monthly'),
+        (30, 'Daily'),
+        (40, 'Hourly'),
+        (50, 'Unknown'),
     )
 
 FEEDBACK_TYPES = (
-        (0, 'Very bad'),
-        (1, 'Bad'),
-        (2, 'Neutral'),
-        (3, 'Good'),
-        (4, 'Very good'),
+        (00, 'Very bad'),
+        (10, 'Bad'),
+        (20, 'Neutral'),
+        (30, 'Good'),
+        (40, 'Very good'),
     )
 
 #user profile related
