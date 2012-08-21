@@ -17,6 +17,7 @@ UPDATE_RATE = (
         (00, 'Never'),
         (10, 'Yearly'),
         (20, 'Monthly'),
+        (25, 'Weekly'),
         (30, 'Daily'),
         (40, 'Hourly'),
         (50, 'Unknown'),
