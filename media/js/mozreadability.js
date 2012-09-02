@@ -1,22 +1,22 @@
 function getURLContents(url, cb){
     var xhr = new XMLHttpRequest();
-    xhr.onload = function() {
+    xhr.onload = function(){
         if(xhr.status != 200){
             alert("Invalid response code " + xhr.status);
             guessCallFinished();
             return;
         }
-        var doc = xhr.responseXML;
+        var doc = xhr.responseXML, articleContent, articleTitle;
         if(!doc){
             alert("Malformed document, or browser doesn't support XHR HTML parsing (try Firefox 11+)");
             guessCallFinished();
             return;
         }
         try{
-            readability.removeScripts(doc)
+            readability.removeScripts(doc);
             readability.prepDocument(doc);
-            var articleContent = readability.grabArticle(doc.body);
-            var articleTitle = readability.getArticleTitle(doc);
+            articleContent = readability.grabArticle(doc.body);
+            articleTitle = readability.getArticleTitle(doc);
         }catch(e){
             alert(e);
             guessCallFinished();
@@ -30,7 +30,7 @@ function getURLContents(url, cb){
         }else{
             guessCallFinished();
         }
-    }
+    };
     xhr.open("GET", URL_ROOT + "proxy?url=" + encodeURIComponent(url) + "&_=" + new Date());
     xhr.responseType = "document";
     xhr.send();
@@ -42,7 +42,7 @@ function markdownEscape(text){
 }
 
 function repeat(str,times){
-    return (new Array(times+1)).join(str)
+    return (new Array(times+1)).join(str);
 }
 
 function childsToMarkdown(tree,mode){
@@ -56,7 +56,7 @@ function childsToMarkdown(tree,mode){
 function nodeToMarkdown(tree,mode){
     var nl = "\n\n";
     if(tree.nodeType == 3){ // Text node
-        return markdownEscape(tree.nodeValue)
+        return markdownEscape(tree.nodeValue);
     }else if(tree.nodeType == 1){
         if(mode == "block"){
             switch(tree.tagName.toLowerCase()){
@@ -93,7 +93,7 @@ function nodeToMarkdown(tree,mode){
                 return "\n" + repeat("  ", mode.length - 1) + (mode[mode.length-1]=="o"?"1. ":"- ") + childsToMarkdown(tree, mode+"l");
             }else{
                 console.log("[toMarkdown] - invalid element at this point " + mode.tagName);
-                return childsToMarkdown(tree, "inline")
+                return childsToMarkdown(tree, "inline");
             }
         }else if(/^[ou]+l$/.test(mode)){
             if(tree.tagName == "UL"){
@@ -122,7 +122,7 @@ function nodeToMarkdown(tree,mode){
             case "meta":
                 return "";
             default:
-                console.log("[toMarkdown] - undefined element " + tree.tagName)
+                console.log("[toMarkdown] - undefined element " + tree.tagName);
                 return childsToMarkdown(tree,mode);
         }
 
@@ -139,7 +139,7 @@ function toMarkdown(node){
     }
 }
 
-var finishedCallsCnt = 0
+var finishedCallsCnt = 0;
 function guessCallFinished(){
     if(++finishedCallsCnt == 2){
         $("#mention_form_otherfields_cnt").show();
@@ -159,7 +159,21 @@ function parseUri (str) {
         uri[key[i]] = m[i] || "";
     }
 	return uri;
-};
+}
+
+function findDuplicates(url, objs){
+    objs.forEach(function(obj){
+        if(obj.link.toLowerCase() == url.toLowerCase()){
+            $("#duplicates").show();
+            $("#duplicates-list").append(
+                $("<li/>").append(
+                    $("<a/>").text(obj.link +" Created On "+ obj.creation_date)
+                             .attr("href", URL_ROOT + "mention/" + obj.pk)
+                )
+            );
+        }
+    });
+}
 
 function guessInformation(){
     var spec = $("#id_link").val();
@@ -171,7 +185,7 @@ function guessInformation(){
     }
     var url = parseUri(spec);
 
-    if(!url || url.protocol.indexOf("http") != 0){
+    if(!url || url.protocol.indexOf("http") !== 0){
         alert("Please, write a valid url");
         return false;
     }
@@ -184,7 +198,7 @@ function guessInformation(){
         guessCallFinished();
     });
 
-    var source = url["host"].replace(/^www\./,"");
+    var source = url.host.replace(/^www\./,"");
 
     $("#id_source_name").val(source);
     $("#field_source_name_result").html("Guessed from the url").parent().addClass("guess-ok");
@@ -194,11 +208,15 @@ function guessInformation(){
         if(res.status != 200){
             alert("Server error: " + res.status + " " + res.message);
         }else{
-            res = res["response"], cnt=res.length;
+            res = res.response;
+            var cnt=res.length;
+
+            findDuplicates(spec, res);
+
             var fields = ["origin","type",
                 "author_expertise","country","product","feedback",
                 "previous_product_comments","estimated_audience",
-                "relevant_audience","update_rate"]
+                "relevant_audience","update_rate"];
 
             fields.forEach(function(field){
                 var hist = {};
@@ -222,7 +240,7 @@ function guessInformation(){
                         .html(hist_ordered[0][1] + " (" + Math.round(hist_ordered[0][1]*100/cnt) + "%) of the mentions from " + source + " have this value")
                         .parent().addClass("guess-ok");
                 }else{
-                    $("#field_"+field+"_cnt").addClass("guess-fail")
+                    $("#field_"+field+"_cnt").addClass("guess-fail");
                 }
             });
             guessCallFinished();

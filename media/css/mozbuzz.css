@@ -1304,6 +1304,9 @@ li a.navactive {
     right: -99999999px;
 }
 
+.hidden {
+	display: none;
+}
 /** Mozbuzz-specific **/
 .mention-title {
     font-variant: small-caps;

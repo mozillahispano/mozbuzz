@@ -22,6 +22,10 @@
             <button onclick="guessCancell(); return false;">{%trans "Don't guess"%}</button>
         </div>
         {% endif %}
+        <div id="duplicates" class="errorlist hidden">
+            The following possible duplicates were found:
+            <ul id="duplicates-list"></ul>
+        </div>
         <div id="mention_form_otherfields_cnt" {% if is_new %}style="display: none"{% endif %}>
         {% for field in form %}
         {% if field.name != "link" and field.name != "remarks" %}

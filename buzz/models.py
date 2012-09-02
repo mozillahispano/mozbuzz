@@ -189,10 +189,14 @@ class Mention(SoftDeletableModel):
                 return val.pk
             return val
 
-        return dict([(k,getval(k)) for k in ("origin","type",
+        return dict(
+			[(k,getval(k)) for k in ("origin","type",
             "author_expertise","country","product","feedback",
             "previous_product_comments","estimated_audience",
-            "relevant_audience","update_rate")])
+            "relevant_audience","update_rate","link","pk")] +
+
+			[("creation_date", str(self.creation_date.date()))]
+		)
 
     def followups(self):
         return FollowUp.enabled.filter(mention=self)
