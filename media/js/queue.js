@@ -40,6 +40,7 @@ function delete_entry(post_id){
         if(res.status == 200){
             var $entry = $("#entry_" + post_id).fadeOut(function(){
                 $entry.remove();
+                $("#queue_count").text(res.response.queue_count);
             });
         }
     }, "json").error(function(){

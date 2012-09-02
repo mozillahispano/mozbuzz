@@ -127,5 +127,7 @@ def queue_del(request):
     post = RSSPost.objects.get(pk=request.POST["post"])
     post.hidden = True
     post.save()
-    return {}
+    return {
+        "queue_count": RSSPost.objects.filter(hidden=False).count()
+    }
 

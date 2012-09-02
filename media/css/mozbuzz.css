@@ -1469,6 +1469,14 @@ form label {
     margin-right: 10px;
 }
 
+#queue_count {
+	background-color: #3da9e7;
+    text-shadow: none;
+	color: #eee;
+	padding: 1px 3px;
+	border-radius: 4px;
+}
+
 /* Markdown styles */
 .markdown {
     line-height: 1.2em;

@@ -9,7 +9,7 @@
             <div class="feed_content markdown">{{post.description|safe}}</div>
             <ul class="meta">
                 <li><a href="{% url create %}?url={{ post.link|urlencode:"" }}">File report</a></li>
-                <li><a href="#" onclick="delete_entry({{post.pk}}); return false;">Hide</a></li>
+                <li><a href="#" onclick="delete_entry({{post.pk}}); return false;">Delete</a></li>
             </ul>
         </li>
     {% endfor %}

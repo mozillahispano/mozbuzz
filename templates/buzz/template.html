@@ -18,7 +18,7 @@
                 <ul>
                     <li><a class="{% if view_name = "index" %}navactive{% endif %}" href="{% url index %}"><span>Overview</span></a></li>
                     <li><a class="{% if view_name = "mention" %}navactive{% endif %}" href="{% url create %}"><span>File report</span></a></li>
-                    <li><a class="{% if view_name = "queue" %}navactive{% endif %}" href="{% url queue %}"><span>Queue</span></a></li>
+                    <li><a class="{% if view_name = "queue" %}navactive{% endif %}" href="{% url queue %}"><span>Queue <span id="queue_count">{{queue_count}}</span></span></a></li>
                 </ul>
             </div>
         </div>
@@ -54,17 +54,17 @@
                             <input id="login_submit" type="submit" value="Log in" />
                             <input type="hidden" name="next" value="{% url index %}" />
 
-	                        <a id="browserid" style="opacity: 0;" href="{% url index %}">Or sign in using browserID</a>
+                            <a id="browserid" style="opacity: 0;" href="{% url index %}">Or sign in using browserID</a>
                         </form>
-						<form method="POST" action="{% url browserid_verify %}">
-						   {% csrf_token %}
-						   {{ browserid_form.as_p }}
-						</form>
+                        <form method="POST" action="{% url browserid_verify %}">
+                           {% csrf_token %}
+                           {{ browserid_form.as_p }}
+                        </form>
                     {% endif %}
                 </div>
             {% endblock %}
         </div>
-	</div>
+    </div>
 
     <script type="text/javascript">
      var URL_ROOT = "{% url index %}";
