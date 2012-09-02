@@ -10,6 +10,7 @@ from mozbuzz.buzz.models import Mention, FollowUp, RSSPost, RSSFeed, Product
 from mozbuzz.buzz.search import buzz_search, clean_query
 from mozbuzz.buzz.utils import mozview, jsonview
 
+@login_required
 @mozview
 def index(request):
     """Display Home page."""
@@ -19,6 +20,7 @@ def index(request):
         "mentions": buzz_search(query)
     }
 
+@login_required
 @mozview
 def mention_view(request, pk):
     return {
