@@ -4,11 +4,15 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import get_object_or_404
 from django.core.urlresolvers import reverse
+import django.utils.functional as functional
+from django.conf import settings
 
 from mozbuzz.buzz.forms import MentionForm, FollowUpForm
 from mozbuzz.buzz.models import Mention, FollowUp, RSSPost, RSSFeed, Product
 from mozbuzz.buzz.search import buzz_search, clean_query
 from mozbuzz.buzz.utils import mozview, jsonview
+
+login_required = functional.curry(login_required, login_url="/" + settings.URL_PREFIX + "accounts/login/")
 
 @login_required
 @mozview
