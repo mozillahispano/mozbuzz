@@ -26,7 +26,7 @@
 <input type="hidden" name="next" value="{{ next }}" />
 </form>
 
-<a id="browserid" href="{% url gracefully_degrade %}">Sign In using Persona</a>
+<a id="browserid" style="opacity: 0;" href="{% url gracefully_degrade %}">Sign In using Persona</a>
 <form method="POST" action="{% url browserid_verify %}">
    {% csrf_token %}
    {{ browserid_form.as_p }}
