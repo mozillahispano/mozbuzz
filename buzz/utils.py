@@ -4,6 +4,11 @@ from django.template import RequestContext
 from django.http import HttpResponse, Http404
 import json
 
+def queue_context_processor(request):
+    return {
+	    "queue_count": lambda: RSSPost.objects.filter(hidden=False).count(),
+    }
+
 def mozview(view):
     view_name = view.__name__
     def __inner__(request, *args, **kwargs):
@@ -21,7 +26,6 @@ def mozview(view):
                 "MENTION_TYPES": lambda: dict([(c.pk, c.name) for c in MentionType.enabled.all()]),
                 "AUTHOR_EXPERTISES": lambda: dict([(c.pk, c.name) for c in AuthorExpertise.enabled.all()]),
                 "MENTION_ORIGINS": lambda: dict([(c.pk, c.name) for c in Source.enabled.all()]),
-				"queue_count": lambda: RSSPost.objects.filter(hidden=False).count(),
             }
             ctx.update(result)
             return render(request, "%s.html" % view_name, context_instance=RequestContext(request, ctx))
