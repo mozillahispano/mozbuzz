@@ -29,6 +29,7 @@
 <a id="browserid" style="opacity: 0;" href="{% url gracefully_degrade %}">Sign In using Persona</a>
 <form method="POST" action="{% url browserid_verify %}">
    {% csrf_token %}
+   <input type="hidden" name="next" value="{{ next }}" />
    {{ browserid_form.as_p }}
 </form>
 {% endblock %}
