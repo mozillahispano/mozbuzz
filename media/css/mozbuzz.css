@@ -1480,6 +1480,25 @@ form label {
 	border-radius: 4px;
 }
 
+#login_form_block {
+    width: 350px;
+    border-right: 1px solid #ccc;
+    float: left;
+}
+
+#browserid {
+    width: 185px;
+    height: 25px;
+    display: block;
+    background: url(../img/persona_sign_in_blue.png) no-repeat;
+    margin: 50px 0 0 100px;
+    float: left;
+
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
 /* Markdown styles */
 .markdown {
     line-height: 1.2em;

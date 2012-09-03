@@ -13,7 +13,7 @@
 <p class="errorlist">{% trans "There isn't an account with that email, or Persona verification failled" %}</p>
 {% endif %}
 
-<form method="post" action="{% url django.contrib.auth.views.login %}">
+<form method="post" id="login_form_block" action="{% url django.contrib.auth.views.login %}">
 {% csrf_token %}
 <label class="login_label" for="login_username">Username:</label>
 <input id="login_username" type="text" name="username" maxlength="30" />
@@ -32,6 +32,8 @@
    <input type="hidden" name="next" value="{{ next }}" />
    {{ browserid_form.as_p }}
 </form>
+
+<div class="clearfix"></div>
 {% endblock %}
 
 {% block left_col %}
