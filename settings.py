@@ -120,6 +120,7 @@ AUTHENTICATION_BACKENDS = (
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
     'django.core.context_processors.media',
+    'django.core.context_processors.request',
     'django_browserid.context_processors.browserid_form',
     'buzz.utils.queue_context_processor',
     # ...
@@ -156,10 +157,6 @@ URL_PREFIX = "mozbuzz/"
 
 SITE_URL = "https://www.mozilla-hispano.org/mozbuzz"
 
-LOGIN_REDIRECT_URL = '/'
-
-# Path to redirect to on unsuccessful login attempt.
-LOGIN_REDIRECT_URL_FAILURE = '/'
 
 # Create user accounts automatically if no user is found.
 BROWSERID_CREATE_USER = False
@@ -169,3 +166,7 @@ try:
 except Exception:
     pass
 
+LOGIN_REDIRECT_URL = '/' + URL_PREFIX
+
+# Path to redirect to on unsuccessful login attempt.
+LOGIN_REDIRECT_URL_FAILURE = '/' + URL_PREFIX + "accounts/login/?invalid=1"
