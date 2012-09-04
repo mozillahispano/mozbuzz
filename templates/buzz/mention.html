@@ -10,6 +10,10 @@
     id="mention_form">
         {% csrf_token %}
 
+        {% if not pk and request.GET.rsspost %}
+            <input type="hidden" name="rsspost_hide" value="{{ request.GET.rsspost }}"/>
+        {% endif %}
+
         {{form.link.errors}}
         {{form.link.label_tag}}
         {{form.link}}

@@ -48,6 +48,10 @@ def mention(request, pk=None):
             instance = form.save(commit=False)
             instance.last_update_user = request.user
             instance.save()
+
+            if "rsspost_hide" in request.POST:
+                RSSPost.objects.filter(pk=int(request.POST["rsspost_hide"])).delete()
+
             return HttpResponseRedirect(reverse(index))
     elif pk is not None:
         form = MentionForm(instance=Mention.enabled.get(pk=pk))
