@@ -8,7 +8,7 @@
             <a class="mention-title" href="{{post.link}}">{{ post.title }}</a> (Via {{post.feed.name}})
             <div class="feed_content markdown">{{post.description|safe}}</div>
             <ul class="meta">
-                <li><a href="{% url create %}?url={{ post.link|urlencode:"" }}&rsspost={{ post.pk }}">File report</a></li>
+                <li><a href="{% url "create" %}?url={{ post.link|urlencode:"" }}&rsspost={{ post.pk }}">File report</a></li>
                 <li><a href="#" onclick="delete_entry({{post.pk}}); return false;">Delete</a></li>
             </ul>
         </li>

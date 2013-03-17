@@ -11,7 +11,7 @@
         <ul class="messages segmented mentions">
         {% for mention in mentions %}
             <li class="message mention">
-                <a class="mention-title" href="{% url mention_view mention.pk %}">{{ mention.type }} @ {{ mention.source_name }}</a>
+                <a class="mention-title" href="{% url "mention_view" mention.pk %}">{{ mention.type }} @ {{ mention.source_name }}</a>
                 <ul class="meta">
                     {% if mention.link %}
                     <li>
@@ -66,7 +66,7 @@
                             <p>{{ followup.remarks|markdown }}</p>
                         </div>
                     {% endfor %}
-                    <a class="add-followup-inline" href="{% url followup_new mention.pk %}">Add followup</a>
+                    <a class="add-followup-inline" href="{% url "followup_new" mention.pk %}">Add followup</a>
                 </div>
                 <ul class="meta">
                     <li>Added by {{ mention.creation_user }} on {{ mention.creation_date }}</li>
@@ -74,11 +74,11 @@
                         {% if mention.followups %}
                             {{mention.followups|length}} Followups (<a href="#" class="followups-show">show</a>)
                         {% else %}
-                            <a href="{% url followup_new mention.pk %}">Add followup</a>
+                            <a href="{% url "followup_new" mention.pk %}">Add followup</a>
                         {% endif %}
                     </li>
                     {% if user.is_authenticated %}
-                        <li><a href="{% url edit mention.id %}">Edit</a></li>
+                        <li><a href="{% url "edit" mention.id %}">Edit</a></li>
                     {% endif %}
                 </ul>
             </li>

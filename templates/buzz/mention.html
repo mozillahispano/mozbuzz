@@ -3,9 +3,9 @@
 {% block main_content %}
     <form method="post"
     {% if pk %}
-        action="{% url edit pk %}"
+        action="{% url "edit" pk %}"
     {% else %}
-        action="{% url create %}"
+        action="{% url "create" %}"
     {% endif %}
     id="mention_form">
         {% csrf_token %}
