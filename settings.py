@@ -121,7 +121,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
     'django.core.context_processors.media',
     'django.core.context_processors.request',
-    'django_browserid.context_processors.browserid_form',
+    'django_browserid.context_processors.browserid',
     'buzz.utils.queue_context_processor',
     # ...
 )
