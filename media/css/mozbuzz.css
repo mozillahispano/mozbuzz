@@ -1486,7 +1486,9 @@ form label {
     float: left;
 }
 
-#browserid {
+/* FIXME: This should not be needed with django-browserid 0.9
+   according to https://github.com/mozilla/django-browserid/issues/116 */
+.browserid-login {
     width: 185px;
     height: 25px;
     display: block;
