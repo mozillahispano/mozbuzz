@@ -53,6 +53,19 @@ h2 {
     color: white;
 }
 
+input, textarea {
+    border: 1px solid rgb(128, 128, 128);
+    border-radius: 3px;
+    font-size: 11px;
+    line-height: 19px;
+    padding: 0 4px 0 4px;
+    -moz-box-sizing: border-box;
+}
+
+input {
+    height: 21px;
+}
+
 .funnel {
     max-width: 1410px;
     padding: 0 20px;
@@ -1438,13 +1451,12 @@ form label {
     height: 400px;
 }
 
-#id_remarks {
+#id_link, #id_remarks {
     width: 60%;
-    height: 100px;
 }
 
-#mention_form select,#mention_form input {
-    width: 250px: ;
+#id_remarks {
+    height: 100px;
 }
 
 #mention_guess_prompt {
