@@ -1,8 +1,4 @@
-{% extends "template.html" %}
-{{ browserid_form.media }}
-
-
-{% load i18n %}
+{% extends "template.html" %}{% load i18n %}{% load browserid %}
 {% block main_content %}
 
 {% if form.errors %}
@@ -27,12 +23,8 @@
 </form>
 
 <a id="browserid" style="opacity: 0;" href="{% url "gracefully_degrade" %}">Sign In using Persona</a>
-<form method="POST" action="{% url "browserid_verify" %}">
-   {% csrf_token %}
-   <input type="hidden" name="next" value="{{ next }}" />
-   {{ browserid_form.as_p }}
-</form>
 
+{% browserid_login text='Sign in using persona' %}
 <div class="clearfix"></div>
 {% endblock %}
 
@@ -43,9 +35,4 @@
 {% endblock %}
 
 {% block right_col %}
-{% endblock %}
-
-{% block extrascript %}
-    <script src="//browserid.org/include.js"></script>
-    <script src="{{MEDIA_URL}}js/browserid.js" type="text/javascript"></script>
 {% endblock %}
