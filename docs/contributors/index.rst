@@ -8,48 +8,61 @@ Installation
 
 Requirements
 ------------
-The only requirements are:
 
-* Python
-* git
+To start developing and testing MozBuzz you will need:
+
+ * Python_
+ * Git_
+ * PIP_
+ * Virtualenv_
 
 .. Note::
 
-   If you use Linux or Mac surely alredy have Python installed.
+   If you use Linux or Mac then you surely already have Python installed.
 
-.. Note::
-
-   It's recomendable too, use a virtual environment for python (``virtualenv`` or similars).
+.. _Python: http://python.org/
+.. _Git: http://git-scm.com/
+.. _PIP: http://www.pip-installer.org/
+.. _Virtualenv: http://www.virtualenv.org/
 
 Getting the code
 ----------------
+
 First you need get a copy of the code::
 
     $ git clone https://github.com/mozillahispano/mozbuzz.git
     $ cd mozbuzz
 
+Setup a virtual environment for the application
+-----------------------------------------------
+
+Create a new virtualenv to install MozBuzz dependencies without affecting other software in your machine::
+
+  $ virtualenv env
+
+If you are using any UNIX OS, you could also use VirtualenvWrapper_ for this.
+
+.. _VirtualenvWrapper: http://virtualenvwrapper.readthedocs.org/en/latest/index.html
+
 Install python packages
 -----------------------
-You'll need install python packages used in this project. These are in ``requeriments.txt``.
+
+You'll need install python packages used in this project. These are in ``requirements.txt``.
 The best way to install these packages is using ``pip``::
 
-    $ pip install -r requirements.txt
-
-.. Note::
-
-   I asume you have running your virtual environment.
+    $ pip install -r docs/requirements.txt
 
 Configuration
 -------------
-Start creating a ``settings_local.py``. You can copy ``settings_local.py.example`` and rename this.
+Start creating a ``settings_local.py``. You can use ``settings_local.py.example`` as a template.
 
 Setup database::
 
-    $ ./manage.py syncdb
-    $ ./manage.py migrate
+    $ python manage.py syncdb
+    $ python manage.py migrate
 
 Run server::
 
-    $ ./manage.py runserver
+    $ python manage.py runserver
 
 Now you can open ``http://localhost:8000`` and see MozBuzz running.
