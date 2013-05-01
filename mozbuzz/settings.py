@@ -2,7 +2,7 @@
 
 import os
 
-PROJECT_DIR = os.path.direname(__file__)
+PROJECT_DIR = os.path.dirname(__file__)
 
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
