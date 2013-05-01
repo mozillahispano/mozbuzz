@@ -3,7 +3,7 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.db.utils import DatabaseError
 
-from buzz.helpers import slugifyUniquely
+from .helpers import slugifyUniquely
 
 
 #Choices

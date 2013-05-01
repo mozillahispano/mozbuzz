@@ -14,6 +14,7 @@ from mozbuzz.buzz.utils import mozview, jsonview
 
 login_required = functional.curry(login_required, login_url="/" + settings.URL_PREFIX + "accounts/login/")
 
+
 @login_required
 @mozview
 def index(request):
@@ -33,6 +34,7 @@ def mention_view(request, pk):
 
 def about(request):
     pass #TODO
+
 
 @login_required
 @mozview
@@ -63,6 +65,7 @@ def mention(request, pk=None):
 
     return {"form": form, "pk": pk, "is_new": is_new}
 
+
 @login_required
 @mozview
 def followup(request, pk=None, mention=None):
@@ -87,15 +90,18 @@ def followup(request, pk=None, mention=None):
 
     return {"form": form}
 
+
 @login_required
 def proxy(request):
     assert "url" in request.GET
     return HttpResponse(urllib.urlopen(request.GET["url"]).read())
 
+
 @login_required
 @jsonview
 def source_json(request,source):
     return [x.__obj__() for x in Mention.objects.filter(source_name=source)]
+
 
 @login_required
 @mozview
@@ -110,6 +116,7 @@ def queue(request,product=None):
         "posts": posts.order_by("pub_date").select_related("feed"),
         "product": product,
     }
+
 
 @login_required
 @mozview

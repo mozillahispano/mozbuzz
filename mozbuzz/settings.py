@@ -49,12 +49,12 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = ''
+MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = ''
+MEDIA_URL = '/media/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
@@ -65,11 +65,6 @@ STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
 STATIC_URL = '/static/'
-
-# URL prefix for admin static files -- CSS, JavaScript and images.
-# Make sure to use a trailing slash.
-# Examples: "http://foo.com/static/admin/", "/static/admin/".
-ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
@@ -106,7 +101,9 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'mozbuzz.urls'
 
-TEMPLATE_DIRS = ()  # override me in local settings
+TEMPLATE_DIRS = (
+    os.path.join(PROJECT_DIR, 'templates')
+)
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -119,7 +116,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.markup',
     'south',
-    'buzz',
+    'mozbuzz.buzz',
 )
 
 AUTHENTICATION_BACKENDS = (
@@ -128,12 +125,16 @@ AUTHENTICATION_BACKENDS = (
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.contrib.auth.context_processors.auth',
-    'django.core.context_processors.media',
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.static",
+    "django.core.context_processors.tz",
+    "django.contrib.messages.context_processors.messages",
     'django.core.context_processors.request',
     'django_browserid.context_processors.browserid',
-    'buzz.utils.queue_context_processor',
-    # ...
+    'mozbuzz.buzz.utils.queue_context_processor',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -159,7 +160,11 @@ LOGGING = {
             'level': 'ERROR',
             'filters': ['require_debug_false'],
             'class': 'django.utils.log.AdminEmailHandler'
-        }
+        },
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler'
+        },
     },
     'loggers': {
         'django.request': {
@@ -167,6 +172,10 @@ LOGGING = {
             'level': 'ERROR',
             'propagate': True,
         },
+        'django_browserid': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+        }
     }
 }
 
@@ -182,7 +191,7 @@ SITE_URL = "https://www.mozilla-hispano.org/mozbuzz"
 BROWSERID_CREATE_USER = False
 
 try:
-    from settings_local import *
+    from settings_local import *  # NOQA
 except Exception:
     pass
 
