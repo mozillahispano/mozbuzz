@@ -1,11 +1,9 @@
 # Django settings for mozbuzz project.
 
-DEBUG  = False
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
-ADMINS = (
-    ('Felipe Lerena', 'felipelerena@gmail.com'),
-)
+ADMINS = ()
 
 MANAGERS = ADMINS
 
@@ -91,7 +89,7 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'mozbuzz.urls'
 
-TEMPLATE_DIRS = None#override me in local settings
+TEMPLATE_DIRS = None  # override me in local settings
 
 INSTALLED_APPS = (
     'django.contrib.auth',
