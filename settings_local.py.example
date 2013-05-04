@@ -1,4 +1,3 @@
-from settings import *
 import os
 
 ROOT_PATH = os.path.dirname(__file__)
@@ -10,7 +9,7 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(ROOT_PATH,"media")
 SITE_URL = "http://127.0.0.1:8000"
 
-
+ADMINS = ()
 
 DATABASES = {
     'default': {
