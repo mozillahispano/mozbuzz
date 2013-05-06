@@ -7,29 +7,24 @@ from buzz.helpers import slugifyUniquely
 
 
 #Choices
-PREVIOUS_PRODUCT_COMMENTS = (
-        (0,'No'),
-        (1,'Yes'),
-        (2,'Unknown'),
-    )
+PREVIOUS_PRODUCT_COMMENTS = ((0, 'No'),
+                             (1, 'Yes'),
+                             (2, 'Unknown'),)
 
-UPDATE_RATE = (
-        (00, 'Never'),
-        (10, 'Yearly'),
-        (20, 'Monthly'),
-        (25, 'Weekly'),
-        (30, 'Daily'),
-        (40, 'Hourly'),
-        (50, 'Unknown'),
-    )
+UPDATE_RATE = ((00, 'Never'),
+               (10, 'Yearly'),
+               (20, 'Monthly'),
+               (25, 'Weekly'),
+               (30, 'Daily'),
+               (40, 'Hourly'),
+               (50, 'Unknown'),)
 
-FEEDBACK_TYPES = (
-        (00, 'Very bad'),
-        (10, 'Bad'),
-        (20, 'Neutral'),
-        (30, 'Good'),
-        (40, 'Very good'),
-    )
+FEEDBACK_TYPES = ((00, 'Very bad'),
+                  (10, 'Bad'),
+                  (20, 'Neutral'),
+                  (30, 'Good'),
+                  (40, 'Very good'),)
+
 
 #user profile related
 class UserProfile(models.Model):
@@ -37,6 +32,7 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return "%s's profile" % self.user
+
 
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
@@ -169,34 +165,39 @@ class Mention(SoftDeletableModel):
     origin = models.ForeignKey(Source)
     type = models.ForeignKey(MentionType)
     author_expertise = models.ForeignKey(AuthorExpertise)
-    country = models.ForeignKey(Country, on_delete=models.PROTECT, null=True, blank=True)
-    product = models.ForeignKey(Product, on_delete=models.PROTECT, null=True, blank=True)
+    country = models.ForeignKey(Country, on_delete=models.PROTECT, null=True,
+                                blank=True)
+    product = models.ForeignKey(Product, on_delete=models.PROTECT, null=True,
+                                blank=True)
     feedback = models.IntegerField(max_length=1, choices=FEEDBACK_TYPES)
     previous_product_comments = models.IntegerField(max_length=1,
-        choices=PREVIOUS_PRODUCT_COMMENTS)
+                                                    choices=
+                                                    PREVIOUS_PRODUCT_COMMENTS)
     estimated_audience = models.IntegerField()
     relevant_audience = models.BooleanField()
     update_rate = models.IntegerField(max_length=1, choices=UPDATE_RATE)
     remarks = models.TextField(null=True, blank=True)
 
     def __unicode__(self):
-        return "%s @ %s" %(self.type, self.source_name)
+        return "%s @ %s" % (self.type, self.source_name)
 
     def __obj__(self):
+
         def getval(att):
-            val = getattr(self,att)
-            if isinstance(val,models.Model):
-                return val.pk
-            return val
+            val = getattr(self, att)
+            return val.pk if isinstance(val, models.Model) else val
 
-        return dict(
-			[(k,getval(k)) for k in ("origin","type",
-            "author_expertise","country","product","feedback",
-            "previous_product_comments","estimated_audience",
-            "relevant_audience","update_rate","link","pk")] +
-
-			[("creation_date", str(self.creation_date.date()))]
-		)
+        return dict([(k, getval(k))
+                    for k in ("origin", "type",
+                              "author_expertise", "country",
+                              "product", "feedback",
+                              "previous_product_comments",
+                              "estimated_audience",
+                              "relevant_audience",
+                              "update_rate", "link",
+                              "pk")] + [("creation_date",
+                                        str(self.creation_date.date()))]
+                    )
 
     def followups(self):
         return FollowUp.enabled.filter(mention=self)
@@ -234,21 +235,22 @@ class Report(SoftDeletableModel):
     def __unicode__(self):
         return self.name
 
+
 class RSSFeed(models.Model):
     name = models.TextField()
     url = models.URLField()
-    product = models.ForeignKey(Product,related_name="feeds")
+    product = models.ForeignKey(Product, related_name="feeds")
     last_updated = models.DateTimeField()
 
     def __unicode__(self):
         return "%s (%s)" % (self.name, self.product.name)
 
+
 class RSSPost(models.Model):
-    feed = models.ForeignKey(RSSFeed,related_name="posts")
+    feed = models.ForeignKey(RSSFeed, related_name="posts")
     hidden = models.BooleanField(default=False)
     title = models.TextField()
     link = models.URLField(max_length=3000)
     guid = models.TextField()
     pub_date = models.DateTimeField()
     description = models.TextField()
-
