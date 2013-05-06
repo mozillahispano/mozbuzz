@@ -1,5 +1,6 @@
-from mozbuzz.buzz.models import FEEDBACK_TYPES, UPDATE_RATE, Country,
-Product, MentionType, AuthorExpertise, Source, RSSPost
+from mozbuzz.buzz.models import \
+    (FEEDBACK_TYPES, UPDATE_RATE, Country,
+     Product, MentionType, AuthorExpertise, Source, RSSPost)
 from django.shortcuts import render
 from django.template import RequestContext
 from django.http import HttpResponse, Http404
