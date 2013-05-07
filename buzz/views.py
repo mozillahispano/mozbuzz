@@ -49,7 +49,7 @@ def about(request):
 def mention(request, pk=None):
     is_new = False
     if request.method == 'POST':
-        if not pk:
+        if pk is None:
             instance = Mention(creation_user=request.user)
         else:
             instance = Mention.enabled.get(pk=pk)
@@ -65,7 +65,7 @@ def mention(request, pk=None):
                 pk_value = int(request.POST["rsspost_hide"])
                 RSSPost.objects.filter(pk=pk_value).delete()
         return HttpResponseRedirect(reverse(index))
-    elif pk:
+    elif pk is not None:
         form = MentionForm(instance=Mention.enabled.get(pk=pk))
     else:
         is_new = True
@@ -79,7 +79,7 @@ def mention(request, pk=None):
 @login_required
 @mozview
 def followup(request, pk=None, mention=None):
-    if not pk:
+    if pk is None:
         #create new
         mention = get_object_or_404(Mention, pk=mention)
         instance = FollowUp(creation_user=request.user, mention=mention)

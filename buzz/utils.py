@@ -26,18 +26,16 @@ def mozview(view):
                 "view_name": view_name,
                 "FEEDBACK_TYPES": FEEDBACK_TYPES,
                 "UPDATE_RATE": UPDATE_RATE,
-                "COUNTRIES":
-                lambda: dict([(c.pk, c.name) for c in Country.objects.all()]),
-                "PRODUCTS":
-                lambda: dict([(c.pk, c.name) for c in Product.enabled.all()]),
-                "MENTION_TYPES":
-                lambda:
+                "COUNTRIES": lambda:
+                dict([(c.pk, c.name) for c in Country.objects.all()]),
+                "PRODUCTS": lambda:
+                dict([(c.pk, c.name) for c in Product.enabled.all()]),
+                "MENTION_TYPES": lambda:
                 dict([(c.pk, c.name) for c in MentionType.enabled.all()]),
-                "AUTHOR_EXPERTISES":
-                lambda:
+                "AUTHOR_EXPERTISES": lambda:
                 dict([(c.pk, c.name) for c in AuthorExpertise.enabled.all()]),
-                "MENTION_ORIGINS":
-                lambda: dict([(c.pk, c.name) for c in Source.enabled.all()]),
+                "MENTION_ORIGINS": lambda:
+                dict([(c.pk, c.name) for c in Source.enabled.all()]),
             }
             ctx.update(result)
             return render(request, "%s.html" % view_name,

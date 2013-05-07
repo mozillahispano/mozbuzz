@@ -7,23 +7,26 @@ from buzz.helpers import slugifyUniquely
 
 
 #Choices
-PREVIOUS_PRODUCT_COMMENTS = ((0, 'No'),
-                             (1, 'Yes'),
-                             (2, 'Unknown'),)
+PREVIOUS_PRODUCT_COMMENTS = (
+    (0, 'No'),
+    (1, 'Yes'),
+    (2, 'Unknown'),)
 
-UPDATE_RATE = ((00, 'Never'),
-               (10, 'Yearly'),
-               (20, 'Monthly'),
-               (25, 'Weekly'),
-               (30, 'Daily'),
-               (40, 'Hourly'),
-               (50, 'Unknown'),)
+UPDATE_RATE = (
+    (00, 'Never'),
+    (10, 'Yearly'),
+    (20, 'Monthly'),
+    (25, 'Weekly'),
+    (30, 'Daily'),
+    (40, 'Hourly'),
+    (50, 'Unknown'),)
 
-FEEDBACK_TYPES = ((00, 'Very bad'),
-                  (10, 'Bad'),
-                  (20, 'Neutral'),
-                  (30, 'Good'),
-                  (40, 'Very good'),)
+FEEDBACK_TYPES = (
+    (00, 'Very bad'),
+    (10, 'Bad'),
+    (20, 'Neutral'),
+    (30, 'Good'),
+    (40, 'Very good'),)
 
 
 #user profile related
@@ -170,9 +173,8 @@ class Mention(SoftDeletableModel):
     product = models.ForeignKey(Product, on_delete=models.PROTECT, null=True,
                                 blank=True)
     feedback = models.IntegerField(max_length=1, choices=FEEDBACK_TYPES)
-    previous_product_comments = models.IntegerField(max_length=1,
-                                                    choices=
-                                                    PREVIOUS_PRODUCT_COMMENTS)
+    previous_product_comments = models.IntegerField(
+        max_length=1, choices=PREVIOUS_PRODUCT_COMMENTS)
     estimated_audience = models.IntegerField()
     relevant_audience = models.BooleanField()
     update_rate = models.IntegerField(max_length=1, choices=UPDATE_RATE)
@@ -187,17 +189,14 @@ class Mention(SoftDeletableModel):
             val = getattr(self, att)
             return val.pk if isinstance(val, models.Model) else val
 
-        return dict([(k, getval(k))
-                    for k in ("origin", "type",
-                              "author_expertise", "country",
-                              "product", "feedback",
-                              "previous_product_comments",
-                              "estimated_audience",
-                              "relevant_audience",
-                              "update_rate", "link",
-                              "pk")] + [("creation_date",
-                                        str(self.creation_date.date()))]
-                    )
+        return dict(
+            [(k, getval(k)) for k in (
+                "origin", "type", "author_expertise", "country",
+                "product", "feedback", "previous_product_comments",
+                "estimated_audience", "relevant_audience",
+                "update_rate", "link", "pk")] +
+            [("creation_date", str(self.creation_date.date()))]
+        )
 
     def followups(self):
         return FollowUp.enabled.filter(mention=self)
