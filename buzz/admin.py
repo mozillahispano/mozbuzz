@@ -22,9 +22,10 @@ class FileAdmin(BuzzAdmin):
 
 
 class MentionAdmin(BuzzAdmin):
-    fields = ('type','origin', 'feedback', 'link', 'text', 'author_expertise',
+    fields = ('type', 'origin', 'feedback', 'link', 'text', 'author_expertise',
               'previous_product_comments', 'estimated_audience', 'country',
-              'product', 'relevant_audience', 'update_rate', 'remarks', 'source_name')
+              'product', 'relevant_audience', 'update_rate', 'remarks',
+              'source_name')
 
 
 class FollowUpAdmin(BuzzAdmin):
