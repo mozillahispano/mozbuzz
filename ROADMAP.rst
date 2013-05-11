@@ -23,26 +23,25 @@ los que también se incluirán los cambios triviales (documentación, PEP8, ...)
 Etiquetado de código actual (Mayo 2013)
 =======================================
 
-El código de la aplicación actual se etiquetará como versión 0.9, y se comenzará
-el trabajo para la versión 1.0.
+Dado que existió un hito previo asociado a la versión 1.0, el código de la aplicación
+actual se etiquetará como versión 1.9, y se comenzará el trabajo para la versión 2.0.0.
 
-Versión 1.0.0
+Versión 2.0.0
 =============
 
-La versión *1.0.0* sentará una base para el desarrollo de las nuevas características
-discutidas de forma gradual y por prioridad hacia la versión 2.0.
+La versión *2.0.0* sentará una base para el desarrollo de las nuevas características
+discutidas de forma gradual y por prioridad hacia la versión 3.0.0.
 
  * Estabilización de Login con Persona/django-browserid
  * Migración a Django 1.5
  * Issues:
 
    + `#4 <https://github.com/mozillahispano/mozbuzz/issues/4>`_ Style the "new report" form
-   + `#6 <https://github.com/mozillahispano/mozbuzz/issues/6>`_ Author and origin name fields
-   + Actualizar la documentación (`#6 <https://github.com/mozillahispano/mozbuzz/issues/6>`_, `#16 <https://github.com/mozillahispano/mozbuzz/issues/16>`_, `#17 <https://github.com/mozillahispano/mozbuzz/issues/17>`_, `#31 <https://github.com/mozillahispano/mozbuzz/issues/31>`_)
+   + Actualizar la documentación (`#3 <https://github.com/mozillahispano/mozbuzz/issues/3>`_, `#16 <https://github.com/mozillahispano/mozbuzz/issues/16>`_, `#17 <https://github.com/mozillahispano/mozbuzz/issues/17>`_, `#31 <https://github.com/mozillahispano/mozbuzz/issues/31>`_)
    + `#23 <https://github.com/mozillahispano/mozbuzz/issues/23>`_ Some characters aren't imported correctly (sometimes)
    + `#38 <https://github.com/mozillahispano/mozbuzz/issues/38>`_ Home URL redirects to mozilla-hispano.org
 
-Versión 1.2.0
+Versión 2.2.0
 =============
 
  * Issues:
@@ -51,17 +50,17 @@ Versión 1.2.0
    + `#32 <https://github.com/mozillahispano/mozbuzz/issues/32>`_ Blank/Unknown option for Estimated Audience field
    + `#34 <https://github.com/mozillahispano/mozbuzz/issues/34>`_ Basic graphs
 
-Versión 1.4.0
+Versión 2.4.0
 =============
 
  * Issues:
 
+   + `#5 <https://github.com/mozillahispano/mozbuzz/issues/5>`_ Create a inline followup form
    + `#7 <https://github.com/mozillahispano/mozbuzz/issues/7>`_ Create a combobox to change UI language
    + `#8 <https://github.com/mozillahispano/mozbuzz/issues/8>`_ Spanish l10n
-   + `#5 <https://github.com/mozillahispano/mozbuzz/issues/5>`_ Create a inline followup form
    + `#11 <https://github.com/mozillahispano/mozbuzz/issues/11>`_ Create a magic section to gather information from the web
 
-Versión 1.6.0
+Versión 2.6.0
 =============
 
  * Issues:
@@ -70,14 +69,17 @@ Versión 1.6.0
    + `#10 <https://github.com/mozillahispano/mozbuzz/issues/10>`_ Style reports
    + `#26 <https://github.com/mozillahispano/mozbuzz/issues/26>`_ Add attached files to report
 
-Versión 1.8.0
+Versión 2.8.0
 =============
 
 **TBD**
 
-Versión 2.0.0
+Versión 3.0.0
 =============
 
  * Django 1.6?
  * Playdoh?
+ * REST API?
+ * Mobile Apps?
+ * Your superb idea?
  
