@@ -1,3 +1,9 @@
+# Disclaimer for Devs
+
+Right now the master branch is freezed.
+
+All ongoing work is being done in the django15 branch to settle the basis for future developments.
+
 # MozBuzz
 
 MozBuzz is a tool for tracking brand and product mentions in the press.
