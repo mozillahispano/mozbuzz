@@ -38,7 +38,8 @@ def mozview(view):
                 dict([(c.pk, c.name) for c in Source.enabled.all()]),
             }
             ctx.update(result)
-            return render(request, "%s.html" % view_name,
+            return render(request,
+                          "buzz/%s.html" % view_name,
                           context_instance=RequestContext(request, ctx))
 
     return __inner__

@@ -1,11 +1,12 @@
-{% load i18n %}{% load query %}{% load browserid %}<!DOCTYPE html>
+{% load i18n staticfiles query browserid %}<!DOCTYPE html>
 <html>
   <head>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
     <title>Mozbuzz</title>
-    <link href="{{MEDIA_URL}}css/libs/reset-min.css" rel="stylesheet" />
-    <link href="{{MEDIA_URL}}css/mozbuzz.css" rel="stylesheet" />
-    <link href="{{MEDIA_URL}}css/libs/jquery-ui-redmond.css" rel="stylesheet" />
+    <link href="{% static 'css/libs/reset-min.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/mozbuzz.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/libs/jquery-ui-redmond.css' %}" rel="stylesheet" />
+    {% browserid_css %}
 
   </head>
   <body>
@@ -44,20 +45,7 @@
                             </ul>
                         </div>
                     {% else %}
-                        <form action="{% url "django.contrib.auth.views.login" %}" class="block" method="post">{% csrf_token %}
-                            <div id="welcome_message_anon">Hi there! login to your Mozbuzz account to file new reports.</div>
-                            <label class="login_label" for="login_username">Username:</label>
-                            <input id="login_username" type="text" name="username" maxlength="30" />
-
-                            <label class="login_label" for="login_password">Password:</label>
-                            <input id="login_password" type="password" name="password" />
-
-                            <input id="login_submit" type="submit" value="Log in" />
-                            <input type="hidden" name="next" value="{% url "index" %}" />
-
-                            {% browserid_login text='Or sign in using browserID' %}
-                        </form>
-                        {% browserid_login text='Login' %}
+                        {% browserid_login text='Login' color='blue' %}
                     {% endif %}
                 </div>
             {% endblock %}
@@ -67,9 +55,11 @@
     <script type="text/javascript">
      var URL_ROOT = "{% url "index" %}";
     </script>
-    <script src="{{MEDIA_URL}}js/jquery.min.js" type="text/javascript"></script>
-    <script src="{{MEDIA_URL}}js/jquery-ui.min.js" type="text/javascript"></script>
-    <script src="{{MEDIA_URL}}js/mozbuzz.js" type="text/javascript"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="{% static 'js/jquery-1.9.1.min.js' %}" type="text/javascript"></script>');</script>
+    
+    <script src="{% static 'js/jquery-ui.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/mozbuzz.js' %}" type="text/javascript"></script>
     {% browserid_js %}
     {% block extrascript %}{% endblock %}
   </body>

@@ -1,0 +1,19 @@
+{% extends "base.html" %}{% load i18n browserid %}
+{% block main_content %}
+
+{% if request.GET.invalid %}
+<p class="errorlist">{% trans "There isn't an account with that email, or Persona verification failled" %}</p>
+{% endif %}
+
+{% browserid_login text='Sign in using persona' color='blue' %}
+<div class="clearfix"></div>
+{% endblock %}
+
+{% block left_col %}
+    <div class="col left block helptext">
+        You need to have a Mozbuzz account to use this feature. If you have a Mozbuzz account, log-in in the form beside. If you don't have a Mozbuzz account and you think you should, email <a href="mailto:tecnico@mozilla-hispano.org">tecnico@mozilla-hispano.org</a>.
+    </div>
+{% endblock %}
+
+{% block right_col %}
+{% endblock %}
