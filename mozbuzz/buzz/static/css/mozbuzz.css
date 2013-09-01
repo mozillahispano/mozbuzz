@@ -59,7 +59,10 @@ input, textarea {
     font-size: 11px;
     line-height: 19px;
     padding: 0 4px 0 4px;
+    -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 input {
@@ -1496,21 +1499,6 @@ form label {
     width: 350px;
     border-right: 1px solid #ccc;
     float: left;
-}
-
-/* FIXME: This should not be needed with django-browserid 0.9
-   according to https://github.com/mozilla/django-browserid/issues/116 */
-.browserid-login {
-    width: 185px;
-    height: 25px;
-    display: block;
-    background: url(../img/persona_sign_in_blue.png) no-repeat;
-    margin: 50px 0 0 100px;
-    float: left;
-
-    text-indent: 100%;
-    white-space: nowrap;
-    overflow: hidden;
 }
 
 /* Markdown styles */
