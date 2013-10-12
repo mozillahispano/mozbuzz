@@ -1,4 +1,5 @@
 *.pyc
+*~
 ENV/
 env/
 db.sqlite3
