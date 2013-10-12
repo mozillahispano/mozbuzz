@@ -57,6 +57,17 @@ Configuration
 Start creating a ``settings_local.py``. You can use ``settings_local.py.example`` as a template.
 
 Setup database::
+	
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql', # mysql connection
+            'NAME': 'mozbuzz', # database name
+            'USER': 'root', # example
+            'PASSWORD': 'mysql', # example
+            'HOST': 'localhost',
+            'PORT': '3306',
+	    }
+    }
 
     $ python manage.py syncdb
     $ python manage.py migrate
