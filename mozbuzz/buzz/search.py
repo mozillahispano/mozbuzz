@@ -28,7 +28,6 @@ DEFAULTS = {
 
 def buzz_search(query):
     objs = Mention.enabled.all().order_by('-creation_date')
-    print query
 
     filters = {
         "feedback_type": lambda objs, val: objs.filter(feedback__in=val),

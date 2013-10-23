@@ -1,8 +1,10 @@
 from django.contrib import admin
 
-from buzz.models import AuthorExpertise, Country, File, Mention, Product, \
-    Report, ReportType, Source, MentionType, UserProfile, FollowUp, \
+from .models import (
+    AuthorExpertise, Country, Mention, Product,
+    Source, MentionType, FollowUp,
     FollowUpStatus, RSSFeed
+)
 
 
 class BuzzAdmin(admin.ModelAdmin):

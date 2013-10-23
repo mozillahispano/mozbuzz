@@ -20,6 +20,7 @@ login_required = \
                      settings.URL_PREFIX + "accounts/login/")
 
 
+
 @login_required
 @mozview
 def index(request):
@@ -42,6 +43,7 @@ def mention_view(request, pk):
 def about(request):
     #TODO
     pass
+
 
 
 @login_required
