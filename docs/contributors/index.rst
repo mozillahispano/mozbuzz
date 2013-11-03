@@ -50,7 +50,7 @@ Install python packages
 You'll need install python packages used in this project. These are in ``requirements.txt``.
 The best way to install these packages is using ``pip``::
 
-    $ pip install -r docs/requirements.txt
+    $ pip install -r requirements/requirements.txt
 
 Configuration
 -------------
