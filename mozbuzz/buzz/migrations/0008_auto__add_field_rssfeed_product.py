@@ -9,8 +9,7 @@ class Migration(SchemaMigration):
     def forwards(self, orm):
         
         # Adding field 'RSSFeed.product'
-        db.add_column('buzz_rssfeed', 'product', self.gf('django.db.models.fields.related.ForeignKey')(related_name='feeds', to=orm['buzz.Product']), keep_default=False)
-
+        db.add_column('buzz_rssfeed', 'product', self.gf('django.db.models.fields.related.ForeignKey')(default=1, related_name='feeds', to=orm['buzz.Product']), keep_default=False)
 
     def backwards(self, orm):
         
