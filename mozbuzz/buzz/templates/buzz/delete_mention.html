@@ -1,0 +1,31 @@
+{% extends "base.html" %}{% load i18n query %}
+
+{% block main_content %}
+    <h1>
+        {%trans "Are you sure?" %}
+    </h1>
+    <p>
+        {%trans "Are you sure you want to delete the mention "%}{{ instance }}{%trans "? All of the following related items will be deleted:"%}
+    </p>
+    <form method="post"
+        {% if pk %}
+            action="{% url "edit" pk %}"
+        {% endif %}
+        id="delete_mention_form">
+        {% csrf_token %}
+        {% if not pk and request.GET.rsspost %}
+            <input type="hidden" name="rsspost_hide" value="{{ request.GET.rsspost }}"/>
+        {% endif %}
+        <input type="submit" value="{%trans "Are you sure?" %}" />
+    </form>
+{% endblock %}
+
+{% block extrascript %}
+    <script src="{{MEDIA_URL}}js/readability.js" type="text/javascript"></script>
+    <script src="{{MEDIA_URL}}js/to-markdown.js" type="text/javascript"></script>
+    <script src="{{MEDIA_URL}}js/mozreadability.js" type="text/javascript"></script>
+    {% if is_new and form.initial.link|length > 10 %}
+        <script type="text/javascript">guessInformation();</script>
+    {% endif %}
+    <script>
+{% endblock %}

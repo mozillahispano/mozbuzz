@@ -9,6 +9,7 @@ urlpatterns = patterns(
     url(r'^mention/create$', 'mention', name="create"),
     url(r'^mention/(?P<pk>\d+)$', 'mention_view', name="mention_view"),
     url(r'^mention/(?P<pk>\d+)/edit$', 'mention', name="edit"),
+    url(r'^mention/(?P<pk>\d+)/delete$', 'delete_mention', name="delete"),
     url(r'^mention/(?P<mention>\d+)/followups/new$', 'followup', name="followup_new"),
     url(r'^followup/(?P<pk>\d+)/edit$', 'followup', name="followup_edit"),
     url(r'^product/(?P<product>[a-z\-]+)/queue$', 'queue', name="product_queue"),
