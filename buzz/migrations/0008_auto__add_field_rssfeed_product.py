@@ -7,13 +7,11 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        
         # Adding field 'RSSFeed.product'
-        db.add_column('buzz_rssfeed', 'product', self.gf('django.db.models.fields.related.ForeignKey')(related_name='feeds', to=orm['buzz.Product']), keep_default=False)
+        db.add_column('buzz_rssfeed', 'product', self.gf('django.db.models.fields.related.ForeignKey')(default=0,related_name='feeds', to=orm['buzz.Product']), keep_default=False)
 
 
     def backwards(self, orm):
-        
         # Deleting field 'RSSFeed.product'
         db.delete_column('buzz_rssfeed', 'product_id')
 
