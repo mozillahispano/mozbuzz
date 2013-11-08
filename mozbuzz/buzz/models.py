@@ -174,7 +174,7 @@ class Mention(SoftDeletableModel):
     feedback = models.IntegerField(max_length=1, choices=FEEDBACK_TYPES)
     previous_product_comments = models.IntegerField(max_length=1,
         choices=PREVIOUS_PRODUCT_COMMENTS)
-    estimated_audience = models.IntegerField()
+    estimated_audience = models.IntegerField(null=True, blank=True)
     relevant_audience = models.BooleanField()
     update_rate = models.IntegerField(max_length=1, choices=UPDATE_RATE)
     remarks = models.TextField(null=True, blank=True)
