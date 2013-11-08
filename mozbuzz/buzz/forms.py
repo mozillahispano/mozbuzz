@@ -16,3 +16,4 @@ class FollowUpForm(ModelForm):
     class Meta:
         model = FollowUp
         fields = ('status', 'remarks')
+        
