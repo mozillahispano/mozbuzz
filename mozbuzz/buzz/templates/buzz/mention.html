@@ -1,7 +1,7 @@
 {% extends "base.html" %}{% load i18n query %}
 
 {% block main_content %}
-    <form method="post"
+    <form method="post" enctype="multipart/form-data",
     {% if pk %}
         action="{% url "edit" pk %}"
     {% else %}
