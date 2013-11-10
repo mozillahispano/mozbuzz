@@ -1,5 +1,5 @@
 <uwsgi>
-    <socket>/var/www/mozbuzzdjangoapp.socket</socket>
+    <socket>/tmp/mozbuzzdjangoapp.socket</socket>
     <master/>
     <workers>3</workers>
     <pythonpath>/var/lib/mozbuzz/</pythonpath>
