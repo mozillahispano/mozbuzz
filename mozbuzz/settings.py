@@ -7,9 +7,7 @@ PROJECT_DIR = os.path.dirname(__file__)
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
-ADMINS = (
-    ('Felipe Lerena', 'felipelerena@gmail.com'),
-)
+ADMINS = ()
 
 MANAGERS = ADMINS
 
@@ -78,7 +76,6 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
 # Make this unique, and don't share it with anybody.
@@ -88,7 +85,6 @@ SECRET_KEY = 'z3du*(tsm-nm_8h9n#f5r=*0t7@a^b*&a=xbp7!0s8rr+bndl+'
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -125,13 +121,13 @@ AUTHENTICATION_BACKENDS = (
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
-    "django.contrib.auth.context_processors.auth",
-    "django.core.context_processors.debug",
-    "django.core.context_processors.i18n",
-    "django.core.context_processors.media",
-    "django.core.context_processors.static",
-    "django.core.context_processors.tz",
-    "django.contrib.messages.context_processors.messages",
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'django.core.context_processors.tz',
+    'django.contrib.messages.context_processors.messages',
     'django.core.context_processors.request',
     'django_browserid.context_processors.browserid',
     'mozbuzz.buzz.utils.queue_context_processor',
@@ -179,13 +175,9 @@ LOGGING = {
     }
 }
 
-AUTH_PROFILE_MODULE = 'buzz.UserProfile'
-
 # Sets the URL prefix if the project is not in the URL's root
 # directory.
-URL_PREFIX = "mozbuzz/"
-
-SITE_URL = "https://www.mozilla-hispano.org/mozbuzz"
+URL_PREFIX = 'mozbuzz/'
 
 # Create user accounts automatically if no user is found.
 BROWSERID_CREATE_USER = False
@@ -196,6 +188,7 @@ except Exception:
     pass
 
 LOGIN_REDIRECT_URL = '/' + URL_PREFIX
+LOGOUT_REDIRECT_URL = '/' + URL_PREFIX
 
 # Path to redirect to on unsuccessful login attempt.
-LOGIN_REDIRECT_URL_FAILURE = '/' + URL_PREFIX + "accounts/login/?invalid=1"
+LOGIN_REDIRECT_URL_FAILURE = '/' + URL_PREFIX + 'accounts/login/?invalid=1'

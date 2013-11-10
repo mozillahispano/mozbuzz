@@ -1,5 +1,8 @@
 *.pyc
+*~
+ENV/
 env/
 db.sqlite3
 settings_local.py
 docs/_build/
+.emacs*

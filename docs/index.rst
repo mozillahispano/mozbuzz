@@ -25,7 +25,10 @@ This guide is split into two parts"
     This guide is for site administrators and covers everything
     you need to know to run MozBuzz.
 
+MozBuzz source documentation
+----------------------------
 
+.. automodule:: mozbuzz
 
 Indices and tables
 ==================
