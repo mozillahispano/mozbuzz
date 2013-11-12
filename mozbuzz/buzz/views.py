@@ -68,6 +68,23 @@ def mention(request, pk=None):
 
 @login_required
 @mozview
+def delete_mention(request, pk=None):
+    if request.method == 'POST':
+        if pk is None:
+            return HttpResponseRedirect(reverse(index))
+        else:
+            instance = Mention.enabled.get(pk=pk)
+            instance.delete()
+        return HttpResponseRedirect(reverse(index))
+    else:
+        if pk is None:
+            return HttpResponseRedirect(reverse(index))
+        else:
+            instance = Mention.enabled.get(pk=pk)
+        return {"instance": instance}
+
+@login_required
+@mozview
 def followup(request, pk=None, mention=None):
     if pk is None:
         #create new

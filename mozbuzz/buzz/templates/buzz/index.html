@@ -7,7 +7,7 @@
         {%endfor%}
         <input type="search" id="id_q" name="q" value="{{query.q}}" placeholder="{% trans "Search by keyword" %}">
     </form>
-    <h2>Mentions</h2>
+    <h2>{%trans "Mentions" %}</h2>
         <ul class="messages segmented mentions">
         {% for mention in mentions %}
             <li class="message mention">
@@ -66,19 +66,22 @@
                             <p>{{ followup.remarks|markdown }}</p>
                         </div>
                     {% endfor %}
-                    <a class="add-followup-inline" href="{% url "followup_new" mention.pk %}">Add followup</a>
+                    <a class="add-followup-inline" href="{% url "followup_new" mention.pk %}">{%trans "Add followup" %}</a>
                 </div>
                 <ul class="meta">
                     <li>Added by {{ mention.creation_user }} on {{ mention.creation_date }}</li>
                     <li>
                         {% if mention.followups %}
-                            {{mention.followups|length}} Followups (<a href="#" class="followups-show">show</a>)
+                            {{mention.followups|length}} {%trans "Followups" %} (<a href="#" class="followups-show">{%trans "show" %}</a>)
                         {% else %}
-                            <a href="{% url "followup_new" mention.pk %}">Add followup</a>
+                            <a href="{% url "followup_new" mention.pk %}">{%trans "Add followup" %}</a>
                         {% endif %}
                     </li>
                     {% if user.is_authenticated %}
-                        <li><a href="{% url "edit" mention.id %}">Edit</a></li>
+                        <li><a href="{% url "edit" mention.id %}">{%trans "Edit" %}</a></li>
+                    {% endif %}
+                    {% if user.is_superuser %}
+                        <li><a href="{% url "delete" mention.id %}">{%trans "Delete" %}</a></li>
                     {% endif %}
                 </ul>
             </li>
@@ -158,7 +161,7 @@
                     {% for key,val in query.iteritems %}
                         <input id="input_audience_{{key}}" type="hidden" name="{{key}}" value="{{val|query_encode_val}}"/>
                     {%endfor%}
-                    <input id="audience-update" type="submit" style="display:none" value="Update results" />
+                    <input id="audience-update" type="submit" style="display:none" value="{%trans '"Update results"' %} />
                 </form>
             </div>
         </div>

@@ -37,6 +37,9 @@
                 {{field.errors}}
                 {{field.label_tag}}
                 {{field}}
+                {% if field.name == "estimated_audience" %}
+                    <input type="checkbox" name="estimated_audience_null_check" id="estimated_audience_null_check" value="estimated_audience_null_check" checked=true>{%trans "Unknown"%}
+                {% endif %}
                 <div id="field_{{field.name}}_result"></div>
             </div>
         {% endif %}
@@ -47,11 +50,26 @@
 {% endblock %}
 
 {% block extrascript %}
-    <script src="{{MEDIA_URL}}js/readability.js" type="text/javascript"></script>
-    <script src="{{MEDIA_URL}}js/to-markdown.js" type="text/javascript"></script>
-    <script src="{{MEDIA_URL}}js/mozreadability.js" type="text/javascript"></script>
+    <script src="{{STATIC_URL}}js/readability.js" type="text/javascript"></script>
+    <script src="{{STATIC_URL}}js/to-markdown.js" type="text/javascript"></script>
+    <script src="{{STATIC_URL}}js/mozreadability.js" type="text/javascript"></script>
     {% if is_new and form.initial.link|length > 10 %}
         <script type="text/javascript">guessInformation();</script>
     {% endif %}
     <script>
+        $("#id_estimated_audience").keyup(function() {
+            if ($("#id_estimated_audience").val().length==0) {
+                $("#estimated_audience_null_check").attr('checked', true);
+            } else {
+                $("#estimated_audience_null_check").attr('checked', false);
+            }
+        });
+        
+        $('#estimated_audience_null_check').change(function() {
+            if($(this).is(":checked")) {
+                $("#id_estimated_audience").val("");
+            }
+        });
+        </script>
+    
 {% endblock %}

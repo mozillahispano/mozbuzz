@@ -1,0 +1,66 @@
+# Dependencies
+To follow this installation guide both python and pip must be present in your system, as well as git. Assuming a Ubuntu distribution, you should type the following commands:
+
+```
+apt-get install python-pip
+apt-get install git-core 
+```
+
+It is also recommended to have virtualenv installed to make testing easier:
+
+```
+pip install virtualenv
+```
+
+
+# Download
+To download the project, you just have to clone the repository. So, place your prompt where you want it to be ant type:
+
+```
+cd [PATH_TO_PROJECT]
+git clone https://github.com/mozillahispano/mozbuzz.git
+```
+
+
+# Install
+
+First, we must make a folder to keep all our virtualenv sandboxes
+
+```
+mkdir [PATH]/virtualenv
+cd [PATH]/virtualenv/
+```
+
+Then, virtual project must be created:
+
+```
+virtualenv mozbuzz
+cd mozbuzz
+```
+Then, virtualenv sandbox must be activated:
+```
+source bin/activate
+```
+
+Then, all project dependencies must be installed by:
+```
+pip install -r requirements.txt
+```
+This will install everything which is needed to get the project running.
+
+# Configure
+First of all, project database must be configured. To do that, just copy settings_local.py.example with name settings_local.py, and fill the blanks with your favourite editor.
+
+Once it is done, you must both sync your database and migrate all the example data:
+```
+./manage.py syncdb
+./manage.py migrate
+```
+
+# Execute
+To execute the server included in the project, just type:
+```
+./manage runserver
+```
+
+Now you can open http://localhost:8000 and see MozBuzz running.
