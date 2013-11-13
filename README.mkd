@@ -2,7 +2,9 @@
 
 MozBuzz is a tool for tracking brand and product mentions in the press.
 
-TODO: más detalles
+The main goal of this project is to make possible its parent project, called "Proyecto Encantamiento". This project aims to provide a tool to allow companies and non profit foundations to know the brand's and products' image and reputation.
+
+In this context, MozBuzz is the way to store and organize raw data collected from different sources using a web interface.
 
 ## Project Details
 
@@ -26,8 +28,17 @@ Most recent docs are at: http://mozbuzz.readthedocs.org/
 
 
 ## Want to help?
-TODO: inspiración
+To participate in this project it is a must to have basic knowledge on Python language and Django Framework, as well as some other tools used during the project development.
 
+You can start by checking the developers documentation at Mozilla Hispano (translation is ongoing) in:
+
+http://mhdev.readthedocs.org/es/latest/
+
+If you want to collaborate, please take a look at MozBuzz respository in GitHub, specially ROADMAP.rst file. Make a project fork and focus on one issue. The MozBuzz Git repository can be find in:
+
+https://github.com/mozillahispano/mozbuzz
+
+Welcome on board!
 
 ## License
 This software is licensed under the [GPLv3][GPL]. For more
