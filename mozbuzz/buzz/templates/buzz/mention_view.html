@@ -46,6 +46,24 @@
                         <span>{%trans "Relevant audience"%}</span>
                     </li>
                     {% endif %}
+                    {% if mention.file1 != None %}
+                        <li>
+                            <span>{%trans "File 1"%}</span>
+                            <a href="../media/{{ mention.file1 }}">{{ mention.file1 }}</a>
+                        </li>
+                    {% endif %}
+                    {% if mention.file2 != '' %}
+                        <li>
+                            <span>{%trans "File 2"%}</span>
+                            <a href="../media/{{ mention.file2 }}">{{ mention.file2 }}</a>
+                        </li>
+                    {% endif %}
+                    {% if mention.file3 != None %}
+                        <li>
+                            <span>{%trans "File 3"%}</span>
+                            <a href="../media/{{ mention.file3 }}">{{ mention.file3 }}</a>
+                        </li>
+                    {% endif %}
                 </ul>
                 <div style="display:none" class="followups">
                     {% for followup in mention.followups %}

@@ -178,6 +178,9 @@ class Mention(SoftDeletableModel):
     relevant_audience = models.BooleanField()
     update_rate = models.IntegerField(max_length=1, choices=UPDATE_RATE)
     remarks = models.TextField(null=True, blank=True)
+    file1 = models.FileField(upload_to='report_files/', blank=True, null=True)
+    file2 = models.FileField(upload_to='report_files/', blank=True, null=True)
+    file3 = models.FileField(upload_to='report_files/', blank=True, null=True)
 
     def __unicode__(self):
         return "%s @ %s" %(self.type, self.source_name)

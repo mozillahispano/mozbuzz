@@ -7,7 +7,7 @@ class MentionForm(ModelForm):
         fields = ('link', 'origin', 'source_name', 'text', 'type', 'feedback', 'country',
                   'author_expertise', 'previous_product_comments', 'product',
                   'estimated_audience', 'relevant_audience', 'update_rate',
-                  'remarks')
+                  'remarks', 'file1', 'file2', 'file3')
         widgets = {
             "source_name": TextInput
         }

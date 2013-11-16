@@ -99,6 +99,9 @@ class Migration(SchemaMigration):
             ('relevant_audience', self.gf('django.db.models.fields.BooleanField')(default=False)),
             ('update_rate', self.gf('django.db.models.fields.IntegerField')(max_length=1)),
             ('remarks', self.gf('django.db.models.fields.TextField')()),
+            ('file1', self.gf('django.db.models.fields.TextField')()),
+            ('file2', self.gf('django.db.models.fields.TextField')()),
+            ('file3', self.gf('django.db.models.fields.TextField')()),
         ))
         db.send_create_signal('buzz', ['Mention'])
 

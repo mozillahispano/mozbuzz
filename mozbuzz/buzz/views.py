@@ -36,6 +36,12 @@ def about(request):
     pass #TODO
 
 
+
+def handle_uploaded_file(f):
+    with open(str(f), 'wb+') as destination:
+        for chunk in f.chunks():
+            destination.write(chunk)
+
 @login_required
 @mozview
 def mention(request, pk=None):
@@ -45,12 +51,17 @@ def mention(request, pk=None):
             instance = Mention(creation_user=request.user)
         else:
             instance = Mention.enabled.get(pk=pk)
-        form = MentionForm(request.POST, instance=instance)
+        form = MentionForm(request.POST, request.FILES, instance=instance)
         if form.is_valid():
             instance = form.save(commit=False)
             instance.last_update_user = request.user
+            if 'file1' in request.FILES:
+                instance.file1.save(request.FILES['file1'].name, request.FILES['file1'])
+            if 'file2' in request.FILES:
+                instance.file2.save(request.FILES['file2'].name, request.FILES['file2'])
+            if 'file3' in request.FILES:
+                instance.file3.save(request.FILES['file3'].name, request.FILES['file3'])
             instance.save()
-
             if "rsspost_hide" in request.POST:
                 RSSPost.objects.filter(pk=int(request.POST["rsspost_hide"])).delete()
 
