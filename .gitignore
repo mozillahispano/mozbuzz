@@ -3,3 +3,10 @@ env/
 db.sqlite3
 settings_local.py
 docs/_build/
+/bin/
+/iclude/
+/lib/
+/local/
+/static/
+true
+uwsgi.pid
