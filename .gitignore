@@ -6,3 +6,10 @@ db.sqlite3
 settings_local.py
 docs/_build/
 .emacs*
+/bin/
+/iclude/
+/lib/
+/local/
+/static/
+true
+uwsgi.pid
