@@ -66,7 +66,7 @@ Setup database::
             'PASSWORD': 'mysql', # example
             'HOST': 'localhost',
             'PORT': '3306',
-	    }
+	}
     }
 
     $ python manage.py syncdb
