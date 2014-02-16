@@ -93,9 +93,9 @@ Create an uWSGI app at `/etc/uwsgi/apps-enabled/mozbuzz.mozilla-hispano.org.ini`
 Restart the Nginx and uWSGI services and enjoy.
 
 .. _MozBuzz public Git repository: https://github.com/mozillahispano/mozbuzz/
-.. _virtualenv: 
-.. _Nginx: 
-.. _uWSGI: 
+.. _virtualenv: https://www.virtualenv.org/en/latest/
+.. _Nginx: https://nginx.org
+.. _uWSGI: https://uwsgi-docs.readthedocs.org/en/latest/
 
 Upgrade
 =======
