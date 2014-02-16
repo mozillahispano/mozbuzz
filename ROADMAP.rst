@@ -5,32 +5,22 @@
 Normas generales de versionamiento
 ----------------------------------
 
-**Dependencias**: dentro de una misma versión mayor no deben haber cambios de
-versión mayor en las dependencias para asegurar la estabilidad de los sistemas
-que están en producción. Se considera aceptable la actualización de dependencias
-solo en los casos de actualizaciones de seguridad y corrección de errores.
+Seguir los lineamientos establecidos por semver_
 
-**Números de versión/Tags**: se sigue el esquema de Mayor.Menor.Revisión. La
-*versión mayor* aumenta cuando se hacen cambios que requieran un proceso de
-migración no automatizable y cuando se actualizan versiones mayores de *Django*.
-La *version menor* aumenta cuando se incluyen nuevas características. Las
-versiones menores impares serán inestables o de pruebas, y las pares de producción.
-La *revisión* aumenta cuando se corrigen fallos sobre una versión menor, casos en
-los que también se incluirán los cambios triviales (documentación, PEP8, ...)
+.. _semver: http://semver.org/
 
 **Issues**: cada issue estará asociado a un *milestone* en el `Issue Tracker <https://github.com/mozillahispano/mozbuzz/issues>`_
 
-Etiquetado de código actual (Mayo 2013)
-=======================================
+Etiquetado
+==========
 
-Dado que existió un hito previo asociado a la versión 1.0, el código de la aplicación
-actual se etiquetará como versión 1.9, y se comenzará el trabajo para la versión 2.0.0.
+Dado que existió un hito previo asociado a la versión 1.0, el código de la aplicación se etiquetó en Mayo de 2013 como 1.9, dando comienzo al trabjo para la versión 2.0
 
-Versión 2.0.0
-=============
+Versión 2.0
+===========
 
-La versión *2.0.0* sentará una base para el desarrollo de las nuevas características
-discutidas de forma gradual y por prioridad hacia la versión 3.0.0.
+La versión *2.0* sentará una base para el desarrollo de las nuevas características
+discutidas de forma gradual y por prioridad hacia la versión 3.0.
 
  * Estabilización de Login con Persona/django-browserid
  * Migración a Django 1.5
