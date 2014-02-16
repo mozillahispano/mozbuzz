@@ -181,6 +181,7 @@ URL_PREFIX = 'mozbuzz/'
 
 # Create user accounts automatically if no user is found.
 BROWSERID_CREATE_USER = False
+BROWSERID_VERIFY_CLASS = 'default'
 
 try:
     from settings_local import *  # NOQA
