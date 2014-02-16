@@ -28,7 +28,7 @@ You will need a Python `virtualenv`_ to hold Mozbuzz dependencies::
   $ cd /var/lib/mozbuzz
   $ virtualenv .
   $ source bin/activate
-  $ pip install -r requirements.txt
+  $ pip install -r requirements/production.txt
 
 Set up the site
 ---------------
