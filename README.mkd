@@ -19,7 +19,7 @@ https://github.com/mozillahispano/mozbuzz/issues
 Documentation is in the ``docs/`` directory including docs for
 installing, deploying, contributing, ...
 
-Most recent docs are at [readthedocs.org](https://mozzbuzz.readthedocs.org/en/latest/)
+Most recent docs are at [readthedocs.org](https://mozbuzz.readthedocs.org/en/latest/)
 
 ### IRC Channel
 ``mozbuzz`` on ``irc.mozilla.org``
