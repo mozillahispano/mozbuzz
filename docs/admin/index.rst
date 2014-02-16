@@ -102,6 +102,10 @@ Upgrade
 
 Before an upgrade please test you current setup with the new code. Look at the configuration examples and the documentation to find if you need to update your setup after the upgrade.
 
+Install new dependencies and upgrades, if any::
+
+  $ pip install -U -r requirements/production.txt
+
 Always run database migrations after an upgrade by issuing in a command line::
 
   $ python manage.py migrate
