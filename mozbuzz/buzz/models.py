@@ -154,6 +154,15 @@ class AuthorExpertise(SoftDeletableModel):
         return self.name
 
 
+class MentionAttachment(models.Model):
+    '''Files attached to mentions'''
+    mention = models.ForeignKey('Mention', )
+    attachment = models.FileField(
+        upload_to='mentions/attachments'
+    )
+    comment = models.CharField(max_length=140, blank=True)
+
+
 class Mention(SoftDeletableModel):
     creation_user = models.ForeignKey(User, related_name="creator", null=True,
                                       blank=True)
