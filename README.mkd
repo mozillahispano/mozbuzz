@@ -1,9 +1,3 @@
-# Disclaimer for Devs
-
-Right now the master branch is freezed.
-
-All ongoing work is being done in the django15 branch to settle the basis for future developments.
-
 # MozBuzz
 
 MozBuzz is a tool for tracking brand and product mentions in the press.
@@ -20,6 +14,10 @@ https://github.com/mozillahispano/mozbuzz
 
 https://github.com/mozillahispano/mozbuzz/issues
 
+### Disclaimer for Devs
+
+Please send Pull Requests against the `development` branch, unless it is a fix for a bug in `master`.
+
 ### Documentation
 
 Documentation is in the ``docs/`` directory including docs for
@@ -29,11 +27,6 @@ Most recent docs are at [readthedocs.org](https://mozzbuzz.readthedocs.org/en/la
 
 ### IRC Channel
 ``mozbuzz`` on ``irc.mozilla.org``
-
-
-## Want to help?
-TODO: inspiración
-
 
 ## License
 This software is licensed under the [GPLv3][GPL]. For more
