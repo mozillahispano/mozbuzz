@@ -93,6 +93,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 )
 
 ROOT_URLCONF = 'mozbuzz.urls'
@@ -193,3 +194,11 @@ LOGOUT_REDIRECT_URL = '/' + URL_PREFIX
 
 # Path to redirect to on unsuccessful login attempt.
 LOGIN_REDIRECT_URL_FAILURE = '/' + URL_PREFIX + 'accounts/login/?invalid=1'
+
+# Includes automatically the tag in the all templates
+from django.template import add_to_builtins
+add_to_builtins('django.templatetags.i18n')
+
+LOCALE_PATHS = (
+    os.path.join(PROJECT_DIR, '../locale'),
+)

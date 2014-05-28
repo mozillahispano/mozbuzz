@@ -12,4 +12,5 @@ urlpatterns = patterns('',
     url(r'^' + settings.URL_PREFIX + 'accounts/password_change/$', 'django.contrib.auth.views.password_change', {'template_name': 'password_change.html'}),
     url(r'^' + settings.URL_PREFIX + 'accounts/password_change_done/$', 'django.contrib.auth.views.password_change_done', {'template_name': 'password_change_done.html'}),
     url(r'^' + settings.URL_PREFIX + 'browserid/', include('django_browserid.urls')),
+    url(r'^' + settings.URL_PREFIX + 'i18n/', include('django.conf.urls.i18n')),
 )
