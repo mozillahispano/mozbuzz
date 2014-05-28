@@ -2,7 +2,7 @@
 {% block main_content %}
 
 {% url "index" as index_url %}
-<p>{% trans "You have successfully logged out." %} <a href="{% url "django.contrib.auth.views.login" %}?next={{index_url}}">Login again</a></p>
+<p>{% trans "You have successfully logged out." %} <a href="{% url "django.contrib.auth.views.login" %}?next={{index_url}}">{% trans "Login again" %}</a></p>
 
 {% endblock %}
 

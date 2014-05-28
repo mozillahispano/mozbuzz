@@ -27,7 +27,7 @@
         </div>
         {% endif %}
         <div id="duplicates" class="errorlist hidden">
-            The following possible duplicates were found:
+            {% trans "The following possible duplicates were found:" %}
             <ul id="duplicates-list"></ul>
         </div>
         <div id="mention_form_otherfields_cnt" {% if is_new %}style="display: none"{% endif %}>
@@ -44,7 +44,7 @@
             </div>
         {% endif %}
         {% endfor %}
-        <input type="submit" value="Submit" />
+        <input type="submit" value="{% trans "Submit" %}" />
         </div>
     </form>
 {% endblock %}

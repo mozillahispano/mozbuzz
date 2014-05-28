@@ -1,0 +1,258 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-05-27 20:10-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: mozbuzz/buzz/templates/buzz/delete_mention.html:5
+#: mozbuzz/buzz/templates/buzz/delete_mention.html:19
+msgid "Are you sure?"
+msgstr ""
+
+#: mozbuzz/buzz/templates/buzz/delete_mention.html:8
+msgid "Are you sure you want to delete the mention "
+msgstr ""
+
+#: mozbuzz/buzz/templates/buzz/delete_mention.html:8
+msgid "? All of the following related items will be deleted:"
+msgstr ""
+
+#: mozbuzz/buzz/templates/buzz/followup.html:7
+#: mozbuzz/buzz/templates/buzz/mention.html:47
+msgid "Submit"
+msgstr ""
+
+#: mozbuzz/buzz/templates/buzz/index.html:8
+msgid "Search by keyword"
+msgstr ""
+
+#: mozbuzz/buzz/templates/buzz/index.html:10
+msgid "Mentions"
+msgstr "Menciones"
+
+#: mozbuzz/buzz/templates/buzz/index.html:18
+#: mozbuzz/buzz/templates/buzz/mention_view.html:13
+msgid "Original page"
+msgstr ""
+
+#: mozbuzz/buzz/templates/buzz/index.html:22
+msgid "Audience:"
+msgstr ""
+
+#: mozbuzz/buzz/templates/buzz/index.html:26
+msgid "Author"
+msgstr ""
+
+#: mozbuzz/buzz/templates/buzz/index.html:37
+msgid "feedback"
+msgstr ""
+
+#: mozbuzz/buzz/templates/buzz/index.html:40
+msgid "Updated"
+msgstr ""
+
+#: mozbuzz/buzz/templates/buzz/index.html:45
+#: mozbuzz/buzz/templates/buzz/mention_view.html:46
+msgid "Relevant audience"
+msgstr ""
+
+#: mozbuzz/buzz/templates/buzz/index.html:57
+#: mozbuzz/buzz/templates/buzz/mention_view.html:37
+msgid "Remarks:"
+msgstr ""
+
+#: mozbuzz/buzz/templates/buzz/index.html:69
+#: mozbuzz/buzz/templates/buzz/index.html:77
+#: mozbuzz/buzz/templates/buzz/mention_view.html:58
+#: mozbuzz/buzz/templates/buzz/mention_view.html:66
+msgid "Add followup"
+msgstr ""
+
+#: mozbuzz/buzz/templates/buzz/index.html:75
+#: mozbuzz/buzz/templates/buzz/mention_view.html:64
+msgid "Followups"
+msgstr ""
+
+#: mozbuzz/buzz/templates/buzz/index.html:75
+#: mozbuzz/buzz/templates/buzz/mention_view.html:64
+msgid "show"
+msgstr ""
+
+#: mozbuzz/buzz/templates/buzz/index.html:81
+#: mozbuzz/buzz/templates/buzz/mention_view.html:70
+msgid "Edit"
+msgstr ""
+
+#: mozbuzz/buzz/templates/buzz/index.html:84
+#: mozbuzz/buzz/templates/buzz/queue.html:10
+msgid "Delete"
+msgstr ""
+
+#: mozbuzz/buzz/templates/buzz/index.html:89
+msgid "No mentions found."
+msgstr ""
+
+#: mozbuzz/buzz/templates/buzz/index.html:98
+msgid "Feedback type"
+msgstr ""
+
+#: mozbuzz/buzz/templates/buzz/index.html:106
+msgid "Country"
+msgstr ""
+
+#: mozbuzz/buzz/templates/buzz/index.html:114
+msgid "Product"
+msgstr ""
+
+#: mozbuzz/buzz/templates/buzz/index.html:122
+msgid "Type"
+msgstr ""
+
+#: mozbuzz/buzz/templates/buzz/index.html:130
+msgid "Origin"
+msgstr ""
+
+#: mozbuzz/buzz/templates/buzz/index.html:138
+msgid "Author expertise"
+msgstr ""
+
+#: mozbuzz/buzz/templates/buzz/index.html:146
+msgid "Update rate"
+msgstr ""
+
+#: mozbuzz/buzz/templates/buzz/index.html:153
+msgid "Hold down shift to select multiple options"
+msgstr ""
+
+#: mozbuzz/buzz/templates/buzz/index.html:158
+msgid "Audience"
+msgstr ""
+
+#: mozbuzz/buzz/templates/buzz/index.html:164
+msgid "\"Update results\""
+msgstr ""
+
+#: mozbuzz/buzz/templates/buzz/mention.html:25
+msgid "Guess Information"
+msgstr ""
+
+#: mozbuzz/buzz/templates/buzz/mention.html:26
+msgid "Don't guess"
+msgstr ""
+
+#: mozbuzz/buzz/templates/buzz/mention.html:30
+msgid "The following possible duplicates were found:"
+msgstr ""
+
+#: mozbuzz/buzz/templates/buzz/mention.html:41
+msgid "Unknown"
+msgstr ""
+
+#: mozbuzz/buzz/templates/buzz/mention_view.html:17
+msgid "Estimate audience:"
+msgstr ""
+
+#: mozbuzz/buzz/templates/buzz/mention_view.html:18
+msgid "persons."
+msgstr ""
+
+#: mozbuzz/buzz/templates/buzz/mention_view.html:21
+msgid "Author type:"
+msgstr ""
+
+#: mozbuzz/buzz/templates/buzz/mention_view.html:25
+msgid "Country:"
+msgstr ""
+
+#: mozbuzz/buzz/templates/buzz/mention_view.html:29
+msgid "Product:"
+msgstr ""
+
+#: mozbuzz/buzz/templates/buzz/mention_view.html:33
+msgid "Feedback:"
+msgstr ""
+
+#: mozbuzz/buzz/templates/buzz/mention_view.html:41
+msgid "Updated:"
+msgstr ""
+
+#: mozbuzz/buzz/templates/buzz/queue.html:9 mozbuzz/templates/base.html:22
+msgid "File report"
+msgstr ""
+
+#: mozbuzz/templates/base.html:21
+msgid "Overview"
+msgstr ""
+
+#: mozbuzz/templates/base.html:23
+msgid "Queue"
+msgstr ""
+
+#: mozbuzz/templates/base.html:54
+#, python-format
+msgid ""
+"\n"
+"                                Welcome back %(username)s! Let's buzz!\n"
+"                            "
+msgstr ""
+
+#: mozbuzz/templates/base.html:61
+msgid "Change Password"
+msgstr ""
+
+#: mozbuzz/templates/login.html:5
+msgid "There isn't an account with that email, or Persona verification failled"
+msgstr ""
+
+#: mozbuzz/templates/login.html:14
+msgid ""
+"\n"
+"        \tYou need to have a Mozbuzz account to use this feature. If you "
+"have a Mozbuzz account, log-in in the form beside. If you don't have a "
+"Mozbuzz account and you think you should, email <a href=\"mailto:"
+"tecnico@mozilla-hispano.org\">tecnico@mozilla-hispano.org</a>.\n"
+"    \t"
+msgstr ""
+
+#: mozbuzz/templates/logout.html:5
+msgid "You have successfully logged out."
+msgstr ""
+
+#: mozbuzz/templates/logout.html:5
+msgid "Login again"
+msgstr ""
+
+#: mozbuzz/templates/password_change.html:7
+msgid "Change password"
+msgstr ""
+
+#: mozbuzz/templates/password_change.html:14
+msgid ""
+"\n"
+"        \tIn this form you can change your password. If you don't remember "
+"your current password, email <a href=\"mailto:tecnico@mozilla-hispano.org"
+"\">tecnico@mozilla-hispano.org</a>.\n"
+"        "
+msgstr ""
+
+#: mozbuzz/templates/password_change_done.html:5
+msgid "You have successfully changed your password."
+msgstr ""
+
+#: mozbuzz/templates/password_change_done.html:5
+msgid "Go to the home page"
+msgstr ""
