@@ -15,7 +15,7 @@
                     {% endif%}
                     <li>
                         <span>{%trans "Estimate audience:"%}</span>
-                        {{ mention.estimated_audience }} persons.
+                        {{ mention.estimated_audience }} {% trans "persons." %}
                     </li>
                     <li>
                         <span>{%trans "Author type:"%}</span>
@@ -54,19 +54,20 @@
                             <p>{{ followup.remarks|markdown }}</p>
                         </div>
                     {% endfor %}
-                    <a class="add-followup-inline" href="{% url "followup_new" mention.pk %}">Add followup</a>
+                    <a class="add-followup-inline" href="{% url "followup_new" mention.pk %}">
+                    {% trans "Add followup" %}</a>
                 </div>
                 <ul class="meta">
                     <li>Added by {{ mention.creation_user }} on {{ mention.creation_date }}</li>
                     <li>
                         {% if mention.followups %}
-                            {{mention.followups|length}} Followups (<a href="#" class="followups-show">show</a>)
+                            {{mention.followups|length}} {% trans "Followups" %} (<a href="#" class="followups-show">{% trans "show" %}</a>)
                         {% else %}
-                            <a href="{% url "followup_new" mention.pk %}">Add followup</a>
+                            <a href="{% url "followup_new" mention.pk %}">{% trans "Add followup" %}</a>
                         {% endif %}
                     </li>
                     {% if user.is_authenticated %}
-                        <li><a href="{% url "edit" mention.id %}">Edit</a></li>
+                        <li><a href="{% url "edit" mention.id %}">{% trans "Edit" %}</a></li>
                     {% endif %}
                 </ul>
             </li>
