@@ -1,24 +1,24 @@
-import urllib
+import datetime
 import feedparser
 import time
-import datetime
+import urllib
 
+from django.conf import settings
+from django.contrib import messages 
 from django.contrib.auth.decorators import login_required
+from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import get_object_or_404
-from django.core.urlresolvers import reverse
 import django.utils.functional as functional
-from django.conf import settings
 
 from mozbuzz.buzz.forms import MentionForm, FollowUpForm
 from mozbuzz.buzz.models import Mention, FollowUp, RSSPost, RSSFeed, Product
 from mozbuzz.buzz.search import buzz_search, clean_query
-from mozbuzz.buzz.utils import mozview, jsonview
+from mozbuzz.buzz.utils import mozview, jsonview, remove_file
 
 login_required = \
     functional.curry(login_required, login_url="/" +
                      settings.URL_PREFIX + "accounts/login/")
-
 
 
 @login_required
@@ -35,6 +35,7 @@ def index(request):
 @login_required
 @mozview
 def mention_view(request, pk):
+
     return {
         "mention": get_object_or_404(Mention, pk=pk)
     }
@@ -49,24 +50,50 @@ def about(request):
 @login_required
 @mozview
 def mention(request, pk=None):
+
     is_new = False
+
     if request.method == 'POST':
         if pk is None:
             instance = Mention(creation_user=request.user)
         else:
             instance = Mention.enabled.get(pk=pk)
+            #Last file upload
+            file_name = instance.upload_file
+            #File path of the last file
+            file_path = settings.MEDIA_ROOT + "/" + str(file_name)
 
-        form = MentionForm(request.POST, instance=instance)
+        form = MentionForm(request.POST, request.FILES, instance=instance)
 
         if form.is_valid():
             instance = form.save(commit=False)
             instance.last_update_user = request.user
+            
+            #If check field clear, remove file when update 
+            if 'upload_file-clear' in request.POST:
+                try:
+                    remove_file(file_path, file_name)
+                except Exception:
+                    pass
+              
+            if 'upload_file' in request.FILES:
+
+                #If a previous file exists it removed
+                try:
+                    remove_file(file_path, file_name)
+                except Exception:
+                    pass
+                    
+                instance.upload_file = request.FILES['upload_file']
             instance.save()
 
             if "rsspost_hide" in request.POST:
                 pk_value = int(request.POST["rsspost_hide"])
                 RSSPost.objects.filter(pk=pk_value).delete()
-        return HttpResponseRedirect(reverse(index))
+
+            return HttpResponseRedirect(reverse(index))
+        else:
+            messages.error(request, "Error")
     elif pk is not None:
         form = MentionForm(instance=Mention.enabled.get(pk=pk))
     else:
@@ -75,7 +102,11 @@ def mention(request, pk=None):
             "link": request.GET.get("url", "http://")
         })
 
-    return {"form": form, "pk": pk, "is_new": is_new}
+    return {
+        "form": form, 
+        "pk": pk, 
+        "is_new": is_new
+    }
 
 
 @login_required
