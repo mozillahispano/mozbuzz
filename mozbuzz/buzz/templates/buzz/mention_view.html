@@ -1,4 +1,9 @@
-{% extends "base.html" %}{% load i18n query markup %}
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load query %}
+{% load markup %}
+{% load files %}
 
 {% block main_content %}
         <ul class="messages segmented mentions">
@@ -72,6 +77,14 @@
                 </ul>
             </li>
     </ul>
+
+    {% if mention.upload_file %}
+        {% if mention.upload_file|basename|get_extension == ".jpg" %}
+            <img src="{{MEDIA_URL}}{{mention.upload_file}}" style="width: 100%;" />
+        {% else %}
+            <a href="{{MEDIA_URL}}{{mention.upload_file}}"><img src="{{STATIC_URL}}/img/pdf-icon.png" width="30" height="30" /> </a>
+        {% endif %}
+    {% endif %}
 {% endblock %}
 
 {% block left_col %}{% endblock %}

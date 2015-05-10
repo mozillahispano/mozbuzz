@@ -1,10 +1,12 @@
+import os
+
 from django.contrib.auth.models import User
 from django.db import models
 from django.db.models.signals import post_save
 from django.db.utils import DatabaseError
 
 from .helpers import slugifyUniquely
-
+from .validators import valid_extension
 
 #Choices
 PREVIOUS_PRODUCT_COMMENTS = (
@@ -162,6 +164,8 @@ class MentionAttachment(models.Model):
     )
     comment = models.CharField(max_length=140, blank=True)
 
+def generate_path(instance, filename):
+    return os.path.join("files", "mention_" + str(instance.id), filename)
 
 class Mention(SoftDeletableModel):
     creation_user = models.ForeignKey(User, related_name="creator", null=True,
@@ -188,6 +192,9 @@ class Mention(SoftDeletableModel):
     relevant_audience = models.BooleanField(default=False)
     update_rate = models.IntegerField(max_length=1, choices=UPDATE_RATE)
     remarks = models.TextField(null=True, blank=True)
+    upload_file = models.FileField(upload_to=generate_path, default="", 
+                                    blank=True, validators=[valid_extension], 
+                                    null=True)
 
     def __unicode__(self):
         return "%s @ %s" % (self.type, self.source_name)
@@ -209,7 +216,6 @@ class Mention(SoftDeletableModel):
 
     def followups(self):
         return FollowUp.enabled.filter(mention=self)
-
 
 class FollowUpStatus(SluggedModel):
     slug = models.SlugField(unique=True)
