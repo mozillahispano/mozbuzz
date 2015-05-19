@@ -79,10 +79,10 @@
     </ul>
 
     {% if mention.upload_file %}
-        {% if mention.upload_file|basename|get_extension == ".jpg" %}
+        {% if mention.upload_file|basename|get_extension|is_image %}
             <img src="{{MEDIA_URL}}{{mention.upload_file}}" style="width: 100%;" />
         {% else %}
-            <a href="{{MEDIA_URL}}{{mention.upload_file}}"><img src="{{STATIC_URL}}/img/pdf-icon.png" width="30" height="30" /> </a>
+            <a href="{{MEDIA_URL}}{{mention.upload_file}}"><img src="{{STATIC_URL}}/img/file.jpeg" width="30" height="30" /> </a>
         {% endif %}
     {% endif %}
 {% endblock %}

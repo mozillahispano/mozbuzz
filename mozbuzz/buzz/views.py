@@ -42,7 +42,7 @@ def mention_view(request, pk):
 
 
 def about(request):
-    #TODO
+    # TODO
     pass
 
 
@@ -58,9 +58,9 @@ def mention(request, pk=None):
             instance = Mention(creation_user=request.user)
         else:
             instance = Mention.enabled.get(pk=pk)
-            #Last file upload
+            # Last file upload
             file_name = instance.upload_file
-            #File path of the last file
+            # File path of the last file
             file_path = settings.MEDIA_ROOT + "/" + str(file_name)
 
         form = MentionForm(request.POST, request.FILES, instance=instance)
@@ -69,7 +69,7 @@ def mention(request, pk=None):
             instance = form.save(commit=False)
             instance.last_update_user = request.user
             
-            #If check field clear, remove file when update 
+            # If check field clear, remove file when update 
             if 'upload_file-clear' in request.POST:
                 try:
                     remove_file(file_path, file_name)
@@ -78,7 +78,7 @@ def mention(request, pk=None):
               
             if 'upload_file' in request.FILES:
 
-                #If a previous file exists it removed
+                # If a previous file exists it removed
                 try:
                     remove_file(file_path, file_name)
                 except Exception:
@@ -126,15 +126,16 @@ def delete_mention(request, pk=None):
             instance = Mention.enabled.get(pk=pk)
         return {"instance": instance}
 
+
 @login_required
 @mozview
 def followup(request, pk=None, mention=None):
     if pk is None:
-        #create new
+        # create new
         mention = get_object_or_404(Mention, pk=mention)
         instance = FollowUp(creation_user=request.user, mention=mention)
     else:
-        #edit existing
+        # edit existing
         instance = get_object_or_404(FollowUp, pk=pk)
         assert instance.creation_user == request.user
 

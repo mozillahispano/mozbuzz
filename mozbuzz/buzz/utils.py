@@ -78,3 +78,4 @@ def remove_file(route_file, file_name):
     if file_name != "" and not file_name is None:
         if os.path.exists(route_file):
             os.remove(route_file)
+            
