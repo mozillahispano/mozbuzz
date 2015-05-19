@@ -1,4 +1,5 @@
 from django.conf.urls import patterns, url
+from django.conf import settings
 
 from django.contrib import admin
 admin.autodiscover()
@@ -25,4 +26,8 @@ urlpatterns = patterns(
     url(r'^about$', 'about', name="about"),
     url(r'^$', 'index', name="gracefully_degrade"),
 
-)
+) 
+
+if settings.DEBUG:
+    from django.conf.urls.static import static
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

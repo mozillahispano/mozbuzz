@@ -14,6 +14,10 @@ https://github.com/mozillahispano/mozbuzz
 
 https://github.com/mozillahispano/mozbuzz/issues
 
+### Disclaimer for Devs
+
+Please send Pull Requests against the `development` branch, unless it is a fix for a bug in `master`.
+
 ### Documentation
 
 Documentation is in the ``docs/`` directory including docs for
@@ -23,11 +27,6 @@ Most recent docs are at [readthedocs.org](https://mozbuzz.readthedocs.org/en/lat
 
 ### IRC Channel
 ``mozbuzz`` on ``irc.mozilla.org``
-
-
-## Want to help?
-TODO: inspiración
-
 
 ## License
 This software is licensed under the [GPLv3][GPL]. For more

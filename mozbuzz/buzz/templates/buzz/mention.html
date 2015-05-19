@@ -1,13 +1,18 @@
-{% extends "base.html" %}{% load i18n query %}
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load query %}
+{% load files %}
 
 {% block main_content %}
+
     <form method="post"
     {% if pk %}
         action="{% url "edit" pk %}"
     {% else %}
         action="{% url "create" %}"
     {% endif %}
-    id="mention_form">
+    id="mention_form" enctype="multipart/form-data">
         {% csrf_token %}
 
         {% if not pk and request.GET.rsspost %}
@@ -20,6 +25,10 @@
         {{form.remarks.errors}}
         {{form.remarks.label_tag}}
         {{form.remarks}}
+        {{form.upload_file.errors}}
+        {{form.upload_file.label_tag}}
+        {{form.upload_file}}
+
         {% if is_new %}
         <div id="mention_guess_prompt">
             <button onclick="guessInformation(); return false;">{%trans "Guess Information"%}</button>
@@ -32,7 +41,7 @@
         </div>
         <div id="mention_form_otherfields_cnt" {% if is_new %}style="display: none"{% endif %}>
         {% for field in form %}
-        {% if field.name != "link" and field.name != "remarks" %}
+        {% if field.name != "link" and field.name != "remarks" and field.name != "upload_file" %}
             <div id="field_{{field.name}}_cnt">
                 {{field.errors}}
                 {{field.label_tag}}

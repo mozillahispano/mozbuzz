@@ -1,10 +1,14 @@
-from mozbuzz.buzz.models import \
-    (FEEDBACK_TYPES, UPDATE_RATE, Country,
-     Product, MentionType, AuthorExpertise, Source, RSSPost)
+
+import json
+import os
+
 from django.shortcuts import render
 from django.template import RequestContext
 from django.http import HttpResponse, Http404
-import json
+
+from mozbuzz.buzz.models import \
+    (FEEDBACK_TYPES, UPDATE_RATE, Country,
+     Product, MentionType, AuthorExpertise, Source, RSSPost)
 
 
 def queue_context_processor(request):
@@ -67,3 +71,11 @@ def jsonview(view):
         return httpres
 
     return __inner__
+
+
+def remove_file(route_file, file_name):
+
+    if file_name != "" and not file_name is None:
+        if os.path.exists(route_file):
+            os.remove(route_file)
+            
