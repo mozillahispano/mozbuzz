@@ -58,6 +58,7 @@ def mention(request, pk=None):
             instance = Mention(creation_user=request.user)
         else:
             instance = Mention.enabled.get(pk=pk)
+
             # Last file upload
             file_name = instance.upload_file
             # File path of the last file
